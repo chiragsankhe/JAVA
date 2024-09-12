@@ -68,15 +68,20 @@ https://course.acciojob.com/idle?question=f2a96172-f162-49c7-8ac9-f6f79a1c0fb5
 <h4>Number of Days</h4>
 https://course.acciojob.com/idle?question=ddd1c6ba-a17f-4250-a86a-01ce73769455
 
-<h4></h4>
+<h4>Grading System</h4>
+https://course.acciojob.com/idle?question=01483f88-fad6-4b9c-80bf-9ab9c772fa8a
 
-<h4></h4>
+<h4>Which angled triangle</h4>
+https://course.acciojob.com/idle?question=30dabb54-e56d-4d89-9fa8-2b805a28c139
 
-<h4></h4>
+<h4>Which Case</h4>
+https://course.acciojob.com/idle?question=8aaa8944-6367-492e-b9e4-24e5e47b41a7
 
-<h4></h4>
+<h4>Leap Year</h4>
+https://course.acciojob.com/idle?question=2b1eaf30-0bdb-48c2-849b-eb982c1b089c
 
-<h4></h4>
+<h4>Big Light</h4>
+https://course.acciojob.com/idle?question=80372ff2-d510-4320-8c56-3871c81fcc60
 
 <h4></h4>
 
