@@ -83,25 +83,43 @@ https://course.acciojob.com/idle?question=2b1eaf30-0bdb-48c2-849b-eb982c1b089c
 <h4>Big Light</h4>
 https://course.acciojob.com/idle?question=80372ff2-d510-4320-8c56-3871c81fcc60
 
-<h4></h4>
+day 3 
 
-<h4></h4>
+<h2> loops </h2>
 
-<h4></h4>
+<h4> Print Sum 10</h4>
+https://course.acciojob.com/idle?question=f6c8c971-dbc2-472a-b239-a3979683423c
 
-<h4></h4>
+<h4>Sum of Digits</h4>
+https://course.acciojob.com/idle?question=e2a0f13b-9e79-4e03-9645-905b3b960de0
 
-<h4></h4>
+<h4>Print 1 to 10</h4>
+https://course.acciojob.com/idle?question=4189aef6-8dcf-4526-b1a9-6396aa17baf8
 
-<h4></h4>
+<h4>Odd Numbers</h4>
+https://course.acciojob.com/idle?question=3d6a4ba0-1ffd-4e28-9781-9c4db2beedd6
 
-<h4></h4>
+<h4>Sum of Natural Numbers</h4>
+https://course.acciojob.com/idle?question=0aa5b6cb-03f2-42c1-9ec9-e2f7c8257da3
 
-<h4></h4>
+<h4>Check Prime</h4>
+https://course.acciojob.com/idle?question=389f45af-f5b7-40b2-9f93-28870704e2ee
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Reverse digits of a Number</h4>
+https://course.acciojob.com/idle?question=5a8e27bc-5bc6-43e1-8c11-1ee98227e731
+
+<h4>Power of a Number</h4>
+https://course.acciojob.com/idle?question=61df5306-fd54-4e13-93c1-45f9833502bb
+
+<h4>Palindrome Checker</h4>
+https://course.acciojob.com/idle?question=c1448792-5b79-4cce-a2e0-5ff6d39c9844
+
+<h4>Factorial with loop</h4>
+https://course.acciojob.com/idle?question=f36b8fd8-5f32-4cbb-ba1f-5848f0a35c48
+
+<h4>HCF of two Numbers</h4>
+https://course.acciojob.com/idle?question=31b7377e-0ceb-46a5-85b6-9df2d68a786e
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
