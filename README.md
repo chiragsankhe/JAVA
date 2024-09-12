@@ -27,6 +27,25 @@ https://course.acciojob.com/idle?question=acea0d79-67d3-4dcc-8022-1820fdb60cee
 <h4>N Stars</h4>
 https://course.acciojob.com/idle?question=4c81a45c-5590-4e2d-8a5f-b1c85891b38d
 
+<p>
+        Java Variables
+Variables are containers for storing data values.
+<br>
+In Java, there are different types of variables, for example:
+<br>
+String - stores text, such as "Hello". String values are surrounded by double quotes
+<br>
+int - stores integers (whole numbers), without decimals, such as 123 or -123
+<br>
+float - stores floating point numbers, with decimals, such as 19.99 or -19.99
+<br>
+char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
+<br>
+boolean - stores values with two states: true or false
+
+
+</p>
+
 <h4></h4>
 
 <h4></h4>
