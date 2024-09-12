@@ -28,7 +28,45 @@ https://course.acciojob.com/idle?question=acea0d79-67d3-4dcc-8022-1820fdb60cee
 https://course.acciojob.com/idle?question=4c81a45c-5590-4e2d-8a5f-b1c85891b38d
 
 
-<h4></h4>
+<h4>Input / Output in Programming</h4>
+https://course.acciojob.com/idle?question=c7684aa4-487c-4b47-8c22-e8033210907c
+
+<h4>Mathematical Operations</h4>
+https://course.acciojob.com/idle?question=869273ac-d202-4aaf-b245-92d2b14f1a9e
+
+<h4>Agent Binod</h4>
+https://course.acciojob.com/idle?question=aa57007a-6a65-43c6-be93-932b7f5d70e8
+
+<h4>Celsius to Fahrenheit</h4>
+https://course.acciojob.com/idle?question=0093b914-77cf-41b4-b792-63cc8388aafb
+
+<h4>Celsius to Fahrenheit 2</h4>
+https://course.acciojob.com/idle?question=9d852638-223a-456c-b351-12909a8cf8ef
+
+<h4>Circle Area-Perimeter</h4>
+https://course.acciojob.com/idle?question=38f8ae0b-1f16-4a9c-8d27-15f13fd97653
+
+<H2>DAY 2</H2>
+<h4>Conditional Problem 1</h4>
+https://course.acciojob.com/idle?question=ae54dbd1-3433-4586-9003-7bb6d735821e
+
+<h4>Conditional Problem 2</h4>
+https://course.acciojob.com/idle?question=4c445145-f7ec-480e-9847-b01b322c5882
+
+<h4>Conditional Problem 3</h4>
+https://course.acciojob.com/idle?question=49bfa949-6f04-4eea-af96-c1dcf33d3c42
+
+<h4>Verify Cube</h4>
+https://course.acciojob.com/idle?question=00d3fed6-2099-4e58-8c0a-e5473c3d6e92
+
+<h4>Conditional Problem 5</h4>
+https://course.acciojob.com/idle?question=d08c44bf-cd3d-40db-a18c-9ccc1eeee2a3
+
+<h4>Conditional Problem 6</h4>
+https://course.acciojob.com/idle?question=f2a96172-f162-49c7-8ac9-f6f79a1c0fb5
+
+<h4>Number of Days</h4>
+https://course.acciojob.com/idle?question=ddd1c6ba-a17f-4250-a86a-01ce73769455
 
 <h4></h4>
 
@@ -46,4 +84,25 @@ https://course.acciojob.com/idle?question=4c81a45c-5590-4e2d-8a5f-b1c85891b38d
 
 <h4></h4>
 
+<h4></h4>
+
+<h4></h4>
+
+<h4></h4>
+
+<h4></h4>
+
+<h4></h4>
+
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4><h4></h4>
+<h4></h4>
 
