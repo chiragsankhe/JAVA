@@ -120,6 +120,10 @@ https://course.acciojob.com/idle?question=f36b8fd8-5f32-4cbb-ba1f-5848f0a35c48
 <h4>HCF of two Numbers</h4>
 https://course.acciojob.com/idle?question=31b7377e-0ceb-46a5-85b6-9df2d68a786e
 
+<br>
+<h2> all pattern program</h2>
+<link url="https://github.com/chiragsankhe/JAVA/tree/main/pattern%20program">click here </link>
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
