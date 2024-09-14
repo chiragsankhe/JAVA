@@ -127,12 +127,106 @@ https://course.acciojob.com/idle?question=31b7377e-0ceb-46a5-85b6-9df2d68a786e
 [**Click Me**](https://github.com/chiragsankhe/JAVA/tree/main/pattern%20program)
 
 
+<h4> Print Continuous Character Pattern </h4>
+https://course.acciojob.com/idle?question=0af6f7a5-b611-4d69-978b-c5028d25878a
+
+<h4>Print Character Pattern</h4>
+https://course.acciojob.com/idle?question=3e2926e3-c3b8-42c9-98f7-6f4f42775222
+
+<h4>Diamond Pattern</h4>
+https://course.acciojob.com/idle?question=4ce06757-c043-4dfb-bd71-6482001888b3
+
+<h4>Right Angle Triangle Stars</h4>
+https://course.acciojob.com/idle?question=c755bec2-0be9-4c1f-bc0e-c051fdc1cbb3
+
+<h4>Star Pyramid</h4>
+https://course.acciojob.com/idle?question=ce699cdd-80ff-458a-8ef9-d4d60eb5182e
+
+<h4>Print Number Pattern 2</h4>
+https://course.acciojob.com/idle?question=c75eefdf-1666-49be-890d-87b253556fe4
+
+<h4>Optimus Prime</h4>
+https://course.acciojob.com/idle?question=12e769f2-978b-43fd-83d4-07bc0a834a89
+
+<h4>Staircase</h4>
+https://course.acciojob.com/idle?question=01ca617e-abde-48f6-8790-13bccadad8f1
+
+<h4>Armstrong Numbers in Range</h4>
+https://course.acciojob.com/idle?question=34968394-d94b-413c-a628-7014da5e0041
+
+<h2> function  </h2>
+<h4>Function Problem 1</h4>
+https://course.acciojob.com/idle?question=a5f70c37-5c04-48aa-877f-3e8d60e6b6bd
+
+<h4>Function Problem 2</h4>
+https://course.acciojob.com/idle?question=327be672-fa3d-4fdb-91f5-ac74ff96bdca
+
+<h4>Function Problem 3</h4>
+https://course.acciojob.com/idle?question=35d23453-a43b-4e9c-b87d-099e6a81260b
+
+<h4>Super Hero</h4>
+https://course.acciojob.com/idle?question=8b8f2d0a-0502-4946-aa71-7f94fc20e857
+
+<h4>CountFrequencyNumber</h4>
+https://course.acciojob.com/idle?question=20508009-943f-4618-b45d-258d8c784054
+
+<h4>Frequency of digit</h4>
+https://course.acciojob.com/idle?question=3eeffa45-0717-4677-8aaf-daa2ef879794
+
+<h4>Place Value Checker</h4>
+https://course.acciojob.com/idle?question=872451c1-8a9d-4a8c-b4ff-84a6e927b64b
+
+<h4>Calculate nCr</h4>
+https://course.acciojob.com/idle?question=ca55c04e-e496-49ba-9640-0e58e9758bab
+
+<h4>Calculate nPr</h4>
+https://course.acciojob.com/idle?question=7acf1850-2a2f-4618-8633-a8e88554da9d
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
 <h4></h4>
 <h4></h4>
 <h4></h4>
-<h4></h4><h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
 <h4></h4>
 
