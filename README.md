@@ -182,17 +182,41 @@ https://course.acciojob.com/idle?question=ca55c04e-e496-49ba-9640-0e58e9758bab
 <h4>Calculate nPr</h4>
 https://course.acciojob.com/idle?question=7acf1850-2a2f-4618-8633-a8e88554da9d
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h2>Array  </h2>
+
+<h4>Array Problem 1</h4>
+https://course.acciojob.com/idle?question=45a5e637-7566-4269-8818-82f82263d5b2
+
+<h4>Array Problem 2</h4>
+https://course.acciojob.com/idle?question=c2e81e59-e1a6-474f-b375-daf9b6c8f7a4
+
+<h4>Array Operations</h4>
+https://course.acciojob.com/idle?question=10369ab1-c83c-4f94-9eb3-b9c9240e7abf
+
+<h4>Array Problem 4</h4>
+https://course.acciojob.com/idle?question=705b807a-c210-4cd4-9641-7408ca2f8b26
+
+<h4>Array Problem 5</h4>
+https://course.acciojob.com/idle?question=7debcdb3-b526-49fd-99a6-15268cf2ae4c
+
+<h4>Array Problem 6</h4>
+https://course.acciojob.com/idle?question=a6597895-b889-43f3-a284-46d72e01784c
+
+<h4>Maximum difference between two elements in an Array</h4>
+Maximum difference between two elements in an Array
+
+<h4>Sorted Insert Position</h4>
+https://course.acciojob.com/idle?question=bff80545-9861-4ac9-9c16-e4729299bd09
+
+<h4>Last occurrence in unsorted array</h4>
+https://course.acciojob.com/idle?question=911b7127-4662-4208-9549-749da1913476
+
+<h4>Plus Minus</h4>
+https://course.acciojob.com/idle?question=81bb9cff-b3ec-48bc-b343-76acf3861410
+
+<h4>Pairs</h4>
+https://course.acciojob.com/idle?question=8f20a374-687f-4240-aa4b-21c111a4253e
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
