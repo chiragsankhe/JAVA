@@ -217,9 +217,14 @@ https://course.acciojob.com/idle?question=81bb9cff-b3ec-48bc-b343-76acf3861410
 <h4>Pairs</h4>
 https://course.acciojob.com/idle?question=8f20a374-687f-4240-aa4b-21c111a4253e
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Reverse an array</h4>
+https://course.acciojob.com/idle?question=91a670da-1a59-4a98-89aa-509eccf2dbb6
+
+<h4>A Contest</h4>
+https://course.acciojob.com/idle?question=fc69347d-a3b9-44be-84b5-7f2129036e4c
+
+<h4>Sum of Array Except Self</h4>
+https://course.acciojob.com/idle?question=4646f95a-5155-4d44-acfc-a6c6e4eebbf4
 <h4></h4>
 <h4></h4>
 <h4></h4>
