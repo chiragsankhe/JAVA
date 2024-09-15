@@ -225,10 +225,19 @@ https://course.acciojob.com/idle?question=fc69347d-a3b9-44be-84b5-7f2129036e4c
 
 <h4>Sum of Array Except Self</h4>
 https://course.acciojob.com/idle?question=4646f95a-5155-4d44-acfc-a6c6e4eebbf4
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+
+<h4>Largest Number At Least Twice of Others</h4>
+https://course.acciojob.com/idle?question=66bae3d7-33b1-4ceb-b027-e273cd56f1ff
+
+<h4>Angry Professor</h4>
+https://course.acciojob.com/idle?question=fe25c939-1b3d-4b7f-a338-9149f1e1fe23
+
+<h4>FACING THE SUN</h4>
+https://course.acciojob.com/idle?question=2d6b2c31-142c-453d-b27c-39ee7f6a193e
+
+<h4>2nd Largest from array</h4>
+https://course.acciojob.com/idle?question=b862c888-5ff2-485c-abf2-401147f782f9
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
