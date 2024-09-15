@@ -203,8 +203,7 @@ https://course.acciojob.com/idle?question=7debcdb3-b526-49fd-99a6-15268cf2ae4c
 https://course.acciojob.com/idle?question=a6597895-b889-43f3-a284-46d72e01784c
 
 <h4>Maximum difference between two elements in an Array</h4>
-Maximum difference between two elements in an Array
-
+https://course.acciojob.com/idle?question=b172ade4-20ac-441e-b276-7f72483c8553
 <h4>Sorted Insert Position</h4>
 https://course.acciojob.com/idle?question=bff80545-9861-4ac9-9c16-e4729299bd09
 
