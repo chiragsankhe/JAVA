@@ -237,10 +237,18 @@ https://course.acciojob.com/idle?question=2d6b2c31-142c-453d-b27c-39ee7f6a193e
 <h4>2nd Largest from array</h4>
 https://course.acciojob.com/idle?question=b862c888-5ff2-485c-abf2-401147f782f9
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Rotate array</h4>
+https://course.acciojob.com/idle?question=11a66ba0-a85b-4f50-9a06-c1feef757a3d
+
+<h4>Buildings</h4>
+https://course.acciojob.com/idle?question=cdcb9e4d-fa09-4b0c-9e8e-2c23a7cf92ac
+
+<h4>Array Adding</h4>
+https://course.acciojob.com/idle?question=281f855c-1a46-4dfb-9239-79478b2c24ea
+
+<h4>Array Subtracting</h4>
+https://course.acciojob.com/idle?question=95bad7cc-6eba-42c3-b682-a280d69ee63b
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
