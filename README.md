@@ -249,13 +249,30 @@ https://course.acciojob.com/idle?question=281f855c-1a46-4dfb-9239-79478b2c24ea
 <h4>Array Subtracting</h4>
 https://course.acciojob.com/idle?question=95bad7cc-6eba-42c3-b682-a280d69ee63b
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+
+<h2>SUBARRAY</h2>
+
+<h4>Subarray Problem 1</h4>
+https://course.acciojob.com/idle?question=08d482fc-3df2-4759-8977-941fa4f78b1f
+
+<h4>Subarray Problem 2</h4>
+https://course.acciojob.com/idle?question=7a9b333a-b4af-4bae-a729-c80e6796c8f3 
+
+<h4>Subarray Problem 3</h4>
+https://course.acciojob.com/idle?question=91c9bcd9-0057-4787-b2e4-04c055dddac4
+
+<h4>Subarray sum divisible by k</h4>
+https://course.acciojob.com/idle?question=6b0355db-2e09-4afa-8be4-045d710113fb
+
+<h4>Subarray Sum Zero</h4>
+https://course.acciojob.com/idle?question=e3d6077b-afee-46c2-85fe-58848e357910
+
+<h4>Find Geometric Triplets</h4>
+https://course.acciojob.com/idle?question=9017ed35-91b0-4657-bbd5-de3f0bb9aaa4
+
+<h4>Find Split Point</h4>
+https://course.acciojob.com/idle?question=e0b796ef-2562-4a35-a728-c23b93d988c1
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
