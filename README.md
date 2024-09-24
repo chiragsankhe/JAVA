@@ -272,18 +272,40 @@ https://course.acciojob.com/idle?question=9017ed35-91b0-4657-bbd5-de3f0bb9aaa4
 
 <h4>Find Split Point</h4>
 https://course.acciojob.com/idle?question=e0b796ef-2562-4a35-a728-c23b93d988c1
+<h2>2 D array</h2>
+<h4>Boundary Traversal of matrix</h4>
+https://course.acciojob.com/idle?question=85504cf8-af94-4d7c-925c-c436d22b5d28
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Transpose of Matrix</h4>
+https://course.acciojob.com/idle?question=8bd8b45a-d71c-4878-bbab-8c531d3ef27a
+
+<h4>Matrix Multiplication</h4>
+https://course.acciojob.com/idle?question=0be73469-8af8-4cd5-98c7-c9be1a5a4deb
+
+<h4>Rotate a Matrix by 90 Degree</h4>
+https://course.acciojob.com/idle?question=dddfc300-2739-4bd4-bf5e-c4e8a24f73d8
+
+<h4>Alt Matrix Sum</h4>
+https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015
+
+<h4>Diagonal Difference!</h4>
+https://course.acciojob.com/idle?question=29252997-01f8-4628-a8fb-984c366aa8f6
+
+<h4>Diagonal Traversal of a Matrix</h4>
+https://course.acciojob.com/idle?question=6d3edffb-92c5-4c40-ba2a-8ba1acabb98b
+
+<h4>Sum of upper and lower triangles</h4>
+https://course.acciojob.com/idle?question=b4f7c7ed-ed3f-4b4f-9c58-c3257660a354
+
+<h4>Toeplitz Matrix</h4>
+https://course.acciojob.com/idle?question=0b1f1509-73d0-4035-b280-affb1c9bd1eb
+
+<h4>Special Matrix</h4>
+https://course.acciojob.com/idle?question=039fa756-8d0f-45c8-bc4d-605eaed27def
+
+<h4>Spirally traversing a matrix</h4>
+https://course.acciojob.com/idle?question=4898baf8-ed87-4c99-a19d-64bc7e98638e
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
