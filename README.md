@@ -273,6 +273,15 @@ https://course.acciojob.com/idle?question=9017ed35-91b0-4657-bbd5-de3f0bb9aaa4
 <h4>Find Split Point</h4>
 https://course.acciojob.com/idle?question=e0b796ef-2562-4a35-a728-c23b93d988c1
 <h2>2 D array</h2>
+<h4>Print 2D Array</h4>
+https://course.acciojob.com/idle?question=bb9268e2-8b36-4b51-9134-5181dea35675
+
+<h4>Print Matrix Column Wise</h4>
+https://course.acciojob.com/idle?question=7251cda0-018c-4e39-92dc-9340e8aabcbb
+
+<h4>Boolean Matrix Problem</h4>
+https://course.acciojob.com/idle?question=2e44a4b2-25f2-4fba-b95b-302ec00fb872
+
 <h4>Boundary Traversal of matrix</h4>
 https://course.acciojob.com/idle?question=85504cf8-af94-4d7c-925c-c436d22b5d28
 
