@@ -14,7 +14,8 @@ A variable in Java is a container that holds data that can be changed during the
 3.	`Static Variables`: Declared with the static keyword and shared across all instances of a class.
 ________________________________________
 3. What are the eight primitive data types in Java?
-•	Answer:
++ Answer:
+  
 1.	!byte`: 8-bit integer (Range: -128 to 127)
 2.	`short`: 16-bit integer (Range: -32,768 to 32,767)
 3.	`int`: 32-bit integer (Range: -2^31 to 2^31-1)
@@ -25,7 +26,7 @@ ________________________________________
 8.	`boolean`: true/false values
 
 4. What is the default value of a local variable?
-•	Answer: Local variables do not have a default value in Java. They must be initialized before use, otherwise, the compiler will throw an error.
++	Answer: Local variables do not have a default value in Java. They must be initialized before use, otherwise, the compiler will throw an error.
 ________________________________________
 5. What is typecasting in Java?
 •	Answer: Typecasting is converting one data type into another. There are two types:
@@ -38,11 +39,11 @@ o	float is a single-precision 32-bit floating-point data type, while double is a
 o	double has a greater precision and can store larger decimal values compared to float.
 ________________________________________
 
-How do you take input from the user in Java?
+7. How do you take input from the user in Java?
+   
 To take input from the user, Java provides the Scanner class, which is part of the java.util package.
-Example:
-java
-Copy code
+- Example:
+```
 import java.util.Scanner;
 
 public class InputExample {
@@ -60,34 +61,40 @@ public class InputExample {
         System.out.println("You entered: " + number + " and " + name);
     }
 }
-7. What is the difference between next() and nextLine() methods of Scanner class?
-•	next(): Reads input till the first space or whitespace is encountered. It’s used to read a single word.
-•	nextLine(): Reads the entire line of input (including spaces) until the user hits the Enter key.
-8. What is the default value of variables in Java?
-•	Local variables: No default value. They must be initialized before use.
-•	Instance variables: Default values depend on the data type:
-o	int = 0
-o	double = 0.0
-o	char = '\u0000'
-o	boolean = false
-o	Object references (non-primitives) = null
-9. Can a variable name start with a number in Java?
+```
+8.  What is the difference between next() and nextLine() methods of Scanner class?
++ `next()`: Reads input till the first space or whitespace is encountered. It’s used to read a single word.
++ nextLine()`: Reads the entire line of input (including spaces) until the user hits the Enter key.
+
+9. What is the default value of variables in Java?
++	`Local variables`: No default value. They must be initialized before use.
++	`Instance variables`: Default values depend on the data type:
+-	int = 0
+-	double = 0.0
+-	char = '\u0000'
+-	boolean = false
+-	Object references (non-primitives) = null
+  
+10. Can a variable name start with a number in Java?
 No, variable names in Java cannot start with a number. They must start with a letter (A-Z or a-z), a dollar sign ($), or an underscore (_).
-10. What is the difference between primitive and reference data types?
-•	Primitive types: Store the actual values (e.g., int, char, boolean).
-•	Reference types: Store references (addresses) to objects or arrays. Examples are String, arrays, and user-defined objects.
-11 Here are the key differences between float and double in Java:
+
+12. What is the difference between primitive and reference data types?
+•	`Primitive types`: Store the actual values (e.g., int, char, boolean).
+•	`Reference types`: Store references (addresses) to objects or arrays. Examples are String, arrays, and user-defined objects.
+
+12. Here are the key differences between float and double in Java:
+    
 1. Size:
-•	float: 4 bytes (32 bits)
-•	double: 8 bytes (64 bits)
+-	float: 4 bytes (32 bits)
+-	double: 8 bytes (64 bits)
 2. Precision:
 •	float: Single precision, which gives approximately 6-7 decimal digits of accuracy.
 •	double: Double precision, which gives approximately 15-16 decimal digits of accuracy.
 3. Range:
-•	float: Can represent numbers roughly between 1.4×10−451.4 \times 10^{-45}1.4×10−45 to 3.4×10383.4 \times 10^{38}3.4×1038.
-•	double: Can represent numbers roughly between 4.9×10−3244.9 \times 10^{-324}4.9×10−324 to 1.7×103081.7 \times 10^{308}1.7×10308.
+-	float: Can represent numbers roughly between 1.4×10−451.4 \times 10^{-45}1.4×10−45 to 3.4×10383.4 \times 10^{38}3.4×1038.
+-	double: Can represent numbers roughly between 4.9×10−3244.9 \times 10^{-324}4.9×10−324 to 1.7×103081.7 \times 10^{308}1.7×10308.
 4. Default Type:
-•	double is the default type for decimal numbers in Java. If you write a number with a decimal point without specifying the type, Java assumes it is a double. To specify a float, you need to add an F or f at the end of the value.
+-	double is the default type for decimal numbers in Java. If you write a number with a decimal point without specifying the type, Java assumes it is a double. To specify a float, you need to add an `F` or `f`at the end of the value.
 Example:
 java
 Copy code
