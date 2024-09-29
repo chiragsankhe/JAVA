@@ -79,7 +79,7 @@ public class InputExample {
 10. Can a variable name start with a number in Java?
 No, variable names in Java cannot start with a number. They must start with a letter (A-Z or a-z), a dollar sign ($), or an underscore (_).
 
-12. What is the difference between primitive and reference data types?
+11. What is the difference between primitive and reference data types?
 •	`Primitive types`: Store the actual values (e.g., int, char, boolean).
 •	`Reference types`: Store references (addresses) to objects or arrays. Examples are String, arrays, and user-defined objects.
 
@@ -108,6 +108,7 @@ double d = 3.14;   // Double literal (default)
 •	On some processors, float operations might be slightly faster than double because of the smaller size. However, in most modern systems, double is typically used because of its better precision and the performance difference is often negligible
 
 13. the import statements
+
 ```
 import java.util.*;
 import java.lang.*;
@@ -122,6 +123,7 @@ In Java, the import statements are used to bring various classes, packages, or e
 -	ArrayList, HashMap, HashSet, LinkedList, etc.
 -	Date, Calendar, Random, Scanner, etc.
 •	Example:
+
 ```
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,13 +134,13 @@ public class Example {
         HashMap<String, Integer> map = new HashMap<>();
     }
 }
-
 ```
 2. import java.lang.*;
 -	Purpose: Imports all the classes from the java.lang package.
 -	Common Uses: The java.lang package is automatically imported by default, so you generally don't need to explicitly import it. It includes fundamental classes like:
 -	String, Math, Integer, System, Thread, Exception, etc.
-•	Example:
+	Example:
+
 ```
 public class Example {
     public static void main(String[] args) {
@@ -153,6 +155,7 @@ public class Example {
 -	File handling with File, FileReader, FileWriter, BufferedReader, BufferedWriter, etc.
 -	Streams like InputStream, OutputStream, ObjectInputStream, ObjectOutputStream, etc.
 •	Example:
+
 ```
 import java.io.File;
 import java.io.FileWriter;
