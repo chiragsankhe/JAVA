@@ -221,7 +221,7 @@ ________________________________________
 These operators perform logical operations on boolean expressions.
 Operator	Description	Example
 + &&	Logical AND (true if both are true)	a && b
-`+ || lofical OR (if 1 true from two)	a || b	`
++ || lofical OR (if 1 true from two)	a || b	
 + !	Logical NOT (negates the boolean value)	!a
 ```
 boolean a = true, b = false;
@@ -298,7 +298,8 @@ ________________________________________
 Conditionals in Java refer to statements that allow the program to make decisions and execute different code paths based on certain conditions. These include `if`, `if-else`, `if-else if`, and `switch` statements.
 
 2. Explain the if-else statement in Java with an example.
-+	Answer: The if-else statement evaluates a condition, and if the condition is true, it executes the block of code inside the if statement. If it is false, the code inside the else block is executed.
++ Answer:
+  The if-else statement evaluates a condition, and if the condition is true, it executes the block of code inside the if statement. If it is false, the code inside the else block is executed.
 •	Example:
 ```
 int num = 10;
@@ -310,10 +311,10 @@ if (num > 0) {
 ```
 3. Can you nest if-else statements in Java?
 
-•	Answer: Yes, you can nest if-else statements, meaning you can place an if-else statement inside another if-else statement to check multiple conditions.
++ Answer: Yes, you can nest if-else statements, meaning you can place an if-else statement inside another if-else statement to check multiple conditions.
 
 4. What is the difference between if-else and switch statements?
-•	Answer:
+	Answer:
 -	if-else is used to evaluate boolean expressions and can work with conditions involving logical operators.
 -	switch is more suitable when comparing a single variable against a set of constants, usually for equality checks.
 -	if-else can handle complex conditions, while switch is generally more readable when there are multiple possible outcomes for a single variable.
@@ -335,178 +336,185 @@ switch (day) {
 }
 ```
 6. What will happen if there is no break statement in a switch case?
-•	Answer: If the break statement is omitted in a switch case, Java will continue executing the following cases (fall-through behavior) until it encounters a break or the end of the switch block.
-7. What is the ternary operator in Java? How does it work?
-•	Answer: The ternary operator is a shorthand for if-else and takes the form: condition ? expression1 : expression2. If the condition is true, expression1 is executed, otherwise, expression2 is executed.
-•	Example:
-java
-Copy code
-int a = 10, b = 20;
-int min = (a < b) ? a : b;
-System.out.println("Minimum: " + min);
-8. What is the difference between == and .equals() in Java conditionals?
-•	Answer: == checks for reference equality (whether two object references point to the same object), while .equals() checks for value equality (whether two objects are meaningfully equal). For primitive types, == checks value equality.
-9. How do logical operators work with conditionals in Java?
-•	Answer: Logical operators (&&, ||, and !) are used in conjunction with conditionals to combine multiple conditions or to negate conditions.
-o	&& (AND): Returns true if both conditions are true.
-o	|| (OR): Returns true if at least one condition is true.
-o	! (NOT): Reverses the result of the condition.
-10. Explain the switch statement limitations in Java.
-•	Answer: The switch statement has the following limitations:
-o	It can only work with byte, short, int, char, String, and enums.
-o	It doesn't support floating-point numbers (float or double).
-o	It evaluates based on exact matches only and cannot handle complex boolean expressions or ranges
++ Answer: If the break statement is omitted in a switch case, `Java will continue executing the following cases` (fall-through behavior) until it encounters a break or the end of the switch block.
 
-11. how you can use the Scanner class to take input for different types of                  variables:
-Int 
+
+8. What is the difference between == and .equals() in Java conditionals?
+   
++ Answer: == checks for reference equality (whether two object references point to the same object), while .equals() checks for value equality (whether two objects are meaningfully equal). For primitive types, == checks value equality.
+  
+10. How do logical operators work with conditionals in Java?
+    
++Answer: Logical operators (&&, ||, and !) are used in conjunction with conditionals to combine multiple conditions or to negate conditions.
++	&& (AND): Returns true if both conditions are true.
++	|| (OR): Returns true if at least one condition is true.
+o+	! (NOT): Reverses the result of the condition.
+
+12. Explain the switch statement limitations in Java.
+    
+-	Answer: The switch statement has the following limitations:
+-	It can only work with byte, short, int, char, String, and enums.
+-	It doesn't support floating-point numbers (float or double).
+-	It evaluates based on exact matches only and cannot handle complex boolean expressions or ranges
+
+14. how you can use the Scanner class to take input for different types of                  variables:
++ Int
+  
 int num = scn.nextInt();
-double
++ double
+  
 double d = scn.nextDouble();
 
-String for single word
++ String for single word
+  
 String str = scn.next();
-String for entire line
+
++ String for entire line
+  
 String line = scn.nextLine();
-Char  for single charater 
++ Char  for single charater
+  
 char ch = scn.next().charAt(0);
 
-day 3
-loop
+
+## loop
 .
 1. What are the types of loops in Java?
-•	Answer: Java provides three types of loops:
-o	for loop: Used when the number of iterations is known.
-o	while loop: Used when the number of iterations is unknown, and it checks the condition before entering the loop.
-o	do-while loop: Similar to the while loop but checks the condition after executing the loop at least once.
+-	Answer: Java provides three types of loops:
+-	`for loop`: Used when the number of iterations is known.
+-	`while loop`: Used when the number of iterations is unknown, and it checks the condition before entering the loop.
+-	`do-while loop`: Similar to the while loop but checks the condition after executing the loop at least once.
+
 2. What is the difference between for loop and while loop?
 •	Answer:
-o	for loop: Best used when the number of iterations is known. It initializes, checks the condition, and increments in one line.
-o	while loop: Best when the number of iterations is unknown. It only checks the condition before entering the loop and iterates as long as the condition is true.
+-	`for loop`: Best used when the number of iterations is known. It initializes, checks the condition, and increments in one line.
+-	`while loop`: Best when the number of iterations is unknown. It only checks the condition before entering the loop and iterates as long as the condition is true.
+
 3. Explain the structure of a for loop in Java.
 •	Answer:
-java
-Copy code
+```
 for (initialization; condition; update) {
     // Code to be executed
 }
+```
 Example:
-java
-Copy code
+```
 for (int i = 0; i < 5; i++) {
     System.out.println(i);
 }
+```
 4. Can you write an example of a while loop in Java?
 •	Answer:
-java
-Copy code
+```
 int i = 0;
 while (i < 5) {
     System.out.println(i);
     i++;
 }
+```
 5. What is the difference between while and do-while loops?
 •	Answer:
-o	In a while loop, the condition is checked before entering the loop.
-o	In a do-while loop, the condition is checked after executing the loop body, so the loop will always execute at least once.
+-	In a while loop, the condition is checked before entering the loop.
+-	In a do-while loop, the condition is checked after executing the loop body, so the loop will always execute at least once.
 Example of do-while loop:
-java
-Copy code
+```
 int i = 0;
 do {
     System.out.println(i);
     i++;
 } while (i < 5);
+```
 6. How can you exit a loop prematurely in Java?
-•	Answer: You can use the break statement to exit a loop prematurely. It is often used when a certain condition is met inside the loop.
+-	Answer: You can use the break statement to exit a loop prematurely. It is often used when a certain condition is met inside the loop.
 Example:
-java
-Copy code
+```
 for (int i = 0; i < 10; i++) {
     if (i == 5) {
         break;  // Loop terminates when i equals 5
     }
     System.out.println(i);
 }
+```
 7. What is the continue statement in Java loops?
 •	Answer: The continue statement skips the current iteration of a loop and proceeds with the next iteration.
 Example:
-java
-Copy code
+```
 for (int i = 0; i < 5; i++) {
     if (i == 2) {
         continue;  // Skip the current iteration when i equals 2
     }
     System.out.println(i);
 }
+```
 8. How can you implement an infinite loop in Java?
 •	Answer: An infinite loop can be created by omitting the loop condition or making the condition always true. Be careful with infinite loops as they can make the program unresponsive.
 Example:
-java
-Copy code
+```
 while (true) {
     // Infinite loop
 }
+```
 9. How do nested loops work in Java?
 •	Answer: A nested loop is a loop inside another loop. The inner loop will run completely for each iteration of the outer loop.
 Example:
-java
-Copy code
+```
 for (int i = 1; i <= 3; i++) {
     for (int j = 1; j <= 2; j++) {
         System.out.println("i: " + i + ", j: " + j);
     }
 }
+```
 10. What is the time complexity of nested loops?
-•	Answer: The time complexity of a nested loop is the product of the complexities of the individual loops. For example, if both loops run n times, the time complexity is O(n²).
+•	Answer: The time complexity of a nested loop is the product of the complexities of the individual loops. For example, if both loops run n times, the time complexity is `O(n²)`.
+
 11. How do you loop over an array using a for-each loop in Java?
 •	Answer: The for-each loop is used to iterate over arrays or collections.
 Example:
-java
-Copy code
+```
 int[] numbers = {1, 2, 3, 4, 5};
 for (int num : numbers) {
     System.out.println(num);
 }
+```
 12. What happens if you omit the initialization, condition, or update expressions in a for loop?
 •	Answer:
-o	Omitting initialization or update makes the loop still valid; you just need to handle initialization and updates inside the loop.
-o	Omitting the condition makes the loop infinite (since the condition defaults to true).
+-	Omitting initialization or update makes the loop still valid; you just need to handle initialization and updates inside the loop.
+-	Omitting the condition makes the loop infinite (since the condition defaults to true).
 Example (infinite loop by omitting the condition):
-java
-Copy code
+```
 for (int i = 0; ; i++) {
     System.out.println(i);
 }
+```
 13. How can you iterate over a collection in Java?
 •	Answer: You can use a for-each loop or an Iterator to iterate over a collection.
 Example using for-each:
-java
-Copy code
+```
 List<String> list = Arrays.asList("A", "B", "C");
 for (String item : list) {
     System.out.println(item);
 }
+```
 14. Can you use a for loop with multiple variables in Java?
 •	Answer: Yes, a for loop can use multiple variables by separating them with commas in the initialization and update expressions.
 Example:
-java
-Copy code
+```
 for (int i = 0, j = 10; i < j; i++, j--) {
     System.out.println("i: " + i + ", j: " + j);
 }
+```
 15. How do you reverse a for loop in Java?
 •	Answer: You can reverse a for loop by adjusting the initialization, condition, and update expressions.
 Example:
-java
-Copy code
+```
 for (int i = 5; i >= 0; i--) {
     System.out.println(i);
 
 
 }
+```
 
-
-array
+## array
 
 
 1. What is an array in Java?
