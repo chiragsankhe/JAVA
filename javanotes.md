@@ -100,7 +100,7 @@ No, variable names in Java cannot start with a number. They must start with a le
 ```
 float f = 3.14F;   // Float literal
 double d = 3.14;   // Double literal (default)
-``
+```
 5. Use Cases:
 -	float: Used when memory savings are more critical than precision (e.g., in large arrays of floating-point numbers).
 -	double: Preferred when higher precision is required, such as in scientific computations.
