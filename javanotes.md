@@ -29,14 +29,15 @@ ________________________________________
 +	Answer: Local variables do not have a default value in Java. They must be initialized before use, otherwise, the compiler will throw an error.
 ________________________________________
 5. What is typecasting in Java?
-•	Answer: Typecasting is converting one data type into another. There are two types:
-1.	Implicit Typecasting (Widening): Automatic conversion of a smaller data type to a larger data type (e.g., int to double).
-2.	Explicit Typecasting (Narrowing): Manually converting a larger data type to a smaller data type (e.g., double to int).
++	Answer: Typecasting is converting one data type into another. There are two types:
+
+1.	`Implicit Typecasting (Widening)`: Automatic conversion of a smaller data type to a larger data type (e.g., int to double).
+2.	`Explicit Typecasting (Narrowing)`: Manually converting a larger data type to a smaller data type (e.g., double to int).
 ________________________________________
 6. What is the difference between float and double?
-•	Answer:
-o	float is a single-precision 32-bit floating-point data type, while double is a double-precision 64-bit floating-point data type.
-o	double has a greater precision and can store larger decimal values compared to float.
++	Answer:
++	float is a single-precision 32-bit floating-point data type, while double is a double-precision 64-bit floating-point data type.
++	double has a greater precision and can store larger decimal values compared to float.
 ________________________________________
 
 7. How do you take input from the user in Java?
@@ -64,7 +65,7 @@ public class InputExample {
 ```
 8.  What is the difference between next() and nextLine() methods of Scanner class?
 + `next()`: Reads input till the first space or whitespace is encountered. It’s used to read a single word.
-+ nextLine()`: Reads the entire line of input (including spaces) until the user hits the Enter key.
++ `nextLine()`: Reads the entire line of input (including spaces) until the user hits the Enter key.
 
 9. What is the default value of variables in Java?
 +	`Local variables`: No default value. They must be initialized before use.
@@ -88,39 +89,40 @@ No, variable names in Java cannot start with a number. They must start with a le
 -	float: 4 bytes (32 bits)
 -	double: 8 bytes (64 bits)
 2. Precision:
-•	float: Single precision, which gives approximately 6-7 decimal digits of accuracy.
-•	double: Double precision, which gives approximately 15-16 decimal digits of accuracy.
+-	float: Single precision, which gives approximately 6-7 decimal digits of accuracy.
+-	double: Double precision, which gives approximately 15-16 decimal digits of accuracy.
 3. Range:
 -	float: Can represent numbers roughly between 1.4×10−451.4 \times 10^{-45}1.4×10−45 to 3.4×10383.4 \times 10^{38}3.4×1038.
 -	double: Can represent numbers roughly between 4.9×10−3244.9 \times 10^{-324}4.9×10−324 to 1.7×103081.7 \times 10^{308}1.7×10308.
 4. Default Type:
 -	double is the default type for decimal numbers in Java. If you write a number with a decimal point without specifying the type, Java assumes it is a double. To specify a float, you need to add an `F` or `f`at the end of the value.
-Example:
-java
-Copy code
++ Example:
+```
 float f = 3.14F;   // Float literal
 double d = 3.14;   // Double literal (default)
+``
 5. Use Cases:
-•	float: Used when memory savings are more critical than precision (e.g., in large arrays of floating-point numbers).
-•	double: Preferred when higher precision is required, such as in scientific computations.
+-	float: Used when memory savings are more critical than precision (e.g., in large arrays of floating-point numbers).
+-	double: Preferred when higher precision is required, such as in scientific computations.
 6. Performance:
 •	On some processors, float operations might be slightly faster than double because of the smaller size. However, in most modern systems, double is typically used because of its better precision and the performance difference is often negligible
 
-12  the import statements
-
+13. the import statements
+```
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+```
 
 In Java, the import statements are used to bring various classes, packages, or entire libraries into your code so that you can use their functionalities without having to specify their full package names. Here's when and why you would use each of the import statements you mentioned:
+
 1. import java.util.*;
-•	Purpose: Imports all the classes from the java.util package.
-•	Common Uses: You would use this when you need to work with utility classes such as:
-o	ArrayList, HashMap, HashSet, LinkedList, etc.
-o	Date, Calendar, Random, Scanner, etc.
+-	`Purpose`: Imports all the classes from the java.util package.
+-	`Common Uses`: You would use this when you need to work with utility classes such as:
+-	ArrayList, HashMap, HashSet, LinkedList, etc.
+-	Date, Calendar, Random, Scanner, etc.
 •	Example:
-java
-Copy code
+```
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -130,27 +132,28 @@ public class Example {
         HashMap<String, Integer> map = new HashMap<>();
     }
 }
+
+```
 2. import java.lang.*;
-•	Purpose: Imports all the classes from the java.lang package.
-•	Common Uses: The java.lang package is automatically imported by default, so you generally don't need to explicitly import it. It includes fundamental classes like:
-o	String, Math, Integer, System, Thread, Exception, etc.
+-	Purpose: Imports all the classes from the java.lang package.
+-	Common Uses: The java.lang package is automatically imported by default, so you generally don't need to explicitly import it. It includes fundamental classes like:
+-	String, Math, Integer, System, Thread, Exception, etc.
 •	Example:
-java
-Copy code
+```
 public class Example {
     public static void main(String[] args) {
         String str = "Hello, world!";
         int result = Math.max(10, 20);
     }
 }
+```
 3. import java.io.*;
-•	Purpose: Imports all the classes from the java.io package.
-•	Common Uses: You would use this when working with input and output operations, such as:
-o	File handling with File, FileReader, FileWriter, BufferedReader, BufferedWriter, etc.
-o	Streams like InputStream, OutputStream, ObjectInputStream, ObjectOutputStream, etc.
+-	Purpose: Imports all the classes from the java.io package.
+-	Common Uses: You would use this when working with input and output operations, such as:
+-	File handling with File, FileReader, FileWriter, BufferedReader, BufferedWriter, etc.
+-	Streams like InputStream, OutputStream, ObjectInputStream, ObjectOutputStream, etc.
 •	Example:
-java
-Copy code
+```
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -165,100 +168,107 @@ public class Example {
         }
     }
 }
-Summary:
-•	java.util.*: For utility classes like collections, dates, and random number generation.
-•	java.lang.*: For fundamental classes like String, Math, and System (automatically imported).
-•	java.io.*: For input and output operations, including file handling and stream processing. 
+```
+## Summary:
+-	java.util.*: For utility classes like collections, dates, and random number generation.
+-	java.lang.*: For fundamental classes like String, Math, and System (automatically imported).
+-	java.io.*: For input and output operations, including file handling and stream processing. 
 
-Day 2 
-  Operators &   Conditionals
+
+## Operators &   Conditionals
 
 Operators in Java are special symbols that perform operations on variables and values. Java supports several types of operators, categorized into different groups based on the type of operation they perform.
-1. Arithmetic Operators
+
+### Arithmetic Operators
 These operators perform basic mathematical operations.
 Operator	Description	Example
-+	Addition	a + b
--	Subtraction	a - b
-*	Multiplication	a * b
-/	Division	a / b
-%	Modulus (remainder)	a % b
++ +	`Addition`	a + b
++ -	`Subtraction`	a - b
++ *	`Multiplication`	a * b
++ /	`Division`a / b
++ %	`Modulus` (remainder)	a % b
+
 Example:
-java
-Copy code
+```
 int a = 10, b = 3;
 System.out.println(a + b);  // Output: 13
 System.out.println(a % b);  // Output: 1
+```
 ________________________________________
-2. Relational (Comparison) Operators
+### Relational (Comparison) Operators
+
 These operators compare two values and return a boolean result (true or false).
 Operator	Description	Example
-==	Equal to	a == b
-!=	Not equal to	a != b
->	Greater than	a > b
-<	Less than	a < b
->=	Greater than or equal to	a >= b
-<=	Less than or equal to	a <= b
++ ==	Equal to	a == b
++ !=	Not equal to	a != b
++ >	Greater than	a > b
++ <	Less than	a < b
++ >=	Greater than or equal to	a >= b
++ <=	Less than or equal to	a <= b
+
 Example:
-java
-Copy code
+```
 int a = 10, b = 20;
 System.out.println(a > b);  // Output: false
 System.out.println(a <= b); // Output: true
+```
 ________________________________________
-3. Logical Operators
+### Logical Operators
+
 These operators perform logical operations on boolean expressions.
 Operator	Description	Example
-&&	Logical AND (true if both are true)	a && b
-`		`
-!	Logical NOT (negates the boolean value)	!a
-Example:
-java
-Copy code
++ &&	Logical AND (true if both are true)	a && b
+`+ || lofical OR (if 1 true from two)	a || b	`
++ !	Logical NOT (negates the boolean value)	!a
+```
 boolean a = true, b = false;
 System.out.println(a && b);  // Output: false
 System.out.println(a || b);  // Output: true
 System.out.println(!a);      // Output: false
+```
 ________________________________________
-4. Assignment Operators
+###  Assignment Operators
 These operators are used to assign values to variables.
 Operator	Description	Example
-=	Assigns value	a = 5
-+=	Adds and assigns	a += 5 (same as a = a + 5)
--=	Subtracts and assigns	a -= 5
-*=	Multiplies and assigns	a *= 5
-/=	Divides and assigns	a /= 5
-%=	Modulus and assigns	a %= 5
-Example:
-java
-Copy code
++ =	Assigns value	a = 5
++ +=	Adds and assigns	a += 5 (same as a = a + 5)
++ -=	Subtracts and assigns	a -= 5
++ *=	Multiplies and assigns	a *= 5
++ /=	Divides and assigns	a /= 5
++ %=	Modulus and assigns	a %= 5
+
+```
 int a = 10;
 a += 5;  // Now a is 15
 System.out.println(a);
+```
 ________________________________________
-5. Increment and Decrement Operators
+### Increment and Decrement Operators
+
 These operators are used to increment or decrement a value by 1.
 Operator	Description	Example
-++	Increment (adds 1)	a++ or ++a
---	Decrement (subtracts 1)	a-- or --a
-•	a++ (Post-increment): Value is used first, then incremented.
-•	++a (Pre-increment): Value is incremented first, then used.
-Example:
-java
-Copy code
++ ++	Increment (adds 1)	a++ or ++a
++ --	Decrement (subtracts 1)	a-- or --a
+
+-	a++ (Post-increment): Value is used first, then incremented.
+-	++a (Pre-increment): Value is incremented first, then used.
+
+```
 int a = 5;
 System.out.println(a++);  // Output: 5 (then a becomes 6)
 System.out.println(++a);  // Output: 7 (a is incremented before print)
+```
 ________________________________________
-6. Bitwise Operators
+### Bitwise Operators
 These operators perform operations on bits and are useful for low-level programming.
 Operator	Description	Example
-&	Bitwise AND	a & b
-`	`	Bitwise OR
-^	Bitwise XOR	a ^ b
-~	Bitwise Complement	~a
-<<	Left Shift	a << 2
->>	Right Shift	a >> 2
->>>	Unsigned Right Shift	a >>> 2
++ &	Bitwise AND	a & b
++ `	`	Bitwise OR
++ ^	Bitwise XOR	a ^ b
++ ~	Bitwise Complement	~a
++ <<	Left Shift	a << 2
++ >>	Right Shift	a >> 2
++ >>>	Unsigned Right Shift	a >>> 2
 Example:
 java
 Copy code
@@ -268,61 +278,47 @@ int b = 3; // Binary: 0011
 System.out.println(a & b);  // Output: 1 (Binary: 0001)
 System.out.println(a | b);  // Output: 7 (Binary: 0111)
 ________________________________________
-7. Ternary (Conditional) Operator
+### Ternary (Conditional) Operator
 The ternary operator is a shorthand for if-else conditions. It has the form:
-condition ? value_if_true : value_if_false;
-Example:
-java
-Copy code
+
+`condition ? value_if_true : value_if_false;`
+```
 int a = 10, b = 20;
 int max = (a > b) ? a : b;
 System.out.println(max);  // Output: 20
+```
 ________________________________________
-8. Instanceof Operator
-This operator is used to test whether an object is an instance of a specific class or subclass.
-Example:
-java
-Copy code
-String str = "Hello";
-boolean result = str instanceof String;
-System.out.println(result);  // Output: true
-________________________________________
-9. Type Casting Operators
-These are used to convert one data type into another.
-•	Implicit Casting: Automatically done when converting a smaller type to a larger type.
-•	Explicit Casting: Manually done when converting a larger type to a smaller type.
-Example:
-java
-Copy code
-int a = 10;
-double d = (double) a; // Explicit casting
 
 
 1.	What are conditionals in Java?
-•	Answer: Conditionals in Java refer to statements that allow the program to make decisions and execute different code paths based on certain conditions. These include if, if-else, if-else if, and switch statements.
++ Answer:-
+Conditionals in Java refer to statements that allow the program to make decisions and execute different code paths based on certain conditions. These include `if`, `if-else`, `if-else if`, and `switch` statements.
+
 2. Explain the if-else statement in Java with an example.
-•	Answer: The if-else statement evaluates a condition, and if the condition is true, it executes the block of code inside the if statement. If it is false, the code inside the else block is executed.
++	Answer: The if-else statement evaluates a condition, and if the condition is true, it executes the block of code inside the if statement. If it is false, the code inside the else block is executed.
 •	Example:
-java
-Copy code
+```
 int num = 10;
 if (num > 0) {
     System.out.println("Positive number");
 } else {
     System.out.println("Negative number");
 }
+```
 3. Can you nest if-else statements in Java?
+
 •	Answer: Yes, you can nest if-else statements, meaning you can place an if-else statement inside another if-else statement to check multiple conditions.
+
 4. What is the difference between if-else and switch statements?
 •	Answer:
-o	if-else is used to evaluate boolean expressions and can work with conditions involving logical operators.
-o	switch is more suitable when comparing a single variable against a set of constants, usually for equality checks.
-o	if-else can handle complex conditions, while switch is generally more readable when there are multiple possible outcomes for a single variable.
+-	if-else is used to evaluate boolean expressions and can work with conditions involving logical operators.
+-	switch is more suitable when comparing a single variable against a set of constants, usually for equality checks.
+-	if-else can handle complex conditions, while switch is generally more readable when there are multiple possible outcomes for a single variable.
+
 5. Can a switch statement be used with strings in Java?
-•	Answer: Yes, starting from Java 7, switch statements can be used with String objects. The switch compares the value of the string against the specified case labels.
+-	Answer: Yes, starting from Java 7, switch statements can be used with String objects. The switch compares the value of the string against the specified case labels.
 •	Example:
-java
-Copy code
+```
 String day = "Monday";
 switch (day) {
     case "Monday":
@@ -334,6 +330,7 @@ switch (day) {
     default:
         System.out.println("Mid-week");
 }
+```
 6. What will happen if there is no break statement in a switch case?
 •	Answer: If the break statement is omitted in a switch case, Java will continue executing the following cases (fall-through behavior) until it encounters a break or the end of the switch block.
 7. What is the ternary operator in Java? How does it work?
