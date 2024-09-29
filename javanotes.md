@@ -2,18 +2,18 @@
 ## Variable , data type and  taking input 
 
 
-### What is a variable in Java?
+1. What is a variable in Java?
 +	Answer:
 A variable in Java is a container that holds data that can be changed during the execution of a program. It acts as a storage location in memory with a specific data type.
 
-### What are the different types of variables in Java?
+2. What are the different types of variables in Java?
 + Answer:
    There are three types of variables in Java:
 1.	`Local Variables`: Declared inside a method, constructor, or block.
 2.	`Instance Variables`: Declared in a class but outside of methods, constructors, or blocks (non-static fields).
 3.	`Static Variables`: Declared with the static keyword and shared across all instances of a class.
 ________________________________________
-### What are the eight primitive data types in Java?
+3. What are the eight primitive data types in Java?
 •	Answer:
 1.	!byte`: 8-bit integer (Range: -128 to 127)
 2.	`short`: 16-bit integer (Range: -32,768 to 32,767)
