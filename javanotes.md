@@ -1240,4 +1240,99 @@ Here are some common Java 2D array interview questions that might be useful in y
 + Write a program to check if a given 2D matrix is symmetric.
 These questions cover both basic operations on 2D arrays as well as some more complex logic. Would you like any particular question to be explored in detail?
 
+## String 
+Here are some common Java String interview questions that cover various concepts related to the String class in Java:
 
+1. What is the difference between String, StringBuilder, and StringBuffer?
++ `String`: Immutable, meaning that once a String object is created, it cannot be changed.
++ `StringBuilder`: Mutable, designed for better performance when you need to modify strings (e.g., concatenation). It is not synchronized, so it's faster but not thread-safe.
++ `StringBuffer`: Mutable and synchronized (thread-safe), but slower than StringBuilder.
+  
+2. Why are strings immutable in Java?
++ String immutability provides `security`, `caching`, and `better performance` in Java. Immutability ensures that a string's value `cannot be altered`, making it `safe` to use in multithreaded environments and as keys in hash-based collections like HashMap.
+  
+3. What is the difference between == and equals() when comparing strings?
++  `==` checks for reference equality, meaning it checks whether the two strings point to the same memory location.
+`equals()` checks for value equality, meaning it compares the actual content of the strings.
+
+4. How does the `intern()` method work in Java strings?
++The intern() method returns a canonical representation of the string from the string pool. If the string already exists in the pool, it returns the reference from the pool. If not, it adds the string to the pool and returns the reference. This helps save memory by avoiding duplicate string objects.
+
+6. How is memory managed for strings in Java?
++ Strings in Java are stored in a special memory area called the `String Pool`. Whenever a string literal is created, Java checks if the same value already exists in the pool. If it does, the reference is reused; if not, a new string is added to the pool.
+Non-literal strings (created with new String()) are stored in the heap and not in the string pool by default.
+
+7. What is string concatenation, and how is it handled internally?
++ String concatenation is the process of combining two strings. In Java, you can concatenate strings using the `+ `operator. Internally, the + operator is converted into a `StringBuilder` append operation if done inside loops or complex expressions to optimize performance.
+8. How can you convert a String to an int in Java?
++ You can use the `Integer.parseInt()` or `Integer.valueOf()` methods to convert a string to an integer.
+```
+String str = "123";
+int number = Integer.parseInt(str); // returns 123
+```
+9. What are some common String methods in Java?
++ `charAt(int index)`: Returns the character at the specified index.
++ `substring(int start, int end)`: Returns a new string that is a substring of this string.
++ `length()`: Returns the length of the string.
++ `indexOf(String str)`: Returns the index of the first occurrence of the specified substring.
++  `toLowerCase()`, `toUpperCase()`: Converts the string to lowercase or uppercase.
++ `trim()`: Removes leading and trailing whitespace.
++ `replace(CharSequence target, CharSequence replacement)`: Replaces all occurrences of the target sequence with the replacement sequence.
+10. What is the difference between String.valueOf() and toString()?
++ `String.valueOf()`: Converts a variety of data types (e.g., int, char, boolean, etc.) to their string representation. If the argument is null, it returns the string `"null"`.
++ `toString()`: A method that returns the string representation of an object. If the object is null, it throws a ` NullPointerException`.
+11. What is the role of String.format() in Java?
++ `String.format()` allows you to format strings using placeholders like `%s`, `%d`, etc. It is useful for creating formatted strings in a more readable way.
+```
+String name = "Alice";
+int age = 30;
+String formatted = String.format("Name: %s, Age: %d", name, age);  // "Name: Alice, Age: 30"
+```
+12. How would you reverse a string in Java?
++ You can reverse a string by converting it to a StringBuilder and using the reverse() method:
+```
+String str = "hello";
+String reversed = new StringBuilder(str).reverse().toString();
+```
+13. Is String a primitive type or an object in Java?
++ String is an object in Java. Although it behaves like a primitive in some ways (e.g., String literals), it is actually a reference type backed by the String class.
+14. What are some best practices when working with strings in Java?
++ Avoid using + for concatenation in loops: Instead, use StringBuilder for efficient string manipulation in loops.
++ Use String.intern() cautiously: Only when you need to save memory and ensure unique string references.
++ Use equals() for comparison: Avoid using == unless you are checking for reference equality.
+15. How would you check if a string contains only digits?
+  
++You can use a regular expression or the `Character.isDigit()` method to check if a string contains only digits.
+```
+String str = "12345";
+boolean isNumeric = str.matches("\\d+");  // true if the string contains only digits
+```
+16. What is the difference between substring() and subSequence()?
++ `substring(int start, int end)` returns a new string that is a substring of the original string.
++ `subSequence(int start, int end)` returns a `CharSequence`, which is a more general interface implemented by String, StringBuffer, StringBuilder, etc.
+17. How do you check if a string is empty or null?
++ You can use the following code to check if a string is empty or null:
+```
+if (str != null && !str.isEmpty()) {
+    // String is not null and not empty
+}
+```
+18. What is a `StringTokenizer`, and how is it different from `split()`?
++ StringTokenizer is a legacy class used to split a string into `tokens`. It is less flexible than split(), which supports regular expressions and is more commonly used today.
+```
+StringTokenizer tokenizer = new StringTokenizer("apple,orange,banana", ",");
+while (tokenizer.hasMoreTokens()) {
+    System.out.println(tokenizer.nextToken());
+}
+```
+19. How do you compare two strings lexicographically in Java?
++ Use the compareTo() method to compare two strings lexicographically (i.e., based on dictionary order).
+```
+String str1 = "apple";
+String str2 = "banana";
+int result = str1.compareTo(str2);  // Negative if str1 comes before str2, positive if after
+```
+20. Why is the String class declared as final?
++ The String class is declared as final to ensure that it cannot be subclassed, which preserves its immutability and security features.
+21. Can a String be subclassed in Java?
+No, String cannot be subclassed because it is a final class.
