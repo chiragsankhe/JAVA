@@ -272,6 +272,7 @@ https://course.acciojob.com/idle?question=9017ed35-91b0-4657-bbd5-de3f0bb9aaa4
 
 <h4>Find Split Point</h4>
 https://course.acciojob.com/idle?question=e0b796ef-2562-4a35-a728-c23b93d988c1
+
 <h2>2 D array</h2>
 <h4>Print 2D Array</h4>
 https://course.acciojob.com/idle?question=bb9268e2-8b36-4b51-9134-5181dea35675
@@ -338,6 +339,79 @@ https://course.acciojob.com/idle?question=034d79f6-a182-4412-b990-6ca16e0248c7
 
 <h4>Composite Numbers</h4> 
 https://course.acciojob.com/idle?question=1e91e9ec-6020-420d-8b2d-0603129be3cc
+
+
+
+<h2>String</h2>
+
+<h4>Count words in a given string</h4>
+https://course.acciojob.com/idle?question=c790c265-0a43-418d-b16c-ea23cda5d42c
+
+<h4>Camel Case</h4>
+https://course.acciojob.com/idle?question=243312c4-baad-471f-8a01-650220d23d4d
+
+<h4>Inverse Camel Case</h4>
+https://course.acciojob.com/idle?question=60cd3eae-a883-4803-990d-838d8a1c5b84
+
+<h4>Good Strings</h4>
+https://course.acciojob.com/idle?question=fbec8270-5a5c-4379-8d39-58dab2b6b8cf
+
+<h4>Toggle Characters</h4>
+https://course.acciojob.com/idle?question=4fdadf76-9d25-43f3-a50f-6889bcdd70af
+<h4>Pangrams</h4>
+https://course.acciojob.com/idle?question=eaa8cb67-a460-4870-b684-be7fba2a6976
+
+<h4>Compressed Strings</h4>
+https://course.acciojob.com/idle?question=95a415cf-c6d0-4737-90c6-ef7a0ef64021
+
+<h4>Reverse String Word Wise</h4>
+https://course.acciojob.com/idle?question=0bfe93c6-5411-4ac5-99db-34a0a21c940a
+
+<h4>Hey!</h4>
+https://course.acciojob.com/idle?question=e0625054-16fc-4681-bccb-0f8be93c5d20
+
+<h4>Shuffle String</h4>
+https://course.acciojob.com/idle?question=ac357ab6-b52a-4e37-ae2e-7afac866afb7
+
+<h4>Palindrome String</h4>
+https://course.acciojob.com/idle?question=ad163b7c-8fea-42d3-a8e9-39d4d6a06b18
+
+<h4>All substrings of a string</h4>
+https://course.acciojob.com/idle?question=ca7446b3-0ba1-43a4-a460-56c8de96594a
+
+<h4>Distinct Palindromic SubStrings</h4>
+https://course.acciojob.com/idle?question=976cb4c0-3fca-47df-8cd3-59c58c474b05
+
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4><h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4><h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
 
 <h4></h4>
 <h4></h4>
