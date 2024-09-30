@@ -504,7 +504,7 @@ for (int i = 0, j = 10; i < j; i++, j--) {
 }
 ```
 15. How do you reverse a for loop in Java?
-•	Answer: You can reverse a for loop by adjusting the initialization, condition, and update expressions.
++	Answer: You can reverse a for loop by adjusting the initialization, condition, and update expressions.
 Example:
 ```
 for (int i = 5; i >= 0; i--) {
@@ -518,118 +518,118 @@ for (int i = 5; i >= 0; i--) {
 
 
 1. What is an array in Java?
-Answer: An array in Java is a data structure that stores a fixed-size sequence of elements of the same type. The elements are stored in contiguous memory locations, and the size of an array is fixed once it is created.
-Example:
-java
++ Answer: An array in Java is a data structure that stores a fixed-size sequence of elements of the same type. The elements are stored in contiguous memory locations, and the size of an array is fixed once it is created.
+```
 Copy code
 int[] arr = new int[5];  // Array of size 5
+```
 2. How do you declare and initialize an array in Java?
-Answer: Arrays can be declared by specifying the type followed by square brackets. Arrays can be initialized either at the time of declaration or separately.
++ Answer: Arrays can be declared by specifying the type followed by square brackets. Arrays can be initialized either at the time of declaration or separately.
 Examples:
-•	Declaration without initialization:
-java
-Copy code
++ Declaration without initialization:
+```
 int[] arr;  // Declares an array variable
 arr = new int[5];  // Initializes the array with size 5
-•	Declaration and initialization:
-java
-Copy code
+```
++ Declaration and initialization:
+```
 int[] arr = new int[]{1, 2, 3, 4, 5};  // Initializes an array with elements
+```
 3. What is the default value of elements in an array?
 Answer:
-•	Primitive types (e.g., int, char, boolean):
-o	int[] and double[]: 0
-o	boolean[]: false
-o	char[]: \u0000 (null character)
-•	Object types: All elements are null by default.
++	Primitive types (e.g., int, char, boolean):
++	int[] and double[]: 0
++	boolean[]: false
++	char[]: \u0000 (null character)
++	Object types: All elements are null by default.
 Example:
-java
-Copy code
+```
 int[] intArr = new int[5];  // All elements will be initialized to 0
 boolean[] boolArr = new boolean[5];  // All elements will be initialized to false
+```
 4. How do you find the length of an array in Java?
-Answer: You can find the length of an array using the .length attribute.
++ Answer: You can find the length of an array using the .length attribute.
 Example:
-java
-Copy code
+```
 int[] arr = {1, 2, 3, 4, 5};
 System.out.println(arr.length);  // Output: 5
+```
 5. How do you iterate over an array in Java?
-Answer: You can iterate over an array using a for loop or an enhanced for-each loop.
++ Answer: You can iterate over an array using a for loop or an enhanced for-each loop.
 Examples:
-•	Using a for loop:
-java
-Copy code
+  + Using a for loop:
+```
 int[] arr = {1, 2, 3, 4, 5};
 for (int i = 0; i < arr.length; i++) {
     System.out.println(arr[i]);
 }
-•	Using an enhanced for loop:
-java
-Copy code
+```
++ Using an enhanced for loop:
+```
 for (int num : arr) {
     System.out.println(num);
 }
+```
 6. What is a multi-dimensional array in Java?
 Answer: A multi-dimensional array is an array of arrays. The most common form is a two-dimensional array (a matrix), but you can have arrays with more dimensions.
 Example of a 2D array:
-java
-Copy code
+````
 int[][] matrix = {
     {1, 2, 3},
     {4, 5, 6},
     {7, 8, 9}
 };
+```
 
 // Accessing an element in a 2D array
 System.out.println(matrix[1][2]);  // Output: 6
 7. What is the difference between a one-dimensional array and a two-dimensional array?
 Answer:
-•	One-dimensional array: A linear sequence of elements.
-•	Two-dimensional array: A grid of elements, represented as an array of arrays. It is often used to represent a matrix or table.
++	`One-dimensional array`: A linear sequence of elements.
++	`Two-dimensional array`: A grid of elements, represented as an array of arrays. It is often used to represent a matrix or table.
 Examples:
-•	One-dimensional array:
-java
-Copy code
++ One-dimensional array:
+```
 int[] arr = {1, 2, 3, 4, 5};
-•	Two-dimensional array:
-java
-Copy code
+```
++ Two-dimensional array:
+```
 int[][] arr = {
     {1, 2, 3},
     {4, 5, 6},
     {7, 8, 9}
 };
+```
 8. How do you copy an array in Java?
-Answer: You can copy an array using methods like System.arraycopy(), Arrays.copyOf(), or manually using a loop.
+Answer: You can copy an array using methods like `System.arraycopy()`,` Arrays.copyOf()`, or manually using a loop.
 Examples:
-•	Using System.arraycopy():
-java
-Copy code
++ Using System.arraycopy():
+```
 int[] sourceArray = {1, 2, 3, 4, 5};
 int[] destArray = new int[5];
 System.arraycopy(sourceArray, 0, destArray, 0, 5);
-•	Using Arrays.copyOf():
-java
-Copy code
+```
++ Using Arrays.copyOf():
+```
 int[] sourceArray = {1, 2, 3, 4, 5};
 int[] copiedArray = Arrays.copyOf(sourceArray, sourceArray.length);
+```
 9. What is the difference between length in arrays and length() in strings?
 Answer:
-•	For arrays, length is a property that gives the number of elements in the array.
-•	For strings, length() is a method that returns the number of characters in the string.
+•	For `arrays`, `length` is a property that gives the number of elements in the array.
+•	For `strings`, `length()` is a method that returns the number of characters in the string.
 Examples:
-java
-Copy code
+```
 int[] arr = {1, 2, 3, 4, 5};
 System.out.println(arr.length);  // Output: 5
-
+```
+```
 String str = "Hello";
 System.out.println(str.length());  // Output: 5
+```
 10. Write a Java program to reverse an array.
 Answer:
-java
-Copy code
+```
 public class ReverseArray {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
@@ -651,21 +651,21 @@ public class ReverseArray {
 Output:
 Copy code
 5 4 3 2 1
+```
 11. What is a Jagged Array in Java?
 Answer: A jagged array is an array of arrays where the subarrays can have different lengths. It is not a true multi-dimensional array because the length of each row can vary.
 Example:
-java
-Copy code
+```
 int[][] jaggedArray = {
     {1, 2},
     {3, 4, 5},
     {6, 7, 8, 9}
 };
+```
 12. How do you sort an array in Java?
-Answer: You can use Arrays.sort() to sort an array in ascending order.
+Answer: You can use `Arrays.sort()` to sort an array in ascending order.
 Example:
-java
-Copy code
+```
 int[] arr = {5, 2, 8, 7, 1};
 Arrays.sort(arr);  // Sorts the array in ascending order
 for (int i : arr) {
@@ -674,11 +674,11 @@ for (int i : arr) {
 Output:
 Copy code
 1 2 5 7 8
+```
 13. How do you find the largest and smallest element in an array?
-Answer: You can loop through the array and keep track of the largest and smallest elements.
++ Answer: You can loop through the array and keep track of the largest and smallest elements.
 Example:
-java
-Copy code
+```
 public class MinMaxArray {
     public static void main(String[] args) {
         int[] arr = {12, 34, 56, 78, 99, 23};
@@ -703,139 +703,134 @@ makefile
 Copy code
 Largest: 99
 Smallest: 12
+```
 14. What is an ArrayIndexOutOfBoundsException in Java?
-Answer: An ArrayIndexOutOfBoundsException occurs when you try to access an index that is outside the bounds of the array. In Java, array indices start at 0 and go up to length - 1. Trying to access an index outside this range will throw the exception.
+Answer: An `ArrayIndexOutOfBoundsException` occurs when you try to access an index that is outside the bounds of the array. In Java, array indices start at `0 and go up to length - 1`. Trying to access an index outside this range will throw the exception.
 Example:
-java
-Copy code
+```
+             0  1  2 
 int[] arr = {1, 2, 3};
 System.out.println(arr[3]);  // Throws ArrayIndexOutOfBoundsException
-15. Write a program to check if an array contains a specific value.
-Answer:
-java
-Copy code
-public class CheckArrayValue {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3,
-4o
-Continue generating
- 
+```
 
-ChatGPT can make mistakes. Check important info.
-?
-
-
-Math class 
+## Math class 
 
 The Math class in Java is a part of the java.lang package, and it provides a collection of static methods for performing basic numeric operations such as exponentiation, logarithms, trigonometry, and more. Since all methods in the Math class are static, you don't need to create an instance of the Math class to use them—you can directly call the methods on the class itself.
-Key Features of the Math Class:
-•	Basic arithmetic operations (e.g., abs(), max(), min(), sqrt())
-•	Exponentiation (pow(), exp())
-•	Trigonometric functions (sin(), cos(), tan())
-•	Logarithmic functions (log(), log10())
-•	Rounding functions (ceil(), floor(), round())
-Types of Functions in the Math Class:
-1.	Arithmetic Functions: These methods provide basic operations like absolute value, min, max, and square roots.
-o	Math.abs() – Returns the absolute value of a number.
-java
-Copy code
+### Key Features of the Math Class:
++ Basic arithmetic operations (e.g., `abs()`, `max()`, `min()`, `sqrt()`)
++ Exponentiation (`pow()`, `exp()`)
++ Trigonometric functions (`sin()`, `cos()`, `tan()`)
++ Logarithmic functions (`log()`, `log10()`)
++ Rounding functions (ceil(), floor(), round())
+### Types of Functions in the Math Class:
+#### Arithmetic Functions: These methods provide basic operations like absolute value, min, max, and square roots.
++	`Math.abs()` – Returns the absolute value of a number.
+```
 Math.abs(-5);  // returns 5
-o	Math.max() and Math.min() – Returns the maximum or minimum of two values.
-java
-Copy code
+```
++ `Math.max()` and `Math.min() `– Returns the maximum or minimum of two values.
+```
 Math.max(10, 20);  // returns 20
 Math.min(10, 20);  // returns 10
-o	Math.sqrt() – Returns the square root of a number.
-java
-Copy code
+```
++ `Math.sqrt()` – Returns the square root of a number.
+```
 Math.sqrt(16);  // returns 4.0
-2.	Exponential and Logarithmic Functions: These methods perform exponentiation and logarithmic operations.
-o	Math.pow() – Raises a number to the power of another number.
-java
-Copy code
+```
+#### Exponential and Logarithmic Functions: These methods perform exponentiation and logarithmic operations.
++ `Math.pow()` – Raises a number to the power of another number.
+```
 Math.pow(2, 3);  // returns 8.0
-o	Math.exp() – Returns Euler's number eee raised to the power of a given number.
-java
-Copy code
+```
++ `Math.exp()` – Returns Euler's number eee raised to the power of a given number.
+```
 Math.exp(1);  // returns 2.718281828459045 (value of e)
-o	Math.log() – Returns the natural logarithm (base eee) of a value.
-java
-Copy code
+```
++ `Math.log()` – Returns the natural logarithm (base eee) of a value.
+```
 Math.log(2.71828);  // returns approximately 1
-o	Math.log10() – Returns the logarithm base 10 of a value.
-java
-Copy code
+```
++ `Math.log10()` – Returns the logarithm base 10 of a value.
+```
 Math.log10(100);  // returns 2.0
-3.	Trigonometric Functions: The Math class provides methods for sine, cosine, tangent, and other trigonometric operations. These methods take radians as input.
-o	Math.sin() – Returns the sine of a value.
-java
-Copy code
+```
+#### Trigonometric Functions:
+The Math class provides methods for sine, cosine, tangent, and other trigonometric operations. These methods take radians as input.
++ Math.sin() – Returns the sine of a value.
+```
 Math.sin(Math.PI / 2);  // returns 1.0
-o	Math.cos() – Returns the cosine of a value.
-java
-Copy code
+```
++ Math.cos() – Returns the cosine of a value.
+```
 Math.cos(Math.PI);  // returns -1.0
-o	Math.tan() – Returns the tangent of a value.
-java
-Copy code
+```
++ Math.tan() – Returns the tangent of a value.
+```
 Math.tan(Math.PI / 4);  // returns 1.0
-o	Math.toRadians() and Math.toDegrees() – Converts degrees to radians and vice versa.
-java
-Copy code
+```
++ `Math.toRadians()` and `Math.toDegrees() `– Converts degrees to radians and vice versa.
+```
 Math.toRadians(180);  // returns 3.141592653589793 (π)
 Math.toDegrees(Math.PI);  // returns 180.0
-4.	Rounding Functions: These methods round floating-point numbers to the nearest integer or specific value.
-o	Math.round() – Rounds a floating-point number to the nearest long or int.
-java
-Copy code
+```
+#### Rounding Functions:
+ These methods round floating-point numbers to the nearest integer or specific value.
++ `Math.round()` – Rounds a floating-point number to the nearest long or int.
+```
+System.out.println(Math.round(5.4));   // Output: 5
+System.out.println(Math.round(5.5));   // Output: 6
+System.out.println(Math.round(5.9));   // Output: 6
+System.out.println(Math.round(-5.5));  // Output: -5
 Math.round(2.5);  // returns 3
-o	Math.ceil() – Rounds a number upward to the nearest integer (towards positive infinity).
-java
-Copy code
+```
++ `Math.ceil()` – Rounds a number upward to the nearest integer (towards positive infinity).
+```
 Math.ceil(2.1);  // returns 3.0
-o	Math.floor() – Rounds a number downward to the nearest integer (towards negative infinity).
-java
-Copy code
+```
++ `Math.floor()` – Rounds a number downward to the nearest integer (towards negative infinity).
+```
 Math.floor(2.9);  // returns 2.0
-5.	Random Number Generation: The Math.random() method returns a pseudorandom number between 0.0 (inclusive) and 1.0 (exclusive).
-o	Math.random()
-java
-Copy code
+```
+#### `Random Number Generation`: The Math.random() method returns a pseudorandom number between 0.0 (inclusive) and 1.0 (exclusive).
++ `Math.random()`
+```
 double randomValue = Math.random();  // returns a value between 0.0 and 1.0
-o	If you want a random integer within a range, you can scale the result of Math.random():
-java
-Copy code
+```
++ If you want a random integer within a range, you can scale the result of Math.random():
+```
 int randomInt = (int)(Math.random() * 10);  // random number between 0 and 9
-6.	Hyperbolic Functions: These methods calculate hyperbolic sine, cosine, and tangent.
-o	Math.sinh() – Returns the hyperbolic sine of a value.
-java
-Copy code
+```
+#### Hyperbolic Functions: These methods calculate hyperbolic sine, cosine, and tangent.
++ `Math.sinh()` – Returns the hyperbolic sine of a value.
+```
 Math.sinh(1);  // returns 1.1752011936438014
-o	Math.cosh() – Returns the hyperbolic cosine of a value.
-java
-Copy code
+```
++ `Math.cosh()` – Returns the hyperbolic cosine of a value.
+```
 Math.cosh(1);  // returns 1.5430806348152437
-o	Math.tanh() – Returns the hyperbolic tangent of a value.
-java
-Copy code
+```
++ `Math.tanh()` – Returns the hyperbolic tangent of a value.
+```
 Math.tanh(1);  // returns 0.7615941559557649
-7.	Sign-Related Functions: These methods deal with the sign of the value.
-o	Math.signum() – Returns the sign of a number: -1.0 for negative, 1.0 for positive, or 0.0 for zero.
-java
-Copy code
+```
+#### Sign-Related Functions: These methods deal with the sign of the value.
++	Math.signum() – Returns the sign of a number: -1.0 for negative, 1.0 for positive, or 0.0 for zero.
+```
 Math.signum(-5.0);  // returns -1.0
-8.	Special Constants: The Math class defines some useful mathematical constants:
-o	Math.PI – The value of π (approximately 3.14159).
-o	Math.E – The value of eee (approximately 2.71828).
+```
+#### Special Constants: The Math class defines some useful mathematical constants:
++ `Math.PI` – The value of π (approximately 3.14159).
++ `Math.E` – The value of eee (approximately 2.71828).
 Example:
-java
-Copy code
+```
 System.out.println(Math.PI);  // Output: 3.141592653589793
 System.out.println(Math.E);   // Output: 2.718281828459045
+```
 Example of Using the Math Class:
 Here is a sample program that demonstrates a few common methods of the Math class:
 java
 Copy code
+```
 public class MathExample {
     public static void main(String[] args) {
         // Arithmetic operations
@@ -863,6 +858,7 @@ public class MathExample {
         System.out.println("Floor of 2.7: " + floorValue);
         System.out.println("Random Number: " + random);
     }
+```
 Subarray
 
 Here are some common subarray-related interview questions, along with explanations and examples:
