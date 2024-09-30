@@ -573,7 +573,7 @@ for (int num : arr) {
 6. What is a multi-dimensional array in Java?
 Answer: A multi-dimensional array is an array of arrays. The most common form is a two-dimensional array (a matrix), but you can have arrays with more dimensions.
 Example of a 2D array:
-````
+```
 int[][] matrix = {
     {1, 2, 3},
     {4, 5, 6},
@@ -859,9 +859,9 @@ public class MathExample {
         System.out.println("Random Number: " + random);
     }
 ```
-Subarray
+## Subarray
 
-Here are some common subarray-related interview questions, along with explanations and examples:
++ Here are some common subarray-related interview questions, along with explanations and examples:
 1. Find the Maximum Sum of a Subarray (Kadane’s Algorithm)
 Question: Given an array of integers, find the subarray with the maximum sum.
 Approach:
@@ -870,6 +870,7 @@ Approach:
 Example:
 java
 Copy code
+```
 public class MaxSubarraySum {
     public static void main(String[] args) {
         int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
@@ -892,15 +893,16 @@ Output:
 python
 Copy code
 Maximum subarray sum is 6
+
 In this case, the subarray [4, -1, 2, 1] has the maximum sum.
-2. Find the Length of the Longest Subarray with Sum K
+```
+3. Find the Length of the Longest Subarray with Sum K
 Question: Given an array of integers, find the length of the longest subarray whose sum is equal to a given value K.
 Approach:
 •	Use a HashMap to store the cumulative sum at each index.
 •	If the cumulative sum minus K is found in the map, calculate the length of the subarray.
 Example:
-java
-Copy code
+```
 import java.util.HashMap;
 
 public class LongestSubarrayWithSumK {
@@ -939,13 +941,15 @@ python
 Copy code
 Length of the longest subarray with sum 15 is 4
 The subarray [5, 2, 7, 1] has a sum of 15 and a length of 4.
+```
 3. Find the Minimum Size Subarray with Sum ≥ S
-Question: Given an array of integers and a target sum S, find the minimum length of a subarray that has a sum greater than or equal to S.
++ Question: Given an array of integers and a target sum S, find the minimum length of a subarray that has a sum greater than or equal to S.
 Approach:
-•	Use a sliding window technique. Maintain a window that adjusts when the sum becomes greater than or equal to S.
++ Use a sliding window technique. Maintain a window that adjusts when the sum becomes greater than or equal to S.
 Example:
 java
 Copy code
+```
 public class MinSizeSubarraySum {
     public static void main(String[] args) {
         int[] arr = {2, 3, 1, 2, 4, 3};
@@ -975,15 +979,18 @@ Output:
 python
 Copy code
 Minimum length subarray with sum ≥ 7 is 2
+
 The subarray [4, 3] has a sum of 7 and a length of 2.
-4. Count the Number of Subarrays with Sum Exactly K
+```
+5. Count the Number of Subarrays with Sum Exactly K
 Question: Given an array of integers, count the number of subarrays that sum up to a given value K.
 Approach:
-•	Use a HashMap to store cumulative sums and their frequencies.
-•	For each cumulative sum, check if there is a previous cumulative sum that when subtracted gives K.
++ Use a HashMap to store cumulative sums and their frequencies.
++ For each cumulative sum, check if there is a previous cumulative sum that when subtracted gives K.
 Example:
 java
 Copy code
+```
 import java.util.HashMap;
 
 public class SubarraySumEqualsK {
@@ -1018,14 +1025,14 @@ python
 Copy code
 Number of subarrays with sum 2 is 2
 The subarrays [1, 1] and [1, 1] both have a sum of 2.
+```
 5. Find Maximum Product Subarray
-Question: Given an array of integers, find the contiguous subarray that has the largest product.
++ Question: Given an array of integers, find the contiguous subarray that has the largest product.
 Approach:
-•	Traverse the array, keeping track of the maximum product and the minimum product at each step (since a negative number can flip the max and min products).
-•	Update the result with the maximum product found so far.
++ Traverse the array, keeping track of the maximum product and the minimum product at each step (since a negative number can flip the max and min products).
++ Update the result with the maximum product found so far.
 Example:
-java
-Copy code
+```
 public class MaxProductSubarray {
     public static void main(String[] args) {
         int[] arr = {2, 3, -2, 4};
@@ -1062,38 +1069,38 @@ csharp
 Copy code
 Maximum product subarray is 6
 The subarray [2, 3] has the maximum product of 6.
+```
 ________________________________________
-Other Subarray Interview Questions:
-•	Find the subarray with the smallest sum.
-•	Find the maximum length of a subarray with equal number of 0s and 1s (binary array).
-•	Find the number of subarrays where the sum is divisible by a given integer.
-•	Find the subarray with the most distinct elements.
+### Other Subarray Interview Questions:
++ Find the subarray with the smallest sum.
++ Find the maximum length of a subarray with equal number of 0s and 1s (binary array).
++ Find the number of subarrays where the sum is divisible by a given integer.
++ Find the subarray with the most distinct elements.
 These types of subarray questions are commonly asked to test your understanding of different algorithms like sliding window, dynamic programming, and prefix sums.
-4o
-map fuction in java 
-The Map interface in Java provides a way to store key-value pairs, where each key is unique, and each key maps to exactly one value. It is part of the java.util package. The Map interface is implemented by various classes like HashMap, TreeMap, LinkedHashMap, and Hashtable.
-Key Characteristics of a Map:
-•	Unique keys: A map does not allow duplicate keys.
-•	One value per key: Each key maps to exactly one value, but different keys can map to the same value.
-•	Null keys and values: Some implementations (like HashMap) allow one null key and multiple null values.
-Common Map Implementations:
-1.	HashMap: Stores keys and values in an unordered manner using a hash table.
-2.	TreeMap: Stores keys and values in sorted order using a red-black tree.
-3.	LinkedHashMap: Maintains insertion order of keys.
-Basic Operations in Map:
-•	put(K key, V value): Associates the specified value with the specified key in the map.
-•	get(Object key): Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key.
-•	remove(Object key): Removes the mapping for the specified key.
-•	containsKey(Object key): Returns true if the map contains a mapping for the specified key.
-•	containsValue(Object value): Returns true if the map maps one or more keys to the specified value.
-•	size(): Returns the number of key-value mappings in the map.
-•	isEmpty(): Returns true if the map contains no key-value mappings.
-•	keySet(): Returns a set view of the keys contained in the map.
-•	values(): Returns a collection view of the values contained in the map.
-•	entrySet(): Returns a set view of the key-value pairs contained in the map.
-Example: Using HashMap
-java
-Copy code
+  
+## map fuction in java 
+The Map interface in Java provides a way to store key-value pairs, where each key is unique, and each key maps to exactly one value. It is part of the `java.util package`. The Map interface is implemented by various classes like `HashMap`, `TreeMap`, `LinkedHashMap`, and `Hashtable`.
+#### Key Characteristics of a Map:
++ `Unique keys`: A map does not allow duplicate keys.
++ `One value per key`: Each key maps to exactly one value, but different keys can map to the same value.
++ `Null keys and values`: Some implementations (like HashMap) allow one null key and multiple null values.
+#### Common Map Implementations:
+1. `HashMap`: Stores keys and values in an unordered manner using a hash table.
+2. `TreeMap`: Stores keys and values in sorted order using a red-black tree.
+3. `LinkedHashMap`: Maintains insertion order of keys.
+#### Basic Operations in Map:
++ `put(K key, V value)`: Associates the specified value with the specified key in the map.
++ `get(Object key)`: Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key.
++ `remove(Object key)`: Removes the mapping for the specified key.
++ `containsKey(Object key)`: Returns true if the map contains a mapping for the specified key.
++ `containsValue(Object value)`: Returns true if the map maps one or more keys to the specified value.
++ `size()`: Returns the number of key-value mappings in the map.
++ `isEmpty()`: Returns true if the map contains no key-value mappings.
++ `keySet()`: Returns a set view of the keys contained in the map.
++ `values()`: Returns a collection view of the values contained in the map.
++ `entrySet()`: Returns a set view of the key-value pairs contained in the map.
+#### Example: Using HashMap
+```
 import java.util.HashMap;
 import java.util.Map;
 
@@ -1136,44 +1143,45 @@ Banana -> 15
 Orange -> 20
 Contains key 'Apple'? true
 Map size: 2
-Iterating through a Map:
+```
+### Iterating through a Map:
 You can iterate through a Map in various ways:
-1.	Using entrySet() (recommended for both keys and values):
-java
-Copy code
++ `Using entrySet()` (recommended for both keys and values):
+```
 for (Map.Entry<String, Integer> entry : map.entrySet()) {
     System.out.println(entry.getKey() + " -> " + entry.getValue());
 }
-2.	Using keySet() (if you only need keys):
-java
-Copy code
+```
++ `Using keySet()` (if you only need keys):
+```
 for (String key : map.keySet()) {
     System.out.println("Key: " + key);
 }
-3.	Using values() (if you only need values):
-java
-Copy code
+```
++ `Using values()` (if you only need values):
+```
 for (Integer value : map.values()) {
     System.out.println("Value: " + value);
 }
-Important Implementations of Map:
-1.	HashMap:
-o	Fast lookups (O(1) average time complexity).
-o	Does not maintain any order.
-o	Allows one null key and multiple null values.
-2.	TreeMap:
-o	Sorted by natural order of keys or a custom comparator.
-o	Slower lookups (O(log n) due to tree structure).
-o	Does not allow null keys, but allows multiple null values.
-3.	LinkedHashMap:
-o	Maintains insertion order.
-o	Slightly slower than HashMap due to additional linked list structure.
-4.	Hashtable:
+```
+### Important Implementations of Map:
+1. `HashMap:`
+-	Fast lookups (O(1) average time complexity).
+-	Does not maintain any order.
+-	Allows one null key and multiple null values.
+2. `TreeMap`:
+-	Sorted by natural order of keys or a custom comparator.
+-	Slower lookups (O(log n) due to tree structure).
+-	Does not allow null keys, but allows multiple null values.
+3. `LinkedHashMap:`
+-	Maintains insertion order.
+-	Slightly slower than HashMap due to additional linked list structure.
+4. `Hashtable`:
 o	Synchronized (thread-safe), but slower than HashMap.
 o	Does not allow null keys or values.
-Example: Using TreeMap for Sorted Order
-java
-Copy code
+
+### Example: Using TreeMap for Sorted Order
+```
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -1198,37 +1206,38 @@ Copy code
 Apple -> 10
 Banana -> 15
 Orange -> 20
-Key Points to Remember:
-•	HashMap is unsorted and allows null keys/values.
-•	TreeMap is sorted but does not allow null keys.
-•	LinkedHashMap maintains insertion order.
-•	Use entrySet() for iterating over key-value pairs efficiently
-•	
+```
+### Key Points to Remember:
++ HashMap is unsorted and allows null keys/values.
++ TreeMap is sorted but does not allow null keys.
++ LinkedHashMap maintains insertion order.
++ Use entrySet() for iterating over key-value pairs efficiently
+	
  
-2 D array
+## 2 D array
 Here are some common Java 2D array interview questions that might be useful in your preparation:
 
-1.	Traverse a 2D Array:
-o	Write a program to traverse and print a 2D array in row-major order (left to right, top to bottom).
-o	Follow-up: How would you print in column-major order?
-2.	Matrix Multiplication:
-o	Given two 2D matrices, write a program to multiply them if the number of columns in the first matrix equals the number of rows in the second matrix.
-3.	Find the Maximum Element in a 2D Array:
-o	Write a program to find the maximum element in a 2D array.
-4.	Search for an Element in a 2D Array:
-o	Write a program to search for an element in a 2D array. The array may or may not be sorted.
-5.	Transpose of a Matrix:
-o	Write a program to compute the transpose of a 2D matrix.
-6.	Diagonal Sum:
-o	Write a program to find the sum of the elements on the primary and secondary diagonals of a square 2D matrix.
-7.	Spiral Order Traversal:
-o	Given a 2D array, print the elements in a spiral order starting from the top-left corner of the matrix.
-8.	Find the Saddle Point of a Matrix:
-o	A saddle point in a matrix is an element which is the minimum element in its row and the maximum in its column. Write a program to find the saddle point.
-9.	Rotate a Matrix by 90 Degrees:
-o	Write a program to rotate a 2D matrix by 90 degrees clockwise.
-10.	Check if a Matrix is Symmetric:
-o	Write a program to check if a given 2D matrix is symmetric.
+1. Traverse a 2D Array:
++ Write a program to traverse and print a 2D array in row-major order (left to right, top to bottom).
++ Follow-up: How would you print in column-major order?
+2. Matrix Multiplication:
++ Given two 2D matrices, write a program to multiply them if the number of columns in the first matrix equals the number of rows in the second matrix.
+3. Find the Maximum Element in a 2D Array:
++ Write a program to find the maximum element in a 2D array.
+4. Search for an Element in a 2D Array:
++ Write a program to search for an element in a 2D array. The array may or may not be sorted.
+5. Transpose of a Matrix:
++ Write a program to compute the transpose of a 2D matrix.
+6. Diagonal Sum:
++ Write a program to find the sum of the elements on the primary and secondary diagonals of a square 2D matrix.
+7.Spiral Order Traversal:
++ Given a 2D array, print the elements in a spiral order starting from the top-left corner of the matrix.
+8. Find the Saddle Point of a Matrix:
++ A saddle point in a matrix is an element which is the minimum element in its row and the maximum in its column. Write a program to find the saddle point.
+9. Rotate a Matrix by 90 Degrees:
++ Write a program to rotate a 2D matrix by 90 degrees clockwise.
+10. Check if a Matrix is Symmetric:
++ Write a program to check if a given 2D matrix is symmetric.
 These questions cover both basic operations on 2D arrays as well as some more complex logic. Would you like any particular question to be explored in detail?
-4o
+
 
