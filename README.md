@@ -315,6 +315,30 @@ https://course.acciojob.com/idle?question=039fa756-8d0f-45c8-bc4d-605eaed27def
 <h4>Spirally traversing a matrix</h4>
 https://course.acciojob.com/idle?question=4898baf8-ed87-4c99-a19d-64bc7e98638e
 
+<h4>Find The Way</h4>
+https://course.acciojob.com/idle?question=91028013-cace-4104-a833-33522013bbaf
+
+<h4>Maxima Minima</h4>
+https://course.acciojob.com/idle?question=74e5a531-cd32-443b-9892-148cbc44006e
+
+<h4>Switch Case Problem 1</h4>
+https://course.acciojob.com/idle?question=b6708167-2376-41b4-bddb-495e403fd426
+
+<h4>Switch Case Problem 2</h4>
+https://course.acciojob.com/idle?question=ba98544a-dca6-4327-b152-f2844f08ffa5
+
+<h4>Switch Case Problem 3</h4>
+https://course.acciojob.com/idle?question=e046fc02-30d7-4f21-b46d-f48318383943
+
+<h4>Mathematical Operations</h4>
+https://course.acciojob.com/idle?question=869273ac-d202-4aaf-b245-92d2b14f1a9e
+
+<h4>Conditional Problem 4</h4>
+https://course.acciojob.com/idle?question=034d79f6-a182-4412-b990-6ca16e0248c7
+
+<h4>Composite Numbers</h4> 
+https://course.acciojob.com/idle?question=1e91e9ec-6020-420d-8b2d-0603129be3cc
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
@@ -322,4 +346,51 @@ https://course.acciojob.com/idle?question=4898baf8-ed87-4c99-a19d-64bc7e98638e
 <h4></h4>
 <h4></h4>
 <h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+
+
+
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+
+
+<h4></h4>
+<h4></h4>
+<h4></h4>
+
+
+
 
