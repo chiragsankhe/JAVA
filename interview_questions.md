@@ -19,23 +19,23 @@ Java supports primitive data types - byte, boolean, char, short, int, float, lon
 
 A pure object-oriented programming (OOP) language is one where everything is treated as an object, including primitives like integers, characters, and booleans. In such languages, all functionalities are performed through objects, and there is no distinction between primitive and non-primitive types.
 
-------  Characteristics of Pure OOP Languages:
-`Everything is an Object:` Even primitive data types and functions are treated as objects.
-`Encapsulation:` Data and methods are bundled together.
-`Inheritance:` Objects can inherit properties and behaviors from other objects.
-`Polymorphism:` The ability to define methods in different forms.
-`Abstraction:` Objects hide the internal implementation details.
-`No Standalone Functions:` All functions are part of some object.
-Examples of Pure Object-Oriented Languages:
-`Smalltalk:` Considered the closest to a pure object-oriented language because everything, including control structures and numbers, is an object.
-`Ruby:` Treats everything as an object but is slightly less strict than Smalltalk.
------  Why Java is Not Pure:
+#### Characteristics of Pure OOP Languages:
+- `Everything is an Object:` Even primitive data types and functions are treated as objects.
+- `Encapsulation:` Data and methods are bundled together.
+- `Inheritance:` Objects can inherit properties and behaviors from other objects.
+- `Polymorphism:` The ability to define methods in different forms.
+- `Abstraction:` Objects hide the internal implementation details.
+- `No Standalone Functions:` All functions are part of some object.
+#### Examples of Pure Object-Oriented Languages:
+- `Smalltalk:` Considered the closest to a pure object-oriented language because everything, including control structures and numbers, is an object.
+- `Ruby:` Treats everything as an object but is slightly less strict than Smalltalk.
+#### Why Java is Not Pure:
 Java is considered not purely object-oriented because:
 
 It includes primitive data types (e.g., int, char, boolean) that are not objects.
 It allows for static methods, which are not part of an object.
 Some operations, like arithmetic (+, -, etc.), are not method calls on objects.
------ Why Pure OOP is Rare:
+#### Why Pure OOP is Rare:
 Pure OOP languages can sometimes be inefficient or overly restrictive for certain tasks, like mathematical computations, where using primitive types directly is faster. As a result, most modern OOP languages, like Java and Python, are a mix of object-oriented and procedural programming styles to balance efficiency with OOP principles.
 
 
