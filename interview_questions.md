@@ -60,15 +60,15 @@ Provides a runtime environment to execute Java applications.
 Manages memory (garbage collection, stack, heap, etc.) and ensures platform independence.
 
 ## What are the different types of memory areas allocated by JVM?
-`Method Area:`
+-`Method Area:`
 Stores class metadata, constants, static variables, and method code.
-` Heap: `
+-` Heap: `
 Used for dynamic memory allocation; stores objects and JRE classes.
-` Stack:`
+-` Stack:`
 Each thread has its own stack. It stores method call frames, local variables, and partial results.
-`Program Counter Register:`
+-`Program Counter Register:`
 A small memory area that holds the address of the currently executing Java bytecode instruction.
-`Native Method Stack:`
+-`Native Method Stack:`
 Stores data for native (non-Java) methods used in the application.
 ## What is JIT compiler?
 `JIT (Just-In-Time) Compiler:`
@@ -96,13 +96,13 @@ It reads the .class files and converts them into objects used by the JVM.
 
 #### Types of ClassLoaders:
 
-`Bootstrap ClassLoader:`
+- `Bootstrap ClassLoader:`
 Loads core Java classes (from rt.jar or the Java standard libraries).
-`Extension ClassLoader:`
+- `Extension ClassLoader:`
 Loads classes from the Java Extensions directory (lib/ext).
-`Application ClassLoader:`
+- `Application ClassLoader:`
 Loads classes from the application's classpath.
-`Working Process:`
+- `Working Process:`
 
 -It first checks if the class is already loaded.
 -If not, it delegates the task to its parent ClassLoader in a parent-delegation model.
