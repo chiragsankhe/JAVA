@@ -382,7 +382,7 @@ https://course.acciojob.com/idle?question=ca7446b3-0ba1-43a4-a460-56c8de96594a
 <h4>Distinct Palindromic SubStrings</h4>
 https://course.acciojob.com/idle?question=976cb4c0-3fca-47df-8cd3-59c58c474b05
 
-<h4></h4>
+<h4> today i solve 4 question from hackerrank  </h4>
 <h4></h4>
 <h4></h4>
 <h4></h4>
