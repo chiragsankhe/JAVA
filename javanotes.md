@@ -1540,12 +1540,13 @@ It is thread-safe, meaning all methods are synchronized, and it is suitable for 
 Due to synchronization, StringBuffer is slower than StringBuilder.
 + Key Differences Between StringBuilder and StringBuffer
 
-|Aspect|	|StringBuilder|	           |StringBuffer|
-|Thread-Safety|	|Not thread-safe (unsynchronized).|	|Thread-safe (synchronized).|
-|Performance|	|Faster because there is no synchronization overhead.|	|Slower due to synchronization overhead.|
-|Use Case|	|Single-threaded environments.|	|Multi-threaded environments.|
-|Introduced In|	|Java 1.5|	|Java 1.0|
-|Methods|	|Similar to StringBuffer but non-synchronized.|	|All methods are synchronized.|
+|Aspect|StringBuilder|StringBuffer|
+|--------------------|----------------------|--------------|
+|Thread-Safety	|Not thread-safe (unsynchronized).	|Thread-safe (synchronized).|
+|Performance	|Faster because there is no synchronization overhead.	|Slower due to synchronization overhead.|
+|Use Case	|Single-threaded environments.	|Multi-threaded environments.|
+|Introduced In	|Java 1.5	|Java 1.0|
+|Methods	|Similar to StringBuffer but non-synchronized.	|All methods are synchronized.|
 Example Code Comparison
 + Using StringBuilder:
 ```
