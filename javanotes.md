@@ -1538,12 +1538,13 @@ It is faster than StringBuffer because it does not incur the overhead of thread 
 StringBuffer is another class for creating and manipulating mutable strings.
 It is thread-safe, meaning all methods are synchronized, and it is suitable for multi-threaded environments where multiple threads may access or modify the string.
 Due to synchronization, StringBuffer is slower than StringBuilder.
-+Key Differences Between StringBuilder and StringBuffer
-|Aspect|	|StringBuilder|	|StringBuffer|
++ Key Differences Between StringBuilder and StringBuffer
+
+|Aspect|	|StringBuilder|	           |StringBuffer|
 |Thread-Safety|	|Not thread-safe (unsynchronized).|	|Thread-safe (synchronized).|
 |Performance|	|Faster because there is no synchronization overhead.|	|Slower due to synchronization overhead.|
 |Use Case|	|Single-threaded environments.|	|Multi-threaded environments.|
-|Introduced In|	|Java 1.5	|Java 1.0|
+|Introduced In|	|Java 1.5|	|Java 1.0|
 |Methods|	|Similar to StringBuffer but non-synchronized.|	|All methods are synchronized.|
 Example Code Comparison
 + Using StringBuilder:
