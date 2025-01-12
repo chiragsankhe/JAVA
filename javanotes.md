@@ -1530,6 +1530,94 @@ Numbers: 1 2 3 4 5
 ````
 
 
++ What is StringBuilder?
++ StringBuilder is a class used for creating and manipulating mutable strings in Java.
+It is not thread-safe, meaning it is not synchronized and is best suited for single-threaded environments.
+It is faster than StringBuffer because it does not incur the overhead of thread synchronization.
++What is StringBuffer?
+StringBuffer is another class for creating and manipulating mutable strings.
+It is thread-safe, meaning all methods are synchronized, and it is suitable for multi-threaded environments where multiple threads may access or modify the string.
+Due to synchronization, StringBuffer is slower than StringBuilder.
++Key Differences Between StringBuilder and StringBuffer
+|Aspect|	|StringBuilder|	|StringBuffer|
+|Thread-Safety|	|Not thread-safe (unsynchronized).|	|Thread-safe (synchronized).|
+|Performance|	|Faster because there is no synchronization overhead.|	|Slower due to synchronization overhead.|
+|Use Case|	|Single-threaded environments.|	|Multi-threaded environments.|
+|Introduced In|	|Java 1.5	|Java 1.0|
+|Methods|	|Similar to StringBuffer but non-synchronized.|	|All methods are synchronized.|
+Example Code Comparison
++ Using StringBuilder:
+```
+public class StringBuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+
+        sb.append(" World");
+        System.out.println("StringBuilder: " + sb);
+
+        sb.reverse();
+        System.out.println("Reversed: " + sb);
+    }
+}
+```
++ Using StringBuffer:
+```
+Copy code
+public class StringBufferExample {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("Hello");
+
+        sb.append(" World");
+        System.out.println("StringBuffer: " + sb);
+
+        sb.reverse();
+        System.out.println("Reversed: " + sb);
+    }
+}
+```
++ Performance Test
+```
+public class PerformanceTest {
+    public static void main(String[] args) {
+        // StringBuilder Test
+        long startTime = System.nanoTime();
+        StringBuilder sb = new StringBuilder("Hello");
+        for (int i = 0; i < 100000; i++) {
+            sb.append(" World");
+        }
+        long endTime = System.nanoTime();
+        System.out.println("StringBuilder Time: " + (endTime - startTime) + " ns");
+
+        // StringBuffer Test
+        startTime = System.nanoTime();
+        StringBuffer sbf = new StringBuffer("Hello");
+        for (int i = 0; i < 100000; i++) {
+            sbf.append(" World");
+        }
+        endTime = System.nanoTime();
+        System.out.println("StringBuffer Time: " + (endTime - startTime) + " ns");
+    }
+}
+```
++ When to Use Which?
++ `Use StringBuilder`:
+
+When thread-safety is not required (e.g., single-threaded applications).
+When performance is critical.
+
++ Use StringBuffer:
+
+When thread-safety is required (e.g., multi-threaded applications).
+
+
+
+
+
+
+
+
+
+
 
 
 
