@@ -1297,9 +1297,9 @@ String reversed = new StringBuilder(str).reverse().toString();
 13. Is String a primitive type or an object in Java?
 + String is an object in Java. Although it behaves like a primitive in some ways (e.g., String literals), it is actually a reference type backed by the String class.
 14. What are some best practices when working with strings in Java?
-+ Avoid using + for concatenation in loops: Instead, use StringBuilder for efficient string manipulation in loops.
-+ Use String.intern() cautiously: Only when you need to save memory and ensure unique string references.
-+ Use equals() for comparison: Avoid using == unless you are checking for reference equality.
++ `Avoid using + for concatenation in loops`: Instead, use StringBuilder for efficient string manipulation in loops.
++ `Use String.intern() cautiously`: Only when you need to save memory and ensure unique string references.
++ `Use equals() for comparison`: Avoid using == unless you are checking for reference equality.
 15. How would you check if a string contains only digits?
   
 +You can use a regular expression or the `Character.isDigit()` method to check if a string contains only digits.
@@ -1336,3 +1336,99 @@ int result = str1.compareTo(str2);  // Negative if str1 comes before str2, posit
 + The String class is declared as final to ensure that it cannot be subclassed, which preserves its immutability and security features.
 21. Can a String be subclassed in Java?
 No, String cannot be subclassed because it is a final class.
+
+####` Using equals()` Method (Content Comparison)
+The equals() method compares the actual content of two strings.
+
+```
+String str1 = "Hello";
+String str2 = "Hello";
+
+if (str1.equals(str2)) {
+    System.out.println("Strings are equal");
+} else {
+    System.out.println("Strings are not equal");
+}
+Case-Sensitive: The comparison considers case.
+"Hello".equals("hello") → false
+```
+ ####`Using equalsIgnoreCase()` Method (Case-Insensitive Comparison)
+The equalsIgnoreCase() method compares strings while ignoring case differences.
+
+java
+Copy code
+```
+String str1 = "Hello";
+String str2 = "hello";
+
+if (str1.equalsIgnoreCase(str2)) {
+    System.out.println("Strings are equal (ignoring case)");
+} else {
+    System.out.println("Strings are not equal");
+}
+```
+### `Using compareTo() Method (Lexicographical Order)`
+The `compareTo()` method compares two strings lexicographically:
+
++Returns 0 if the strings are equal.
++Returns a negative value if the first string comes before the second.
++Returns a positive value if the first string comes after the second.
+
+```
+String str1 = "Apple";
+String str2 = "Banana";
+
+int result = str1.compareTo(str2);
+
+if (result == 0) {
+    System.out.println("Strings are equal");
+} else if (result < 0) {
+    System.out.println("String 1 comes before String 2");
+} else {
+    System.out.println("String 1 comes after String 2");
+}
+```
+4. `Using == Operator` (Reference Comparison)
+The == operator checks if two string references point to the same memory location. It does not compare the content of the strings.
+
+
+```
+String str1 = "Hello";
+String str2 = new String("Hello");
+
+if (str1 == str2) {
+    System.out.println("References are the same");
+} else {
+    System.out.println("References are different");
+}
+```
+### Not Recommended: Use equals() instead for content comparison.
+Example Demonstration of All Methods:
+```
+public class StringComparison {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "hello";
+        String str3 = "Hello";
+
+        // Content comparison
+        System.out.println("Using equals(): " + str1.equals(str2)); // false
+        System.out.println("Using equals(): " + str1.equals(str3)); // true
+
+        // Case-insensitive comparison
+        System.out.println("Using equalsIgnoreCase(): " + str1.equalsIgnoreCase(str2)); // true
+
+        // Lexicographical comparison
+        System.out.println("Using compareTo(): " + str1.compareTo(str2)); // Negative because 'H' < 'h'
+
+        // Reference comparison
+        System.out.println("Using ==: " + (str1 == str3)); // true
+        System.out.println("Using ==: " + (str1 == new String("Hello"))); // false
+    }
+}
+```
+ ## Key Notes:
++ `Use equals()` for content comparison.
++ `Use equalsIgnoreCase()` for case-insensitive comparison.
++ `Use compareTo()` for sorting or lexicographical comparison.
++ Avoid using `==` for string comparison unless you explicitly want to check references.
