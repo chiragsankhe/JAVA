@@ -20,7 +20,7 @@ class Solution {
 ```
 ## 2
 + 26. Remove Duplicates from Sorted Array
-   ```
+```
    class Solution {
     public int removeDuplicates(int[] nums) {
 
@@ -39,7 +39,7 @@ class Solution {
         
     }
 }
-   ```   
+```   
 ## 3
 + 189. Rotate Array
 ```
