@@ -1618,13 +1618,13 @@ When thread-safety is required (e.g., multi-threaded applications).
 
 #### Bitwise Operators
 |Operator|	Name|	Description|
-|&	|Bitwise AND|	Performs a bitwise AND operation on two integers.|
-|"|"	|Bitwise OR||
-|^	|Bitwise XOR| 	Performs a bitwise XOR (exclusive OR) operation on two integers|.
-|~	|Bitwise Complement|	Inverts all the bits of an integer (1's complement).|
-|<<	|Left Shift|	Shifts bits to the left, filling zeros from the right.|
-|>>	|Right Shift|	Shifts bits to the right, preserving the sign bit (sign-extended).|
-|>>>	|Unsigned Right Shift|	Shifts bits to the right, filling zeros regardless of the sign.|
+|&	|Bitwise AND|    	Performs a bitwise AND operation on two integers.|
+|	|Bitwise OR|  perform bitwise OR opration on two integer|
+| ^	|Bitwise XOR| 	      Performs a bitwise XOR (exclusive OR) operation on two integers|.
+| ~	|Bitwise Complement|	Inverts all the bits of an integer (1's complement).|
+| <<	|Left Shift|	    Shifts bits to the left, filling zeros from the right.|
+| >>	|Right Shift|	     Shifts bits to the right, preserving the sign bit (sign-extended).|
+| >>>	|Unsigned Right Shift|	Shifts bits to the right, filling zeros regardless of the sign.|
 Examples
 + Bitwise `AND` `(&)`
 ```
