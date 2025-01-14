@@ -1612,6 +1612,77 @@ When performance is critical.
 When thread-safety is required (e.g., multi-threaded applications).
 
 
+## Bitwise oprators 
+
++ Bitwise operators in Java are used to perform bit-level operations on integers. These operators work directly with binary representations of numbers. Here's a detailed explanation of the bitwise operators:
+
+#### Bitwise Operators
+|Operator|	Name|	Description|
+|&	|Bitwise AND|	Performs a bitwise AND operation on two integers.|
+|"|"	|Bitwise OR||
+|^	|Bitwise XOR| 	Performs a bitwise XOR (exclusive OR) operation on two integers|.
+|~	|Bitwise Complement|	Inverts all the bits of an integer (1's complement).|
+|<<	|Left Shift|	Shifts bits to the left, filling zeros from the right.|
+|>>	|Right Shift|	Shifts bits to the right, preserving the sign bit (sign-extended).|
+|>>>	|Unsigned Right Shift|	Shifts bits to the right, filling zeros regardless of the sign.|
+Examples
++ Bitwise `AND` `(&)`
+```
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a & b;  // 0001 in binary (1 in decimal)
+System.out.println(result);
+
+// Output: 1
+```
++ Bitwise `OR` `(|)`
+```
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a | b;  // 0111 in binary (7 in decimal)
+System.out.println(result);
+ // Output: 7
+```
++ Bitwise `XOR` `(^)`
+```
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a ^ b;  // 0110 in binary (6 in decimal)
+System.out.println(result);
+ // Output: 6
+```
++ Bitwise `Complement` `(~)`
+```
+int a = 5;   // 0101 in binary
+int result = ~a;  // 1010 in binary (in 32-bit signed: -6)
+System.out.println(result);
+// Output: -6
+```
++ `Left Shift (<<)`
+```
+int a = 5;   // 0101 in binary
+int result = a << 2;  // 010100 in binary (20 in decimal)
+System.out.println(result);
+ // Output: 20
+```
++ `Right Shift (>>)`
+```
+int a = 5;   // 0101 in binary
+int result = a >> 1;  // 0010 in binary (2 in decimal)
+System.out.println(result);
+// Output: 2
+```
++ `Unsigned Right Shift (>>>)`
+```
+int a = -5;  // 11111111111111111111111111111011 in binary
+int result = a >>> 1;  // 01111111111111111111111111111101
+System.out.println(result);
+// Output: 2147483645
+```
++ Common Use Cases
++ `Low-level programming:` Hardware interaction, encryption, or compression algorithms.
++ `Performance optimization:` Fast calculations, such as multiplying/dividing by powers of 2.
++ `Setting and checking flags:` Using bit masks to represent multiple states in a single variable.
 
 
 
