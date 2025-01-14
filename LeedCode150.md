@@ -165,8 +165,81 @@ class Solution {
 }
 ```
 ## 8
-+
++ 125. Valid Palindrome
 ```
+class Solution {
+    public boolean isPalindrome(String s) {
+          // Step 1: Normalize the input string
+        s = s.toLowerCase(); // Convert to lowercase
+        s = s.replaceAll("[^a-z0-9]", ""); // Remove non-alphanumeric characters
+        
+        // Step 2: Check if the string is a palindrome
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start <= end) {
+            if (s.charAt(start) != s.charAt(end)) {
+                return false; // Not a palindrome
+            }
+            start++;
+            end--;
+        }
+
+        return true; 
+        }
+
+      
+        
+    }
+
 ```
 ## 9
++ 392. Is Subsequence
+```
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+      
+       if(s.length()>t.length()) return false;
+
+        if(s.length()==0) return true;
+
+        int index=0;
+        
+        for(int i=0;i<t.length();i++){
+            if(t.charAt(i)==s.charAt(index)){
+                if(index==s.length()-1) return true;
+                index++;
+            }
+        }
+        return false;
+    }
+}
+```
 ## 10
++ 80. Remove Duplicates from Sorted Array II
+```
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        
+        if(nums.length <=2)
+        {
+            return nums.length;
+        }
+
+        int k = 2 ;
+
+        for(int i = 2 ;i<nums.length;i++)
+        {
+            if(nums[i] != nums[k-2])
+            {
+                nums[k] = nums[i] ;
+                k++;
+            }
+        }
+        
+        return k;
+
+       
+    }
+}
+```
