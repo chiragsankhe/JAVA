@@ -1618,6 +1618,7 @@ When thread-safety is required (e.g., multi-threaded applications).
 
 #### Bitwise Operators
 |Operator|	Name|	Description|
+|--------|----------|--------------|
 |&	|Bitwise AND|    	Performs a bitwise AND operation on two integers.|
 |	|Bitwise OR|  perform bitwise OR opration on two integer|
 | ^	|Bitwise XOR| 	      Performs a bitwise XOR (exclusive OR) operation on two integers|.
@@ -1685,7 +1686,116 @@ System.out.println(result);
 + `Setting and checking flags:` Using bit masks to represent multiple states in a single variable.
 
 
+## Bit Manupulation 
 
++ Bit manipulation refers to the act of performing operations directly on bits, which are the binary representation of numbers. It is an efficient technique often used in competitive programming, low-level system design, and optimization tasks. Here's a comprehensive guide to common bit manipulation techniques and their applications:
+
++ Bit Representation
+Every integer in a computer is stored as a binary number:
+
+` 0 or 1 `
+For example:
+```
+Decimal 5 → Binary 0101
+Decimal 10 → Binary 1010
+```
++ Common Operations in Bit Manipulation
++ 1. Check if a Number is Odd or Even
++ `Logic:` If the last bit is 1, the number is odd; otherwise, it's even.
+```
+if ((n & 1) == 1) {
+    System.out.println("Odd");
+} else {
+    System.out.println("Even");
+}
+```
++ 2. Get the i-th Bit
++Logic: Use a mask 1 << i to isolate the bit.
+```
+int n = 5;  // Binary: 0101
+int i = 2;  
+boolean bit = (n & (1 << i)) != 0;
+System.out.println("The " + i + "-th bit is " + (bit ? "1" : "0"));  // Output: 1
+```
++ 3. Set the i-th Bit
++ Logic: Use a mask 1 << i with the OR operation.
+```
+int n = 5;  // Binary: 0101
+int i = 1;  
+n = n | (1 << i);
+System.out.println(n);  // Output: 7 (Binary: 0111)
+```
++ 4. Clear the i-th Bit
++ Logic: Use a mask ~(1 << i) with the AND operation.
+```
+int n = 5;  // Binary: 0101
+int i = 0;  
+n = n & ~(1 << i);
+System.out.println(n);  // Output: 4 (Binary: 0100)
+```
++ 5. Toggle the i-th Bit
++ Logic: Use a mask 1 << i with the XOR operation.
+```
+int n = 5;  // Binary: 0101
+int i = 2;  
+n = n ^ (1 << i);
+System.out.println(n);  // Output: 1 (Binary: 0001)
+```
++ 6. Count the Number of Set Bits (Hamming Weight)
+Logic: Repeatedly isolate and count the rightmost set bit.
+```
+int n = 5;  // Binary: 0101
+int count = 0;
+while (n > 0) {
+    count += (n & 1);
+    n >>= 1;
+}
+System.out.println(count);  // Output: 2
+```
++ 7. Check if a Number is a Power of 2
+Logic: A power of 2 has only one bit set.
+```
+if (n > 0 && (n & (n - 1)) == 0) {
+    System.out.println("Power of 2");
+} else {
+    System.out.println("Not a Power of 2");
+}
+```
++ 8. Reverse Bits of a Number
+```
+int n = 5;  // Binary: 0101
+int result = 0;
+for (int i = 0; i < 32; i++) {
+    result <<= 1;
+    result |= (n & 1);
+    n >>= 1;
+}
+System.out.println(result);
+```
+
++ 9. Find the Only Non-Repeated Element
+Logic: XOR all elements in an array. XOR cancels out duplicates.
+```
+int[] arr = {1, 2, 2, 3, 3};
+int result = 0;
+for (int num : arr) {
+    result ^= num;
+}
+System.out.println(result);  // Output: 1
+```
++ 10. Swap Two Numbers Without a Temporary Variable
+```
+int a = 5, b = 3;
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+System.out.println("a = " + a + ", b = " + b);  // Output: a = 3, b = 5
+```
+#### Applications of Bit Manipulation
++ `Competitive Programming:` Fast operations for power-of-2 checks, unique elements, and more.
++ `Cryptography:` Encryption algorithms often use bitwise operations.
++ `Graphics Processing: `Manipulate color channels (e.g., RGBA values).
++ `Memory Optimization:`Store multiple boolean values in a single integer using bits.
 
 
 
