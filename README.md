@@ -383,12 +383,26 @@ https://course.acciojob.com/idle?question=ca7446b3-0ba1-43a4-a460-56c8de96594a
 https://course.acciojob.com/idle?question=976cb4c0-3fca-47df-8cd3-59c58c474b05
 
 <h4> today i solve 4 question from hackerrank  </h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h2>sorting</h2>
+
+<h4>Bubble sort </h4>
+https://course.acciojob.com/idle?question=04c51a0a-2136-40da-8738-c391d6a9ef8f
+
+<h4>Bubble Sort Problem</h4>
+https://course.acciojob.com/idle?question=3dcb9b48-c49e-418c-a0d3-8d5fdc68c799
+
+<h4>Smallest Greater Elements - Bubble Sort</h4>
+https://course.acciojob.com/idle?question=878481a2-35da-4f24-85ed-13c333ca59d3
+
+<h4>Implementing Selection Sort </h4>
+https://course.acciojob.com/idle?question=90ddafa3-7d35-44c4-be3d-82da7034485c
+
+<h4>Index of the target element after sorting</h4>
+https://course.acciojob.com/idle?question=dae84631-350d-419f-b7b8-cbbc13ce1eff
+
+<h4>Insertion Sort</h4>
+https://course.acciojob.com/idle?question=320e3d1b-7900-4e66-b6b9-46667cbdf2c4
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
