@@ -1799,6 +1799,95 @@ System.out.println("a = " + a + ", b = " + b);  // Output: a = 3, b = 5
 
 ## Recursion 
 
++ Recursion is a fundamental concept in programming where a function calls itself to solve smaller instances of a problem.
++ It's especially useful for problems that can be broken into smaller subproblems of the same type. Here's a breakdown of the basics:
+
++ Key Components of Recursion
++ `Base Case:`
+The condition that stops the recursion.
+Without a base case, the recursion will run indefinitely and lead to a stack overflow.
+Example:
+```
+if (n == 0) return;
+```
++ `Recursive Case:`
+
+The part of the function where it calls itself with a smaller or simpler input.
+This reduces the problem's complexity in each step, bringing it closer to the base case.
+Example:
+```
+recursiveFunction(n - 1);
+```
++ Structure of a Recursive Function
+```
+void recursiveFunction(parameters) {
+    // Base Case
+    if (condition to stop recursion) {
+        return;
+    }
+
+    // Recursive Case
+    recursiveFunction(modified parameters);
+}
+```
+Examples
+
++ Example 1: Printing Numbers from 1 to N
+```
+void printNumbers(int n) {
+    // Base Case
+    if (n == 0) return;
+
+    // Recursive Case
+    printNumbers(n - 1);
+
+    // Action after recursive call
+    System.out.println(n);
+}
+```
+```
+Input:
+printNumbers(5);
+Output:
+
+1
+2
+3
+4
+5
+```
++ Example 2: Factorial of a Number
+```
+int factorial(int n) {
+    // Base Case
+    if (n == 0) return 1;
+
+    // Recursive Case
+    return n * factorial(n - 1);
+}
+```
+```
+Input:
+System.out.println(factorial(5));
+Output:
+120
+```
+##### Advantages of Recursion
++ Simplifies code for problems involving repetitive tasks, like:
++ Traversing trees (binary trees, etc.).
++ Solving mathematical problems (factorials, Fibonacci series).
++ Breaking problems into smaller subproblems (divide-and-conquer).
+##### Disadvantages of Recursion
++ `Performance:` Each recursive call consumes stack space.
+Can lead to stack overflow if not implemented correctly.
++ `Debugging:`Can be harder to debug compared to iterative solutions.
++ When to Use Recursion
+When the problem can naturally be divided into smaller, similar problems.
+Examples:
++ Searching algorithms (e.g., binary search).
++ Sorting algorithms (e.g., quicksort, merge sort).
++ Tree and graph traversals.
+
 ```
 import java.util.*;
 import java.lang.*;
