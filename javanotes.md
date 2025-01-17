@@ -1797,10 +1797,57 @@ System.out.println("a = " + a + ", b = " + b);  // Output: a = 3, b = 5
 + `Graphics Processing: `Manipulate color channels (e.g., RGBA values).
 + `Memory Optimization:`Store multiple boolean values in a single integer using bits.
 
+## Recursion 
 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
+public class Main
+{
+	static void printNum(int start, int end,int sum)
+	{
+		
+		if(start == end ) {
+		  sum += start;
+		System.out.print(sum);
+		return ;
+		}
 
+		   sum = sum + start;
+        printNum(start + 1, end , sum);
+		
+	}
 
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+		int s = scn.nextInt();
+		int e = scn.nextInt();
+
+		printNum(s,e,0);
+	}
+}
+```
+```
+input
+1 5
+
+output
+
+15
+```
+explain
+```
+0+1 = 1
+1+2 = 3
+3=3 = 6
+6+4 = 10
+10+5 = 15
+ 
+        
+```
 
 
 
