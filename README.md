@@ -403,17 +403,117 @@ https://course.acciojob.com/idle?question=dae84631-350d-419f-b7b8-cbbc13ce1eff
 <h4>Insertion Sort</h4>
 https://course.acciojob.com/idle?question=320e3d1b-7900-4e66-b6b9-46667cbdf2c4
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4> Insertion Sort 2</h4>
+// import java.util.*;
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4><h4></h4>
-<h4></h4>
+// public class Main {
+
+//     public static void insertionSort(int arr[], int n) {
+//         // write code here
+
+// 		for(int fixidx = 1 ;fixidx <n;fixidx++)
+// 			{
+// 				int ele = arr[fixidx];
+// 				int i = fixidx -1 ;
+
+// 				while(i>=0 && ele<arr[i])
+// 					{
+// 						arr[i+1] = arr[i];
+// 						i--;
+// 					}
+// 				arr[i+1 ] = ele;
+
+// 				for(int j = 0 ;j<n ;j++)
+// 					{
+// 						System.out.print(arr[j] +" ");
+// 					}
+// 				System.out.println();
+				
+// 			}
+		
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int[] arr = new int[n];
+//         for (int i = 0; i < n; i++) {
+//                 arr[i] = sc.nextInt();
+//         }
+//         insertionSort(arr, n);
+		
+//     }
+// }
+
+
+// ---------------------------------------------------
+
+import java.util.*;
+```
+class Main{
+	static void insertionSort(int arr[],int n )
+	{
+		for(int i = 1 ;i<n;i++)
+		{
+			
+		    int current = arr[i];
+			int j = i-1;
+			while(j>=0 && current <arr[j])
+			{
+				arr[j+1] = arr[j];
+				j--; 
+			}
+			arr[j+1] = current;
+			for(int k = 0 ;k<n;k++)
+			{
+				System.out.print(arr[k]+" ");
+			}
+			System.out.println();
+		}
+	} 
+	public static void main(String args[])
+{
+	Scanner scn = new Scanner(System.in);
+	int n = scn.nextInt();
+	int arr[] = new int[n];
+
+	for(int i = 0 ;i<n;i++)
+	{
+		arr[i] = scn.nextInt();
+	}
+	
+	insertionSort(arr,n);
+}
+}
+```
+<h4>  0-1-2 Sorting </h4>
+https://course.acciojob.com/idle?question=43cbf0f5-2018-4c7f-9d18-561f8112b399
+
+<h4>0-1 Sorting </h4>
+https://course.acciojob.com/idle?question=80705e86-341b-4e37-92e5-6c828e51c5be
+
+<h4> Even Odd Sorting </h4>
+https://course.acciojob.com/idle?question=85d55467-e92a-4b18-9cac-1341101a3b0b
+
+<h4> AS Sorting Problem 5</h4>
+https://course.acciojob.com/idle?question=c0db2b0b-a5c5-4c27-8004-e80d6489505d
+
+<h4> Largest Number</h4>
+https://course.acciojob.com/idle?question=fa62af5b-0c64-410d-b84a-c8197a9cef79
+
+<h4>Strange String</h4>
+https://course.acciojob.com/idle?question=45c7b193-3582-4507-858f-5c83e005c215
+<h4> ASCII string</h4>
+https://course.acciojob.com/idle?question=28d1ea97-2f8e-4dbc-b72b-4af334a16474
+
+<h4>Ultra Fast Mathematician</h4>
+https://course.acciojob.com/idle?question=e4aa3577-4101-4810-92d5-5a5b59b99bc4
+<h4>AJ Number</h4>
+https://course.acciojob.com/idle?question=d5a614f4-6a57-4934-bf7a-a0eeefdf846b
+
+<h4>Array Swaps</h4>
+https://course.acciojob.com/idle?question=17c4d76b-481a-4cf3-b2e2-32b621c6c270
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
