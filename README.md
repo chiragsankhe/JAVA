@@ -433,21 +433,46 @@ https://course.acciojob.com/idle?question=d5a614f4-6a57-4934-bf7a-a0eeefdf846b
 
 <h4>Array Swaps</h4>
 https://course.acciojob.com/idle?question=17c4d76b-481a-4cf3-b2e2-32b621c6c270
+<h2> Recursion</h2>
+<h4>Print the pattern</h4>
+https://course.acciojob.com/idle?question=4264540d-6f27-44db-b1ac-04aafebb025d
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4><h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Sum of natural numbers</h4>
+https://course.acciojob.com/idle?question=6e19b00c-df61-4125-902c-f479f6b242d2
 
-<h4></h4>
+<h4>Recursively Print Numbers In Reverse</h4>
+https://course.acciojob.com/idle?question=34242f92-0003-498c-ae32-f60bb7411763
+
+<h4>Decrease Print Increase Print</h4>
+https://course.acciojob.com/idle?question=1b4cd50f-dd70-4e3a-a7b9-eb5b95a4c1e6
+
+<h4>Recursive Multiplication</h4>
+https://course.acciojob.com/idle?question=04fc9c68-b5bc-45fd-a894-2818207deae8
+
+<h4>Product of natural numbers</h4>
+https://course.acciojob.com/idle?question=346dcf47-f0b0-48b9-9e25-c0a004837b34
+
+<h4>Recursive Fibonacci</h4>
+https://course.acciojob.com/idle?question=af01e904-d5e6-4709-a91b-38f6819ae8ee
+
+<h4>Nth Even Fibonacci Number</h4>
+https://course.acciojob.com/idle?question=b9ab1535-75ae-4b9f-b6ca-a1ae2429d630
+<h4>Print between X & Y</h4>
+https://course.acciojob.com/idle?question=bdc0d059-aaf9-453d-99c2-85954998dc00
+
+<h4>Recursively Print Numbers</h4>
+https://course.acciojob.com/idle?question=bfe561c3-a478-4769-8fd0-b614f4e0a9c4
+
+<h4>power calculation</h4>
+https://course.acciojob.com/idle?question=e556af86-9b3a-48a9-92ab-5905139c9d24
+
+<h4>Optimized power calculation</h4>
+https://course.acciojob.com/idle?question=f1316d07-891c-4d64-99d9-fccb4a8f940c
+
+<h4>Factorial Recursively</h4>
+https://course.acciojob.com/idle?question=f661b0e4-7bc4-469b-b148-8b77c9bca468
+
+<h4> </h4>
 <h4></h4>
 <h4></h4>
 <h4></h4>
