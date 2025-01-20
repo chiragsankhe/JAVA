@@ -477,16 +477,36 @@ https://course.acciojob.com/idle?question=cb2cd5ce-46df-4bea-9ea6-12902858badf
 
 <h4>Tower of Hanoi</h4>
 https://course.acciojob.com/idle?question=e70008e8-edb4-469a-86bf-1c07fd728967
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Print Array Recursively</h4>
+https://course.acciojob.com/idle?question=249da881-b2a3-45a9-9e10-8b74832fb0b9
+
+<h4>Sum of Array elements using recursion</h4>
+https://course.acciojob.com/idle?question=5689bae3-022f-40f8-b89f-a118f520c45f
+
+<h4>Find Indices</h4>
+https://course.acciojob.com/idle?question=48393cbc-c66a-4f0f-8aae-2877b87f7416
+
+<h4>Print Reverse Array Recursively</h4>
+https://course.acciojob.com/idle?question=65eafce1-0855-4edb-a0be-6907192010ca
+
+<h4>Smallest Number in an Array using Recursion</h4>
+https://course.acciojob.com/idle?question=8c8b34c5-be46-4d9c-9a68-51dcc9542b0b
+
+<h4>Array11</h4>
+https://course.acciojob.com/idle?question=fad89b8e-c73f-4a75-9de6-a5b045e60394
+
+<h4>Last Occurence Index</h4>
+https://course.acciojob.com/idle?question=fbaf4602-2548-4ec7-83ee-aa74c66fe931
+
+<h4>First Occurence Index</h4>
+https://course.acciojob.com/idle?question=19c1d7f8-13a4-4da2-83d3-4164bacb02c5
+
+<h4>Check whether Array is a Palindrome using Recursion</h4>
+https://course.acciojob.com/idle?question=4fd07c50-1cdf-488e-befd-e68b4b371c24
+
+<h4>Maximum of Array</h4>
+https://course.acciojob.com/idle?question=400e860f-4061-4caa-bc11-0b2cf75c100e
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
