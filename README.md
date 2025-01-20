@@ -521,9 +521,16 @@ https://course.acciojob.com/idle?question=14c3baa4-93a7-4706-9180-505cf8635f43
 
 <h4>No X</h4>
 https://course.acciojob.com/idle?question=2aff4e35-b341-4902-b262-4c095ed174f9
-<h4></h4>
-<h4></h4>
-<h4></h4>
+
+<h4>PairStar</h4>
+https://course.acciojob.com/idle?question=308cc4cd-d7e7-4df0-a378-6fcbf1cbca5f
+
+<h4>Count X in a string</h4>
+https://course.acciojob.com/idle?question=9123c554-21a6-4a1a-a824-e7fd6e851d65
+
+<h4>String Palindrome</h4>
+https://course.acciojob.com/idle?question=b63a6d2a-0420-4244-a101-07df0a98872f
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
