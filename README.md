@@ -507,10 +507,18 @@ https://course.acciojob.com/idle?question=4fd07c50-1cdf-488e-befd-e68b4b371c24
 <h4>Maximum of Array</h4>
 https://course.acciojob.com/idle?question=400e860f-4061-4caa-bc11-0b2cf75c100e
 
-<h4></h4>
-<h4></h4>
-<h4></h4>
-<h4></h4>
+<h4>Count 1</h4>
+https://course.acciojob.com/idle?question=f9f01de4-0294-49d9-b5fb-8bc59cf088ab
+
+<h4>Count 7</h4>
+https://course.acciojob.com/idle?question=de4d436a-d8e4-4b59-ba91-a2d138d040a4
+
+<h4>Find Digit Sum</h4>
+https://course.acciojob.com/idle?question=ff2bc0d6-e2d3-40ae-99b0-a585940c872b
+
+<h4>Find Number of Digits</h4>
+https://course.acciojob.com/idle?question=14c3baa4-93a7-4706-9180-505cf8635f43
+
 <h4></h4>
 <h4></h4>
 <h4></h4>
