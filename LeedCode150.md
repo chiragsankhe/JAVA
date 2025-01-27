@@ -243,7 +243,8 @@ class Solution {
     }
 }
 ```
-## 80. Remove Duplicates from Sorted Array II
+## 11
++ 80. Remove Duplicates from Sorted Array II
 ```
 class Solution {
     public int removeDuplicates(int[] nums) {
@@ -275,7 +276,8 @@ class Solution {
     }
 }
 ```
-## 80. Remove Duplicates from Sorted Array II
+## 12
++ 80. Remove Duplicates from Sorted Array II
 ```
 class Solution {
     public int removeDuplicates(int[] nums) {
@@ -307,4 +309,28 @@ class Solution {
     }
 }
 
+```
+## 13
++ 55. Jump Game
+```
+class Solution {
+    public boolean canJump(int[] nums) {
+      int maxReachable = 0; // The farthest index we can reach
+
+        for (int i = 0; i < nums.length; i++) {
+            // If the current index is beyond the farthest reachable index, return false
+            if (i > maxReachable) {
+                return false;
+            }
+            // Update the farthest reachable index
+            maxReachable = Math.max(maxReachable, i + nums[i]);
+            // If we can reach or surpass the last index, return true
+            if (maxReachable >= nums.length - 1) {
+                return true;
+            }
+        }
+        return false;
+      
+    }
+}
 ```
