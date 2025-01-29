@@ -495,3 +495,42 @@ public class Main
 	}
 }
   ```
+#### 19
++ x^n  10^3
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static int solve(int n , int num)
+		{
+			if(n==0) return 1;
+
+			if(num==0) return 0;
+
+             int xpowern = solve(n-1,num);
+			 int power = num * xpowern;
+
+			 return power;
+
+		
+		}
+
+	public static void main(String args[])
+	{
+		
+
+		Scanner scn = new Scanner(System.in);
+        int num = scn.nextInt();
+		int n = scn.nextInt();
+		
+        
+		int ans=  solve(n ,num);
+
+		System.out.println(ans);
+		
+
+	}
+}
+```
