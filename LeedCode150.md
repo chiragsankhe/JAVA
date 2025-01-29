@@ -534,3 +534,46 @@ class Main{
 	}
 }
 ```
+
++ optimize solution of 19
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static int solve(int n , int num)
+		{
+			if(n==0) return 1;
+
+			if(num==0) return 0;
+
+            if(n%2 == 0)
+			{
+				return solve(n/2,num) *  solve(n/2,num); 
+			} 
+			else 
+			{
+				return  solve(n/2,num) *  solve(n/2,num) *num ;
+			}
+			
+		
+		}
+
+	public static void main(String args[])
+	{
+		
+
+		Scanner scn = new Scanner(System.in);
+        int num = scn.nextInt();
+		int n = scn.nextInt();
+		
+        
+		int ans=  solve(n ,num);
+
+		System.out.println(ans);
+		
+
+	}
+}
+```
