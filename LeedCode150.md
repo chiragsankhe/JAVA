@@ -465,3 +465,33 @@ class Solution {
     }
 }
 ```
+#### 18
++ fibonacci from 0 to n
+  ```
+  import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static void solve(int a, int b ,int n)
+	{
+		if(n==0) return ;
+		int c = a+b;
+		System.out.println(c);
+	    solve(b,c,n-1);
+	}
+
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		int a = 0;
+		int b = 1;
+          System.out.println(a);
+		  System.out.println(b);
+		solve( a , b , n-2);
+	}
+}
+  ```
