@@ -467,7 +467,7 @@ class Solution {
 ```
 #### 18
 + fibonacci from 0 to n
-  ```
+```
   import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -494,7 +494,7 @@ public class Main
 		solve( a , b , n-2);
 	}
 }
-  ```
+```
 #### 19
 + x^n  10^3
 ```
