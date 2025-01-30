@@ -621,3 +621,31 @@ output
 1 S to D
 
 ```
+#### 21
++ reverse string
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static void reverseString(String str , int len)
+	{
+         if(len == 0 ) return;
+		 char ch = str.charAt(len-1);
+		System.out.print(ch);
+		reverseString(str,len-1);
+	}
+
+	public static void main(String args[])
+	{
+		Scanner scn = new Scanner(System.in);
+       String str = scn.nextLine();
+
+	   int len = str.length();
+
+	   reverseString(str,len);
+	   
+}
+}
+``` 
