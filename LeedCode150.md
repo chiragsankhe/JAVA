@@ -577,3 +577,47 @@ class Main{
 	}
 }
 ```
+#### 20 
++ tover of hanoi
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static void solve(int n , String start , String end , String helper )
+		{ if(n == 1) {
+		System.out.println( n + " " + start +" to " + end);
+		return;
+		}
+           
+		   solve(n-1,start,helper ,end);
+		   System.out.println(n + " "+ start +" to "+ end );
+		   solve(n-1, helper , end ,start );
+		
+		}
+
+	public static void main(String args[])
+	{
+		Scanner scn = new Scanner(System.in);
+       int n = scn.nextInt();
+
+	   solve(n,"S","D","H");
+	}
+}
+```
+input
+```
+3
+```
+output
+```
+1 S to D
+2 S to H
+1 D to H
+3 S to D
+1 H to S
+2 H to D
+1 S to D
+
+```
