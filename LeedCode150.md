@@ -648,4 +648,104 @@ class Main{
 	   
 }
 }
-``` 
+```
+#### 22
++ frist and last occurence 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static int frist = -1;
+	static int last = -1;
+	static void firstlastoccurence(String str , int len, char ele)
+	{ 
+		if(len == 0) {
+		System.out.println(frist);
+		System.out.println(last);
+		 return;
+		}
+
+		
+		   char currentEle = str.charAt(len-1);
+
+              if(currentEle == ele)
+			  {
+				 if(frist == -1)
+	         	  {
+	        		frist = len-1;
+	        	  }
+		        else
+		         {
+		        	last = len-1;
+		         }
+			  }
+
+			    firstlastoccurence(str,len-1,ele);
+
+	}
+
+	public static void main(String args[])
+	{
+		Scanner scn = new Scanner(System.in);
+       String str = scn.nextLine();
+	   scn.close(); // Close scanner to prevent memory leak
+
+	   int len = str.length();
+    
+
+	 firstlastoccurence(str,len,'a');
+	   
+}
+}
+```
+#### 23 
++ incresing array 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+
+	static boolean incresingarray(int arr[],int n,int index )
+	{
+		if(index == n-1) return true;
+
+
+          if(arr[index]>=arr[index+1])
+		  {
+			return false;
+		  }
+
+		return  incresingarray(arr,n,index+1);
+
+	}
+	
+
+	public static void main(String args[])
+	{
+		Scanner scn = new Scanner(System.in);
+        
+		int n = scn.nextInt();
+
+		int arr[] = new int[n];
+		for(int i= 0 ;i<n;i++)
+		{
+			arr[i] = scn.nextInt();
+		}
+
+	   boolean ans =	incresingarray(arr , n , 0);
+
+	   if(ans)
+	   {
+		System.out.println("true");
+	   }
+	   else
+	   {
+		System.out.println("false");
+	   }
+}
+}
+```
