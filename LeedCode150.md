@@ -839,4 +839,60 @@ class Main{
 }
 }
 ```
+##### 25 
++ subsquence
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
+class Main{
+	static void subsquence(String str , int idx , String newString)
+	{
+		if(idx == str.length())
+		{
+          System.out.println(newString);
+		 return;
+		}
+
+		char ch = str.charAt(idx);
+		subsquence(str,idx+1,newString+ch);
+
+		subsquence(str,idx+1,newString);
+	}
+		public static void main(String args[])
+	{
+
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next();	
+
+       subsquence(str,0,"");
+
+
+}
+}
+```
+input 
+```
+abcd
+```
+output
+```
+abcd
+abc
+abd
+ab
+acd
+ac
+ad
+a
+bcd
+bc
+bd
+b
+cd
+c
+d
+
+
+```
