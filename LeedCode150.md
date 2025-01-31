@@ -839,7 +839,7 @@ class Main{
 }
 }
 ```
-##### 25 
+##### 26
 + subsquence
 ```
 import java.util.*;
@@ -872,6 +872,69 @@ class Main{
 }
 }
 ```
+input 
+```
+abcd
+```
+output
+```
+abcd
+abc
+abd
+ab
+acd
+ac
+ad
+a
+bcd
+bc
+bd
+b
+cd
+c
+d
+
+
+```
+#### 27 
++ unique subseqence
+```
+import java.util.*;
+
+class Main {
+    static void uniqueSubsequence(String str, int idx, String newString, HashSet<String> set) {
+        if (idx == str.length()) {
+            if (set.contains(newString)) {
+                return;
+            } else {
+                System.out.println(newString);
+                set.add(newString);
+            }
+            return; // ✅ Important! Prevents out-of-bounds access
+        }
+
+        char ch = str.charAt(idx);
+        
+        // Include the current character
+        uniqueSubsequence(str, idx + 1, newString + ch, set);
+
+        // Exclude the current character
+        uniqueSubsequence(str, idx + 1, newString, set);
+    }
+
+    public static void main(String args[]) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String str = scn.next();
+        scn.close(); // ✅ Close Scanner to prevent memory leaks
+
+        HashSet<String> set = new HashSet<>();
+        uniqueSubsequence(str, 0, "", set);
+    }
+}
+
+```
+
 input 
 ```
 abcd
