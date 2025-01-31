@@ -749,3 +749,94 @@ class Main{
 }
 }
 ```
+#### 24 
++ moveX
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	
+	static int count = 0 ;
+	 
+	static void moveX(String str,int index)
+	{
+		if(index == str.length()) return;
+
+		char ch = str.charAt(index);
+		if(ch != 'x')
+		{
+			System.out.print(ch);
+		}
+		else
+		{
+			count++;
+		}
+         
+	moveX(str,index+1);	 
+
+	}
+	public static void main(String args[])
+	{
+		Scanner scn = new Scanner(System.in);
+        
+		String str = scn.next();
+
+		 str = str.toLowerCase();
+	     	scn.close();
+
+		moveX(str,0);
+
+		for(int i = 0 ;i<count;i++)
+		{
+			System.out.print("x");
+		}
+		
+}
+}
+```
+#### 25 
++ removeDuplicate
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+	static boolean map[] = new boolean[26];
+	
+	static void removeDuplicate(String str,int idx ,String newString )
+	{
+       if(idx == str.length())
+	   {
+		System.out.print(newString);
+		return;
+	   }
+	   char ch = str.charAt(idx);
+
+	   if(map[ch -'a'])
+	   {
+           removeDuplicate( str, idx+1,newString );
+	   }
+	   else
+	   {
+		newString += ch;
+		map[ch- 'a'] = true;
+		removeDuplicate( str, idx+1,newString );
+
+	   }
+	}
+	public static void main(String args[])
+	{
+
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next();	
+
+        removeDuplicate(str,0,"");
+
+
+}
+}
+```
+
