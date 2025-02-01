@@ -959,3 +959,60 @@ d
 
 
 ```
+
+#### 28
++ keypad
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.HashSet;
+
+class Main{
+
+	static String map[] = {".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+
+	static void keypad(String str , int idx , String combination)
+	{
+		if(idx == str.length()) 
+		{
+			System.out.println(combination);
+			return ;
+		}
+
+		char ch = str.charAt(idx);
+		String mapping = map[ch-'0'];
+
+		for(int i = 0 ;i<mapping.length();i++)
+		{
+             keypad(str , idx+1 , combination + mapping.charAt(i));
+		}
+	}
+ 	
+		public static void main(String args[])
+	{
+
+		Scanner scn = new Scanner(System.in);
+		String str = "23";
+
+		keypad(str,0,"");
+
+
+
+}
+}
+```
+
+output
+```
+dg
+dh
+di
+eg
+eh
+ei
+fg
+fh
+fi
+
+```
