@@ -1045,3 +1045,112 @@ class Solution {
 
 }
 ```
+#### 30 
++ all perutation
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static void printprem(String s , String permulation)
+	{
+		if(s.length() == 0 ) 
+		{
+			System.out.println(permulation);
+			return;
+		}
+
+		System.out.println(permulation);
+
+         
+		for(int i = 0 ;i<s.length();i++)
+		{
+			char ch = s.charAt(i);
+			String newSting = s.substring(0,i) + s.substring(i+1);
+			printprem(newSting , permulation + ch );
+		}
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		String s = scn.next();
+
+		printprem(s,"");
+	}
+}
+```
+input 
+```
+abc
+```
+output
+```
+
+a
+ab
+abc
+ac
+acb
+b
+ba
+bac
+bc
+bca
+c
+ca
+cab
+cb
+cba
+
+```
+## 30 
++ permulation
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static void printprem(String s , String permulation)
+	{
+		if(s.length() == 0 ) 
+		{
+			System.out.println(permulation);
+			return;
+		}
+         
+		for(int i = 0 ;i<s.length();i++)
+		{
+			char ch = s.charAt(i);
+			String newSting = s.substring(0,i) + s.substring(i+1);
+			printprem(newSting , permulation + ch );
+		}
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		String s = scn.next();
+
+		printprem(s,"");
+	}
+}
+```
+input 
+```
+abc
+```
+output 
+```
+abc
+acb
+bac
+bca
+cab
+cba
+
+```
