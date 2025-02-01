@@ -1016,3 +1016,32 @@ fh
 fi
 
 ```
+## 29
++ 3. Longest Substring Without Repeating Characters
+```
+class Solution {
+    
+    public int lengthOfLongestSubstring(String s) {
+        
+        HashSet<Character> set = new HashSet<>();
+
+        int left = 0 ; int maxlength = 0 ;
+
+        for(int i = 0 ;i<s.length();i++)
+        {
+            char rightchar = s.charAt(i);
+            while(set.contains(rightchar))
+            {
+                set.remove(s.charAt(left));
+                left++;
+            }
+
+            set.add(rightchar);
+            maxlength = Math.max(maxlength,i - left + 1);
+        }
+
+        return maxlength;
+    }
+
+}
+```
