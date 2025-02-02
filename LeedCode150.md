@@ -1200,3 +1200,52 @@ output
 ```
 6
 ```
+
+#### 32 
++ tile & floor 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static int tile_floor(int n , int m )
+	{
+		if(n<m) return 1;
+
+		if(n==m) return 2;
+		int verplacement = tile_floor(n-m,m);
+
+	    int horplacement = tile_floor(n-1,m);
+
+		return verplacement + horplacement;
+
+	
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		int m = scn.nextInt();
+
+
+       int ans =  tile_floor(n , m );
+	   System.out.print(ans);
+
+
+	}
+}
+```
+input 
+```
+n = 4
+m = 2 
+```
+
+output 
+```
+5
+```
