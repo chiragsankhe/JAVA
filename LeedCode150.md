@@ -1154,3 +1154,49 @@ cab
 cba
 
 ```
+### 31
++ maze path matrix problem 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static int countpath(int i , int j , int n , int m )
+	{
+		if(i == n || j == m ) return 0;
+
+		if(i == n-1 && j == m-1 ) return 1;
+
+		int downpaths = countpath(i+1,j, n, m);
+
+		int rightpath = countpath(i, j+1,n ,m );
+
+		return downpaths + rightpath;
+
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		int m = scn.nextInt();
+
+
+           int ans = countpath(0,0, n, m);
+
+		   System.out.print(ans);
+
+	}
+}
+```
+input 
+```
+3 3 
+```
+output 
+```
+6
+```
