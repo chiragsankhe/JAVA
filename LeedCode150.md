@@ -1285,3 +1285,81 @@ public class Main
 	}
 }
 ```
+
+### 34 
++ subset
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static void printsubset(ArrayList<Integer> subset)
+	{
+		for(int i = 0 ;i<subset.size();i++)
+		{
+			System.out.print(subset.get(i)+ "");
+
+		}
+		System.out.println();
+	}
+
+	static void findsubsets(int n , ArrayList<Integer> subset )
+	{
+
+		if(n == 0 )
+		{
+			printsubset(subset);
+			return;
+
+		} 
+		subset.add(n);
+		findsubsets(n-1,subset);
+
+		subset.remove(subset.size()-1);
+		findsubsets(n-1,subset);	
+		
+	}
+	
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		
+		ArrayList<Integer> subset = new ArrayList<>();
+		findsubsets(n,subset);
+
+		
+
+
+
+	}
+}
+```
+input 
+```
+4
+```
+output 
+```
+4321
+432
+431
+43
+421
+42
+41
+4
+321
+32
+31
+3
+21
+2
+1
+
+
+```
