@@ -1249,3 +1249,39 @@ output
 ```
 5
 ```
+#### 33
++ find the number of way in which you can invite n people to your party .single or in pair
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	static int  callguest(int n )
+	{
+		if(n <= 1 ) return 1;
+
+		int single = callguest(n-1);
+
+		int pair = (n-1) * callguest(n-2);
+
+		return single + pair ;
+	}
+	
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		
+		int ans = callguest(n);
+
+		System.out.println(ans);
+
+
+
+	}
+}
+```
