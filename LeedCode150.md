@@ -1643,3 +1643,32 @@ class Solution {
     }
 }
 ```
+#### 39
++ 122. Best Time to Buy and Sell Stock 2
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0 ;
+
+        for(int price : prices)
+        {
+            if(price < minprice)
+            {
+                minprice = price;
+            }
+            else 
+            {
+                int profit = price - minprice ;
+                maxprofit += profit ;
+                minprice = price;
+            }
+        }
+
+        return maxprofit;
+        
+    }
+}
+```
+
