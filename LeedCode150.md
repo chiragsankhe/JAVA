@@ -1363,3 +1363,133 @@ output
 
 
 ```
+#### 35
++ merge sort 
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main {
+    static void conqure(int arr[], int si, int mid, int ei) {
+        int merged[] = new int[ei - si + 1];
+
+        int idx1 = si;
+        int idx2 = mid + 1; // Fix: idx2 should start from mid + 1
+        int x = 0;
+
+        while (idx1 <= mid && idx2 <= ei) {
+            if (arr[idx1] < arr[idx2]) {
+                merged[x++] = arr[idx1++];
+            } else {
+                merged[x++] = arr[idx2++];
+            }
+        }
+
+        while (idx1 <= mid) {
+            merged[x++] = arr[idx1++];
+        }
+
+        while (idx2 <= ei) {
+            merged[x++] = arr[idx2++];
+        }
+
+        for (int i = 0, j = si; i < merged.length; i++, j++) { // Fix: Start from 'si'
+            arr[j] = merged[i];
+        }
+    }
+
+    static void divide(int arr[], int si, int ei) {
+        if (si >= ei) return;
+
+        int mid = si + (ei - si) / 2;
+        divide(arr, si, mid);
+        divide(arr, mid + 1, ei);
+        conqure(arr, si, mid, ei);
+    }
+
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner scn = new Scanner(System.in);
+
+        int n = scn.nextInt();
+        int arr[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        divide(arr, 0, n - 1);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+```
+
+### 36
++ quick sort 
+```
+import java.util.*;
+
+public class Main {
+
+    static int position(int arr[], int low, int high) {
+        int pivot = arr[high];  // Choose pivot as the last element
+        int i = low - 1;         // Pointer for smaller elements
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;  
+                // Swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Swap pivot with the element at i+1 (correct position)
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1; // Return the correct pivot index
+    }
+
+    static void quickSort(int arr[], int low, int high) {
+        if (low < high) {
+            int pidx = position(arr, low, high);
+
+            quickSort(arr, low, pidx - 1);  // Sort left partition
+            quickSort(arr, pidx + 1, high); // Sort right partition
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int arr[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        quickSort(arr, 0, n - 1);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+```
+input 
+```
+6
+2 8 7 9 3 4
+```
+output 
+```
+2 3 4 7 8 9
+```
