@@ -1493,3 +1493,153 @@ output
 ```
 2 3 4 7 8 9
 ```
+#### 37
+```
+
+        import java.util.*;
+
+class Solution {
+    // Merge function for Merge Sort
+    static void conquer(int arr[], int si, int mid, int ei) {
+        int merge[] = new int[ei - si + 1];
+
+        int idx1 = si;
+        int idx2 = mid + 1;
+        int x = 0;
+
+        while (idx1 <= mid && idx2 <= ei) {
+            if (arr[idx1] < arr[idx2]) {
+                merge[x++] = arr[idx1++];
+            } else {
+                merge[x++] = arr[idx2++];
+            }
+        }
+
+        while (idx1 <= mid) {
+            merge[x++] = arr[idx1++];
+        }
+
+        while (idx2 <= ei) {
+            merge[x++] = arr[idx2++];
+        }
+
+        // Copy sorted elements back to original array
+        for (int i = 0, j = si; i < merge.length; i++, j++) {
+            arr[j] = merge[i];
+        }
+    }
+
+    // Recursive Merge Sort function
+    static void divide(int arr[], int si, int ei) {
+        if (si >= ei) return;
+
+        int mid = si + (ei - si) / 2;
+
+        divide(arr, si, mid);
+        divide(arr, mid + 1, ei);
+        conquer(arr, si, mid, ei);
+    }
+
+    // Function to merge two sorted arrays
+    public void mergeSortedArrays(int[] nums1, int m, int[] nums2, int n) {
+        int[] temp = new int[m + n];
+        int i = 0, j = 0, k = 0;
+
+        // Merge two sorted arrays
+        while (i < m && j < n) {
+            if (nums1[i] < nums2[j]) {
+                temp[k++] = nums1[i++];
+            } else {
+                temp[k++] = nums2[j++];
+            }
+        }
+
+        while (i < m) temp[k++] = nums1[i++];
+        while (j < n) temp[k++] = nums2[j++];
+
+        // Copy merged elements back to nums1
+        for (i = 0; i < (m + n); i++) {
+            nums1[i] = temp[i];
+        }
+    }
+
+    // Main function to test Merge Sort and Merge Function
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+
+        // Input for Merge Sort
+        System.out.print("Enter number of elements for sorting: ");
+        int n = scn.nextInt();
+        int arr[] = new int[n];
+
+        System.out.println("Enter the elements: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        // Perform Merge Sort
+        divide(arr, 0, n - 1);
+
+        System.out.println("Sorted array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        // Input for merging two sorted arrays
+        System.out.print("Enter size of first sorted array: ");
+        int m = scn.nextInt();
+        int[] nums1 = new int[m + n];
+
+        System.out.println("Enter elements of first sorted array:");
+        for (int i = 0; i < m; i++) {
+            nums1[i] = scn.nextInt();
+        }
+
+        System.out.print("Enter size of second sorted array: ");
+        int n2 = scn.nextInt();
+        int[] nums2 = new int[n2];
+
+        System.out.println("Enter elements of second sorted array:");
+        for (int i = 0; i < n2; i++) {
+            nums2[i] = scn.nextInt();
+        }
+
+        // Merge two sorted arrays
+        Solution sol = new Solution();
+        sol.mergeSortedArrays(nums1, m, nums2, n2);
+
+        System.out.println("Merged sorted array:");
+        for (int i = 0; i < (m + n2); i++) {
+            System.out.print(nums1[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+```
+
+#### 38
++ 121. Best Time to Buy and Sell Stock
+```
+class Solution {
+    public int maxProfit(int[] prices) { 
+        
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0 ;
+
+        for(int price:prices)
+        {
+            if(price < minprice)
+            {
+                minprice = price;
+            }
+            else
+            {
+                maxprofit = Math.max(maxprofit , price - minprice);
+            }
+        }
+        return maxprofit;
+    }
+}
+```
