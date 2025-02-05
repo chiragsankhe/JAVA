@@ -1732,4 +1732,56 @@ class Solution {
     }
 }
 ```
+#### 42
++ 66. Plus One
+```
+class Solution {
+    public int[] plusOne(int[] digits) {
+        
+        int carry = 1; // Start with 1 since we're adding 1
 
+        for (int i = digits.length - 1; i >= 0; i--) { // Loop should include i == 0
+            int sum = digits[i] + carry;
+            if (sum > 9) {
+                digits[i] = sum % 10; // Extract last digit
+                carry = 1; // Carry over the extra 1
+            } else {
+                digits[i] = sum;
+                return digits; // No need to continue if no carry
+            }
+        }
+
+        // If carry is still 1, we need an extra digit
+        int[] arr = new int[digits.length + 1];
+        arr[0] = 1; // Carry becomes the first digit
+        return arr; // Other elements are already 0 by default
+    }
+}
+
+```
+
+#### 43
++ 9. Palindrome Number
+```
+class Solution {
+    public boolean isPalindrome(int x) {
+        int og = x;
+        int reverse = 0 ;
+        while(x>0)
+        {
+             int lastDigit = x%10;
+             reverse  = (reverse *10) + lastDigit;
+             x = x/10;      
+        }
+
+        if(og == reverse)
+        {
+           return  true;
+        }
+        else 
+        {
+           return  false;
+        }
+    }
+}
+```
