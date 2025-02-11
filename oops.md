@@ -271,15 +271,16 @@ public class Main {
 + Decided at runtime which method to execute.
 
 + Summary Table
+  
 |Type of Method|	Description|	Example|
 |--------------|--------------|------------|
-|Predefined Methods	|Built-in Java methods	|Math.sqrt(25)|
-|User-defined Methods	|Created by programmers|	void greet()|
-|Static Methods|	Belongs to class, no object |needed	static int square(int n)|
-|Instance Methods|	Belongs to object, requires an instance	|void display()|
-|Getter/Setter Methods|	Access private data|	setName(), getName()|
-|Parameterized Methods|	Accept parameters|	void greetUser(String name)|
-|Method Overloading|	Same name, different parameters	|add(int, int), add(double, double)|
+|Predefined Methods	|Built-in Java methods| Math.sqrt(25)|
+|User-defined Methods|Created by programmers| void greet()|
+|Static Methods| Belongs to class, no object| needed static int square(int n)|
+|Instance Methods|	Belongs to object, requires an instance| void display()|
+|Getter/Setter Method|	Access private data  |setName(), getName()|
+|Parameterized Methods|	Accept parameters |void greetUser(String name)|
+|Method Overloading| Same name, different parameters| add(int, int), add(double, double)|
 |Method Overriding|	Same method, different implementation in child class|	@Override void show()|
 
 
