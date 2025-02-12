@@ -491,11 +491,11 @@ public class Main {
 + It must have the same name as the class and has no return type (not even void).
 
 + There are three types of constructors in Java:
-#### 1️⃣ Default Constructor
-#### 2️⃣ Parameterized Constructor
-#### 3️⃣ Copy Constructor
+###### 1️⃣ Default Constructor
+###### 2️⃣ Parameterized Constructor
+###### 3️⃣ Copy Constructor
 
-#### 1️⃣ Default Constructor (No-Argument Constructor)
+### 1️⃣ Default Constructor (No-Argument Constructor)
 + A constructor with no parameters.
 + It assigns default values to instance variables.
 + If you don’t define any constructor, Java automatically provides a default constructor.
@@ -522,7 +522,7 @@ public class Main {
     }
 }
 ```
-#### 2️⃣ Parameterized Constructor
+### 2️⃣ Parameterized Constructor
 + A constructor with parameters.
 + It allows passing values when creating an object.
 ```
@@ -550,7 +550,7 @@ public class Main {
 ```
 + ✔ `this.model = model;` ensures that the instance variable model is assigned the constructor parameter.
 
-#### 3️⃣ Copy Constructor
+### 3️⃣ Copy Constructor
 A constructor that copies values from another object.
 It creates a new object with the same properties as an existing object.
 ```
