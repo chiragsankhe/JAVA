@@ -485,3 +485,117 @@ public class Main {
     }
 }
 ```
+
+##📌 Types of Constructors in Java 🚀
++ In Java, a constructor is a special method used to initialize objects.
++ It must have the same name as the class and has no return type (not even void).
+
++ There are three types of constructors in Java:
+#### 1️⃣ Default Constructor
+#### 2️⃣ Parameterized Constructor
+#### 3️⃣ Copy Constructor
+
+#### 1️⃣ Default Constructor (No-Argument Constructor)
++ A constructor with no parameters.
++ It assigns default values to instance variables.
++ If you don’t define any constructor, Java automatically provides a default constructor.
+```
+class Laptop {
+    String model;
+    int price;
+
+    // ✅ Default Constructor (No Parameters)
+    Laptop() {
+        model = "Unknown";
+        price = 0;
+    }
+
+    void display() {
+        System.out.println("Model: " + model + ", Price: " + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Laptop dell = new Laptop(); // ✅ Default constructor is called
+        dell.display();  // Output: Model: Unknown, Price: 0
+    }
+}
+```
+#### 2️⃣ Parameterized Constructor
++ A constructor with parameters.
++ It allows passing values when creating an object.
+```
+class Laptop {
+    String model;
+    int price;
+
+    // ✅ Parameterized Constructor
+    Laptop(String model, int price) {
+        this.model = model;
+        this.price = price;
+    }
+
+    void display() {
+        System.out.println("Model: " + model + ", Price: " + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Laptop dell = new Laptop("Dell XPS", 50000);  // ✅ Passing values
+        dell.display();  // Output: Model: Dell XPS, Price: 50000
+    }
+}
+```
++ ✔ `this.model = model;` ensures that the instance variable model is assigned the constructor parameter.
+
+#### 3️⃣ Copy Constructor
+A constructor that copies values from another object.
+It creates a new object with the same properties as an existing object.
+```
+class Laptop {
+    String model;
+    int price;
+
+    // ✅ Parameterized Constructor
+    Laptop(String model, int price) {
+        this.model = model;
+        this.price = price;
+    }
+
+    // ✅ Copy Constructor
+    Laptop(Laptop oldLaptop) {
+        this.model = oldLaptop.model;
+        this.price = oldLaptop.price;
+    }
+
+    void display() {
+        System.out.println("Model: " + model + ", Price: " + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Laptop original = new Laptop("MacBook", 100000); // ✅ Original object
+        Laptop copy = new Laptop(original); // ✅ Copy constructor is called
+
+        original.display();  // Output: Model: MacBook, Price: 100000
+        copy.display();      // Output: Model: MacBook, Price: 100000
+    }
+}
+```
++ ✔ The copy constructor ensures that copy has the same values as original.
+
++ 📌 Summary Table
+  
+|Type of Constructor	|Description	|Example|
+|-----------------|--------------|------------|
+|Default Constructor|	No parameters, assigns default values|	`Laptop() { model = "Unknown"; }`|
+|Parameterized Constructor	|Takes parameters to initialize values	|`Laptop(String model, int price) { this.model = model; }`|
+|Copy Constructor|	Creates a new object by copying an existing object	|Laptop(Laptop obj) { `this.model = obj.model;` }|
+
+#### 🚀 Quick Recap
++ ✔ If you don’t create a constructor, Java provides a default one.
++ ✔ Parameterized constructors help assign values while creating an object.
++ ✔ Copy constructors help duplicate an existing object’s properties.
