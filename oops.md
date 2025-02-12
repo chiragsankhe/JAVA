@@ -666,3 +666,136 @@ public class Main {
 + ✔ If you don’t create a constructor, Java provides a default one.
 + ✔ Parameterized constructors help assign values while creating an object.
 + ✔ Copy constructors help duplicate an existing object’s properties.
+
+
+
+## 📌 Polymorphism in Java 🚀
++ Polymorphism means "many forms" and allows the same method to have different behaviors in Java.
+
++ There are two types of polymorphism:
+####1️⃣ Compile-time Polymorphism (Method Overloading)
+####2️⃣ Runtime Polymorphism (Method Overriding)
+
+###1️⃣ Compile-time Polymorphism (Method Overloading)
++ Same method name, different parameters (number, type, or both).
++ Decided at compile time.
++ Java determines which method to call based on arguments passed.
+✅ Example of Method Overloading
+```
+class MathOperations {
+    // Method with two int parameters
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method with three int parameters
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded method with double parameters
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MathOperations obj = new MathOperations();
+
+        System.out.println(obj.add(10, 20));       // Calls add(int, int)
+        System.out.println(obj.add(10, 20, 30));  // Calls add(int, int, int)
+        System.out.println(obj.add(5.5, 2.5));    // Calls add(double, double)
+    }
+}
+```
++ 🛠 Output
+```
+30
+60
+8.0
+```
++ ✔ Method name is the same (add) but works differently based on parameters.
+
+### 2️⃣ Runtime Polymorphism (Method Overriding)
++ Same method name, same parameters, but different behavior in child class.
++ Happens at runtime.
++ Requires inheritance (parent-child relationship).
++ Uses `@Override `annotation for clarity.
+✅ Example of Method Overriding
+```
+// Parent class
+class Animal {
+    void sound() {
+        System.out.println("Animals make sounds");
+    }
+}
+
+// Child class overriding method
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Animal();  // Parent class object
+        myAnimal.sound(); // Output: Animals make sounds
+
+        Animal myDog = new Dog();  // Upcasting - Runtime polymorphism
+        myDog.sound(); // Output: Dog barks
+    }
+}
+```
+🛠 Output
+```
+Animals make sounds
+Dog barks
+```
++ ✔ The `sound()` method behaves differently based on the object type.
+
++ 📌 Key Differences
+  
+| Feature	| Method Overloading  |Method Overriding |
+|---------------|---------------------|-----------------------|
+|Type	| Compile-time Polymorphism	|Runtime Polymorphism|
+|Method Signature	|Same name, different parameters	|Same name, same parameters|
+| Return Type	|Can be different	|Must be the same or covariant|
+| Inheritance	|Not required	|Required (Parent-Child Relationship)|
+| Binding	|Early binding (Compile-time)	|Late binding (Runtime)|
+| Modifiers	|Can be static|	Cannot override static methods|
+| Keyword	|Not required	|Uses @Override annotation|
+
++🚀 Real-world Example
+#### ATM Machine Example (Overriding)
+```
+class ATM {
+    void withdraw() {
+        System.out.println("Withdraw cash using card.");
+    }
+}
+
+class UPI extends ATM {
+    @Override
+    void withdraw() {
+        System.out.println("Withdraw cash using UPI.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ATM atm1 = new ATM();
+        atm1.withdraw(); // Output: Withdraw cash using card.
+
+        ATM atm2 = new UPI();
+        atm2.withdraw(); // Output: Withdraw cash using UPI.
+    }
+}
+```
+#### 🔎 When to Use Polymorphism?
++ `✔ Overloading:` When you need multiple versions of a method with different parameters.
++ `✔ Overriding:` When a child class needs to modify the behavior of a parent class method.
+
+Would you like to see polymorphism with interfaces? 😊 
