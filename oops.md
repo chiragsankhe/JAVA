@@ -324,3 +324,164 @@ public class Main {
 }
 ```
 
+#### 🔹 1️⃣ Class
++ A class is a blueprint or template for creating objects. It defines properties (variables) and methods (functions) that objects of the class will have.
+
+```
+Edit
+class Car {  
+    String brand;  // Property (Instance Variable)
+    int speed;     
+
+    void drive() {  // Method
+        System.out.println(brand + " is driving at " + speed + " km/h.");
+    }
+}
+```
++ Here, Car is a class that defines properties (brand, speed) and a method (drive()).
+### 🔹 2️⃣ Object
++ An object is an instance of a class. It is a real entity created using the new keyword.
+```
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();  // Object created
+        myCar.brand = "Tesla";
+        myCar.speed = 100;
+        myCar.drive();  // Output: Tesla is driving at 100 km/h.
+    }
+}
+```
++ myCar is an object of the Car class.
++ It has its own copy of brand and speed.
++ `Calling myCar.drive(); `executes the method.
+
++ 🔹 Multiple objects can be created from the same class!
+```
+Car car1 = new Car();  
+Car car2 = new Car();
+```
+#### 🔹 3️⃣ Constructor
++ A constructor is a special method that initializes an object when it is created.
+
++ It has the same name as the class.
++ It does not return any value (not even void).
++ It is called automatically when an object is created.
+```
+class Car {
+    String brand;
+    int speed;
+
+    // Constructor
+    Car(String b, int s) {  
+        brand = b;
+        speed = s;
+    }
+
+    void drive() {
+        System.out.println(brand + " is driving at " + speed + " km/h.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Tesla", 120);  // Constructor is called automatically
+        myCar.drive();  // Output: Tesla is driving at 120 km/h.
+    }
+}
+```
++ 🔹 Without a constructor, you would have to assign values manually.
++ 🔹 With a constructor, values are assigned automatically when creating an object.
+
+#### 🔹 4️⃣ Instance
++ An instance is simply another word for an object of a class.
++ When you create an object using new, you create an instance of that class.
+```
+Car myCar = new Car("Tesla", 120);  // myCar is an instance of Car
+Car yourCar = new Car("BMW", 150);  // yourCar is another instance
+```
++ Each instance has its own values for brand and speed.
+
+|Instance (Object)	|brand	|speed|
+|----------------|---------|-----|
+|myCar|	"Tesla"	|120 km/h|
+|yourCar|	"BMW"	|150 km/h|
+
+#### 🔹 5️⃣ Method
+A method is a function inside a class that performs an action.
+It can be called (invoked) on an object.
+
+```
+class Car {
+    String brand;
+    int speed;
+
+    // Constructor
+    Car(String b, int s) {
+        brand = b;
+        speed = s;
+    }
+
+    // Method
+    void drive() {
+        System.out.println(brand + " is driving at " + speed + " km/h.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Tesla", 120);
+        myCar.drive();  // Calling the method
+    }
+}
+```
++ 🔹 Methods can be called using objects:
+```
+myCar.drive();  // Tesla is driving at 120 km/h.
+```
++ 🔹 Methods can take parameters and return values too.
+```
+int getSpeed() {
+    return speed;
+}
+```
+✅ Summary Table
+
+|Concept	|Definition|
+|-----------|----------|
+|Class	|A blueprint/template that defines properties and methods for objects.|
+|Object	|A real-world entity created from a class.|
+|Constructor	|A special method that initializes an object when created.|
+|Instance	|Another word for an object of a class.|
+|Method	|A function inside a class that performs actions.|
+
+
++ 🔥 Example Using All Concepts Together
+```
+class Car {
+    String brand;
+    int speed;
+
+    // Constructor
+    Car(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    // Method
+    void drive() {
+        System.out.println(brand + " is driving at " + speed + " km/h.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects (instances) of Car class
+        Car myCar = new Car("Tesla", 120);
+        Car yourCar = new Car("BMW", 150);
+
+        // Calling methods
+        myCar.drive();   // Tesla is driving at 120 km/h.
+        yourCar.drive(); // BMW is driving at 150 km/h.
+    }
+}
+```
