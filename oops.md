@@ -673,10 +673,10 @@ public class Main {
 + Polymorphism means "many forms" and allows the same method to have different behaviors in Java.
 
 + There are two types of polymorphism:
-####1️⃣ Compile-time Polymorphism (Method Overloading)
-####2️⃣ Runtime Polymorphism (Method Overriding)
+#### 1️⃣ Compile-time Polymorphism (Method Overloading)
+#### 2️⃣ Runtime Polymorphism (Method Overriding)
 
-###1️⃣ Compile-time Polymorphism (Method Overloading)
+### 1️⃣ Compile-time Polymorphism (Method Overloading)
 + Same method name, different parameters (number, type, or both).
 + Decided at compile time.
 + Java determines which method to call based on arguments passed.
