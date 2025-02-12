@@ -244,6 +244,73 @@ public class Main {
 ```
 + Decided at compile-time which method to execute.
 
+
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+ class Laptop{
+
+		String model ;
+		int price ;
+
+      Laptop(String a , int b)
+		{
+			this.model= a ;
+			this.price = b  ;
+		}
+		
+
+		Laptop(Laptop dell)
+		{
+			this.model = dell.model;
+			this.price = dell.price;
+		}
+
+          
+		//    same name function but diffrent parameter 
+
+		void sell(String model)
+		{
+			System.out.println(model);
+		}
+
+		void sell(int price)
+		{
+			System.out.println(price);
+		}
+		void sell(String model , int price)
+		{
+			System.out.println(model);
+			System.out.println(price);
+
+		}
+
+
+	}
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scn = new Scanner(System.in);
+		String a = scn.nextLine();
+		int b = scn.nextInt();
+
+		Laptop dell = new Laptop(a,b);
+
+		Laptop hp = new Laptop(dell);
+
+        //   parameter a,b 
+		dell.sell(a,b);
+
+		
+	}
+}
+
+```
+
 ### 8. Method Overriding (Run-time Polymorphism)
 + A child class provides a different implementation of a method from the parent class.
 
