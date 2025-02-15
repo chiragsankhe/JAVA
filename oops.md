@@ -1203,3 +1203,194 @@ public class Main {
 + ✅ User-defined packages help organize large projects.
 + ✅ Import statements help use classes from packages efficiently.
 + ✅ Access modifiers determine package-level visibility.
+
+
+## Access Modifiers
+
+### Access Modifiers in Java
+Access modifiers in Java control the visibility and accessibility of classes, methods, and variables. They help in encapsulation and ensure that only necessary parts of the code are exposed to other classes.
+
+1. Types of Access Modifiers in Java
+
+|Modifier	|Same Class	|Same Package	|Subclass (Different Package)	|Other Classes (Different Package)|
+------------------|-----------|-----------------|------------------------------|----------------------------------|
+|public|	✅ Yes	✅ Yes|✅ Yes	|✅ Yes|
+|protected	|✅ Yes|✅ Yes	|✅ Yes|❌ No|
+|default (no modifier)|	✅ Yes	|✅ Yes|❌ No	|❌ No|
+|private	|✅ Yes|❌ No|	❌ No	|❌ No|
+
+3. Explanation of Each Modifier
+#### 🔹 1. public (Most Accessible)
+Accessible from anywhere (same class, same package, subclass, and different packages).
+Used when a class or method should be available everywhere.
+
++ // File: PublicExample.java
+```
+package mypackage;
+
+public class PublicExample {
+    public void show() {
+        System.out.println("Public method can be accessed anywhere.");
+    }
+}
+```
++ // File: Main.java (Different Package)
+```
+import mypackage.PublicExample; 
+
+public class Main {
+    public static void main(String[] args) {
+        PublicExample obj = new PublicExample();
+        obj.show();  // ✅ Accessible
+    }
+}
+```
+✅ Output
+```
+Public method can be accessed anywhere.
+```
+### 🔹 2. protected (Limited to Subclasses and Same Package)
++ Accessible within the same package and subclasses in different packages.
++ Not accessible from non-subclass classes outside the package.
+
+package mypackage;
+```
+public class ProtectedExample {
+    protected void show() {
+        System.out.println("Protected method can be accessed within the same package and subclasses.");
+    }
+}
+```
+// Subclass in a different package
+```
+package anotherpackage;
+import mypackage.ProtectedExample;
+
+public class ChildClass extends ProtectedExample {
+    public static void main(String[] args) {
+        ChildClass obj = new ChildClass();
+        obj.show();  // ✅ Accessible (because it's a subclass)
+    }
+}
+```
+// File: Main.java (Different Package, Not a Subclass)
+```
+import mypackage.ProtectedExample;
+
+public class Main {
+    public static void main(String[] args) {
+        ProtectedExample obj = new ProtectedExample();
+        obj.show();  // ❌ ERROR: Not accessible
+    }
+}
+```
+✅ Output (For Subclass)
+```
+Protected method can be accessed within the same package and subclasses.
+```
+❌ Error for Non-Subclass
+```
+error: show() has protected access in ProtectedExample
+```
+### 🔹 3. default (Package-Private)
++ If no modifier is used, the default access modifier is applied.
++ Accessible only within the same package.
++ Not accessible outside the package, even in subclasses.
+```
+package mypackage;
+
+class DefaultExample {
+    void show() {  // Default access
+        System.out.println("Default method can be accessed within the same package only.");
+    }
+}
+```
+// File: Main.java (Same Package)
+```
+package mypackage;
+
+public class Main {
+    public static void main(String[] args) {
+        DefaultExample obj = new DefaultExample();
+        obj.show();  // ✅ Accessible
+    }
+}
+```
+// File: AnotherClass.java (Different Package)
+```
+package anotherpackage;
+import mypackage.DefaultExample;  
+
+public class AnotherClass {
+    public static void main(String[] args) {
+        DefaultExample obj = new DefaultExample();
+        obj.show();  // ❌ ERROR: Not accessible
+    }
+}
+```
+✅ Output (Same Package)
+```
+Default method can be accessed within the same package only.
+```
+❌ Error (Different Package)
+
+```
+error: DefaultExample is not public in mypackage; cannot be accessed from outside package
+```
+### 🔹 4. private (Most Restricted)
++ Accessible only within the same class.
++ Not accessible from subclasses, other classes, or even the same package.
+```
+package mypackage;
+
+public class PrivateExample {
+    private void show() {
+        System.out.println("Private method can only be accessed within the same class.");
+    }
+
+    public static void main(String[] args) {
+        PrivateExample obj = new PrivateExample();
+        obj.show();  // ✅ Accessible (inside same class)
+    }
+}
+```
+// File: Main.java (Same Package)
+```
+package mypackage;
+
+public class Main {
+    public static void main(String[] args) {
+        PrivateExample obj = new PrivateExample();
+        obj.show();  // ❌ ERROR: Not accessible
+    }
+}
+```
+✅ Output (Inside Same Class)
+```
+Private method can only be accessed within the same class.
+```
+❌ Error (Outside Class)
+```
+error: show() has private access in PrivateExample
+```
++ 3. Summary Table of Access Modifiers
+|Modifier	|Within Class	|Same Package	|Subclass (Different Package)	|Other Package|
+|------------|----------------|-------------|--------------------------|-------------------|
+|public|	✅ Yes|	✅ Yes|	✅ Yes	|✅ Yes|
+|protected	|✅ Yes|	✅ Yes|	✅ Yes|	❌ No|
+|default (no modifier)	|✅ Yes	|✅ Yes|	❌ No|	❌ No|
+|private	|✅ Yes	|❌ No|	|❌ No	|❌ No|
+
++ 4. Use Cases for Each Modifier
+|Modifier	|Use Case|
+|---------------|---------|
+|public|	Use when a method/class should be accessible everywhere.|
+|protected|	Use when a method should be inherited but not freely accessed outside.|
+|default|	Use when access should be restricted to the same package.|
+|private|	Use when a method/variable should be hidden from other classes.|
+
+##### 5. Best Practices for Access Modifiers
++ ✔ Use private for data encapsulation (data hiding).
++ ✔ Use protected for methods meant to be inherited but not widely accessible.
++ ✔ Use public sparingly to prevent unnecessary exposure.
++ ✔ Use default to limit access within a package.
