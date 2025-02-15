@@ -1374,16 +1374,18 @@ Private method can only be accessed within the same class.
 error: show() has private access in PrivateExample
 ```
 + 3. Summary Table of Access Modifiers
+     
 |Modifier	|Within Class	|Same Package	|Subclass (Different Package)	|Other Package|
 |------------|----------------|-------------|--------------------------|-------------------|
-|public|	✅ Yes|	✅ Yes|	✅ Yes	|✅ Yes|
-|protected	|✅ Yes|	✅ Yes|	✅ Yes|	❌ No|
-|default (no modifier)	|✅ Yes	|✅ Yes|	❌ No|	❌ No|
-|private	|✅ Yes	|❌ No	|❌ No	|❌ No|
+|public|✅ Yes|✅ Yes|	✅ Yes	|✅ Yes|
+|protected|✅ Yes|✅ Yes|✅ Yes|❌ No|
+|default (no modifier)	|✅ Yes|✅ Yes|❌ No|	❌ No|
+|private|✅ Yes|❌ No	|❌ No	|❌ No|
 
 + 4. Use Cases for Each Modifier
-|Modifier	|Use Case|
-|---------------|---------|
+     
+|Modifier|Use Case|
+|---------|---------|
 |public|	Use when a method/class should be accessible everywhere.|
 |protected|	Use when a method should be inherited but not freely accessed outside.|
 |default|	Use when access should be restricted to the same package.|
