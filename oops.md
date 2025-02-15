@@ -1058,3 +1058,148 @@ Method B
 + ✅ The super keyword helps access parent class methods and constructors.
 + ✅ Java prevents multiple inheritance in classes to avoid ambiguity but supports it with interfaces.
 
+
+## Packages
+### Java Built-in Packages and User-defined Packages
++ In Java, packages are used to group related classes and interfaces together. They help in modularizing code, avoiding name conflicts, and improving maintainability.
+
+#### 1. Types of Packages in Java
++ `Built-in Packages` (Predefined Java Packages) – Provided by Java.
++ `User-defined Packages` – Created by developers.
+  
+#### 2. Built-in Packages in Java
++ Java comes with several built-in packages that provide essential functionalities.
+
+#### Common Java Built-in Packages:
+|Package	|Description|
+|---------------|------------------------------------------------------------------------|
+|java.lang	|Core classes like String, Math, Integer, System, Object (imported by default).|
+|java.util	|Utility classes like ArrayList, HashMap, Collections, Date, Random.|
+|java.io  	|Input and output operations (File, BufferedReader, PrintWriter).|
+|java.net	|Networking features (Socket, URL, HttpURLConnection).|
+|java.sql	|Database handling (Connection, Statement, ResultSet).|
+|javax.swing	|GUI components (JButton, JFrame, JLabel).|
+|java.awt	|Abstract Window Toolkit for GUI (Button, Color, Font).|
+|java.nio	|Non-blocking I/O operations.|
+|java.time	|Date and time API (LocalDate, LocalTime).|
+|java.security	|Security and encryption utilities.|
+
++ Example:` Using Built-in Packages`
++ 📝 Using `java.util.ArrayList`
+```
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+        System.out.println(list);
+    }
+}
+```
+Output
+```
+[Java, Python, C++]
+```
++ 📝 Using `java.time.LocalDate`
+
+```
+import java.time.LocalDate;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDate today = LocalDate.now();
+        System.out.println("Today's date: " + today);
+    }
+}
+```
+Output
+```
+Today's date: 2025-02-15
+```
+#### 3. `User-Defined Packages`
++ You can create your own packages to organize your code.
+
++ Steps to Create and Use a Package
++ `Create a Package:` Use the package keyword at the beginning of a file.
++ `Compile the Class:` `javac -d `. `FileName.java`
++ `Import and Use the Class:` `import package_name.ClassName`;
+  
+Example: Creating and Using a User-defined Package
+##### 📌 Step 1: Create a Package (mypackage)
+Create a file `MyClass.java` inside a folder `Mypackage/.`
+```
+package mypackage;  // Package declaration
+
+public class MyClass {
+    public void showMessage() {
+        System.out.println("Hello from MyClass inside mypackage!");
+    }
+}
+```
+#### 📌 Step 2: Compile the File
+Run this command in the terminal:
+```
+javac -d . MyClass.java
+```
+This will create a folder mypackage containing MyClass.class.
+
+#### 📌 Step 3: Create a Main Class to Use the Package
+Create another file Main.java outside the mypackage folder.
+```
+import mypackage.MyClass;  // Import user-defined package
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.showMessage();
+    }
+}
+```
+#### 📌 Step 4: Compile and Run the Main Class
+```
+javac Main.java
+java Main
+```
+Output
+```
+Hello from MyClass inside mypackage!
+```
+4. Access Modifiers and Packages
+   
+|Modifier	|Same Class	|Same Package	|Subclass (Different Package)	|Other Classes (Different Package)|
+|---------------|---------------|--------------|-------------------------------|----------------------------------|
+| public	| ✅	| ✅	| ✅	|✅|
+|protected	|✅	|✅	|✅	|❌|
+|default (no modifier)	|✅	|✅	|❌	|❌|
+|private	|✅	|❌	|❌	|❌|
+
+
+6. Importing Packages
+Types of Import Statements
++ Import a Specific Class
+```
+import java.util.ArrayList;
+```
++ Import the Whole Package
+```
+import java.util.*;
+```
++ Use Fully Qualified Name (No Import)
+```
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name);
+    }
+}
+```
+### Conclusion
++ ✅ Built-in packages (like java.util, java.io) provide ready-made functionalities.
++ ✅ User-defined packages help organize large projects.
++ ✅ Import statements help use classes from packages efficiently.
++ ✅ Access modifiers determine package-level visibility.
