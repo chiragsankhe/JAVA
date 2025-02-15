@@ -1379,7 +1379,7 @@ error: show() has private access in PrivateExample
 |public|	✅ Yes|	✅ Yes|	✅ Yes	|✅ Yes|
 |protected	|✅ Yes|	✅ Yes|	✅ Yes|	❌ No|
 |default (no modifier)	|✅ Yes	|✅ Yes|	❌ No|	❌ No|
-|private	|✅ Yes	|❌ No|	|❌ No	|❌ No|
+|private	|✅ Yes	|❌ No	|❌ No	|❌ No|
 
 + 4. Use Cases for Each Modifier
 |Modifier	|Use Case|
