@@ -798,4 +798,263 @@ public class Main {
 + `✔ Overloading:` When you need multiple versions of a method with different parameters.
 + `✔ Overriding:` When a child class needs to modify the behavior of a parent class method.
 
-Would you like to see polymorphism with interfaces? 😊 
+## Inheritance in Java
+Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that allows a class (child class) to inherit properties and behaviors (fields and methods) from another class (parent class). It promotes code reusability and establishes a relationship between classes.
+
+### 1. Why Use Inheritance?
++ `Code Reusability `– Avoids code duplication by using existing classes.
++ `Method Overriding `– Allows a subclass to provide a specific implementation of a method in the parent class.
++ `Hierarchical Organization` – Establishes relationships between classes in a structured way.33
+### 2. Types of Inheritance in Java
+Java supports the following types of inheritance:
+
+|Type	|Description|
+|-------|-------------|
+|Single Inheritance	|One class inherits from another class.|
+|Multilevel Inheritance|	A class inherits from a class, which in turn inherits from another class.|
+|Hierarchical Inheritance	|Multiple classes inherit from a single parent class.|
+
+##🚫 Java does not support multiple inheritance with classes (to avoid ambiguity), but it supports multiple inheritance through interfaces.
+
+### 3. Syntax of Inheritance
+We use the extends keyword for class inheritance.
+```
+// Parent Class
+class Animal {
+    void sound() {
+        System.out.println("Animals make sounds");
+    }
+}
+
+// Child Class (inherits from Animal)
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound(); // Inherited method
+        d.bark();  // Own method
+    }
+}
+```
+Output
+```
+Animals make sounds
+Dog barks
+```
+### 4. Multilevel Inheritance
+A class inherits from another class, which itself is inherited from another class.
+```
+// Grandparent Class
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+// Parent Class
+class Mammal extends Animal {
+    void breathe() {
+        System.out.println("Breathing...");
+    }
+}
+
+// Child Class
+class Dog extends Mammal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();     // Inherited from Animal
+        d.breathe(); // Inherited from Mammal
+        d.bark();    // Own method
+    }
+}
+```
+Output
+```
+Eating...
+Breathing...
+Barking...
+```
+### 5. Hierarchical Inheritance
++ One parent class is inherited by multiple child classes.
+```
+// Parent Class
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+// Child Class 1
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+// Child Class 2
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Meowing...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();  // Inherited method
+        d.bark(); // Own method
+
+        Cat c = new Cat();
+        c.eat();  // Inherited method
+        c.meow(); // Own method
+    }
+}
+```
+Output
+```
+Eating...
+Barking...
+Eating...
+Meowing...
+```
+### 6. Method Overriding in Inheritance
++ A child class can override a method of the parent class to provide its own implementation.
+```
+class Animal {
+    void sound() {
+        System.out.println("Animals make sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {  // Overriding the method
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound(); // Calls overridden method
+    }
+}
+```
+Output
+```
+Dog barks
+```
+### 7. super Keyword in Inheritance
++ Used to call the parent class constructor.
++ Used to access the parent class methods.
+```
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+
+    void sound() {
+        System.out.println("Animals make sound");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // Calls parent constructor
+        System.out.println("Dog constructor");
+    }
+
+    void sound() {
+        super.sound(); // Calls parent method
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();
+    }
+}
+```
+Output
+```
+Animal constructor
+Dog constructor
+Animals make sound
+```
+Dog barks
+### 8. Final Keyword in Inheritance
++ `final class `→ Prevents a class from being inherited.
++ `final method `→ Prevents method overriding.
+```
+final class Animal {
+    void sound() {
+        System.out.println("Animals make sound");
+    }
+}
+// This will cause an error
+// class Dog extends Animal {} // ❌ Cannot inherit from a final class
+```
+```
+class Animal {
+    final void sound() {
+        System.out.println("Animals make sound");
+    }
+}
+
+class Dog extends Animal {
+    // void sound() {}  // ❌ Cannot override a final method
+}
+```
+### 9. Multiple Inheritance using Interfaces
++ Java doesn't support multiple inheritance with classes but allows it through interfaces.
+```
+interface A {
+    void methodA();
+}
+
+interface B {
+    void methodB();
+}
+
+// Multiple inheritance using interfaces
+class C implements A, B {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+    public void methodB() {
+        System.out.println("Method B");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.methodA();
+        obj.methodB();
+    }
+}
+```
++ Output
+```
+Method A
+Method B
+```
+### Conclusion
++ ✅ Inheritance enhances code reusability and maintainability.
++ ✅ Method overriding allows modifying behavior in subclasses.
++ ✅ The super keyword helps access parent class methods and constructors.
++ ✅ Java prevents multiple inheritance in classes to avoid ambiguity but supports it with interfaces.
+
