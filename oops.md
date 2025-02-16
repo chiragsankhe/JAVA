@@ -1396,3 +1396,72 @@ error: show() has private access in PrivateExample
 + ✔ Use protected for methods meant to be inherited but not widely accessible.
 + ✔ Use public sparingly to prevent unnecessary exposure.
 + ✔ Use default to limit access within a package.
+
+## Encapsulation in Java
+Encapsulation is one of the four fundamental Object-Oriented Programming (OOP) principles (along with Abstraction, Inheritance, and Polymorphism). It is the practice of wrapping data (variables) and methods (functions) that operate on the data into a single unit, usually a class.
+
+#### Key Features of Encapsulation
++ `Data Hiding` → The class's internal details are hidden from the outside world.
++ `Access Control `→ Use access modifiers (private, public, protected, default) to control access to class members.
++ `Getter & Setter Methods `→ Provide controlled access to private fields.
++ `Improved Maintainability` → Helps in modifying code without affecting external code.
++ `Security `→ Prevents unauthorized access and modifications to data.
+Example of Encapsulation
+```
+// Encapsulated class
+class BankAccount {
+    private String accountHolderName;
+    private double balance;
+
+    // Constructor
+    public BankAccount(String name, double initialBalance) {
+        this.accountHolderName = name;
+        this.balance = initialBalance;
+    }
+
+    // Getter method
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method (with validation)
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Withdraw method with encapsulation logic
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient balance or invalid amount.");
+        }
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("Prachi", 5000);
+
+        // Accessing data through methods
+        account.deposit(2000);
+        account.withdraw(1000);
+
+        System.out.println("Current Balance: " + account.getBalance());
+
+        // Direct access is not possible due to encapsulation
+        // account.balance = 10000; // ❌ Compilation Error
+    }
+}
+```
+### Why Use Encapsulation?
++ Prevents direct modification of critical data.
++ Ensures better control over data with validation logic.
++ modular programming, making code more readable and maintainable.
