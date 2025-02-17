@@ -1465,3 +1465,152 @@ public class Main {
 + Prevents direct modification of critical data.
 + Ensures better control over data with validation logic.
 + modular programming, making code more readable and maintainable.
+
+
+## Abstraction
+
+
+### Definition of Abstraction in Java
++ Abstraction is the process of hiding implementation details and showing only essential features of an object. It allows you to focus on what an object does rather than how it does it.
+
+#####  In Java, abstraction is achieved using:
++ `Abstract Classes `(abstract keyword)
++ `Interfaces `(interface keyword)
+  
+Simple Example of Abstraction
+```
+abstract class Shape {
+    abstract void draw(); // Abstract method (no implementation)
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a Circle...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape myShape = new Circle();
+        myShape.draw(); // Output: Drawing a Circle...
+    }
+}
+```
+
+
+#### Abstraction in Java
+Abstraction is one of the four pillars of Object-Oriented Programming (OOP) in Java. It is the process of hiding implementation details from the user and only showing essential features.
+
+#### Key Features of Abstraction
++ `Hides implementation details `→ Only relevant details are exposed.
++ `Increases maintainability` → Code is easier to manage and modify.
++ `Supports modular programming` → Helps break a complex system into smaller, manageable parts.
++ `Achieved using Abstract Classes and Interfaces` in Java.
+### 1️⃣ Abstraction Using Abstract Class
++ An abstract class is a class that cannot be instantiated and can have both abstract (without body) and concrete (with body) methods.
+
+Example of Abstract Class
+```
+// Abstract class
+abstract class Vehicle {
+    abstract void start(); // Abstract method (No implementation)
+
+    void stop() {  // Concrete method (Has implementation)
+        System.out.println("Vehicle is stopping...");
+    }
+}
+
+// Concrete subclass
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car is starting with a key...");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car(); // Upcasting
+        myCar.start();  // Calls overridden method from Car class
+        myCar.stop();   // Calls concrete method from Vehicle class
+    }
+}
+```
+### 🔹 Key Points:
+
++ The Vehicle class is abstract, so we cannot create an object of it.
++ The Car class extends Vehicle and provides implementation for the abstract method start().
++ The stop() method is a concrete method, so it can be used directly.
+  
+### 2️⃣ Abstraction Using Interface
++ An interface in Java is a blueprint of a class that contains only abstract methods (before Java 8).
++ 100% abstraction (before Java 8).
++ Can contain default and static methods (from Java 8 onwards).
++ Used to achieve multiple inheritance.
+Example of Interface
+```
+// Interface
+interface Animal {
+    void makeSound();  // Abstract method
+}
+
+// Implementing class
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks: Woof! Woof!");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog(); // Upcasting
+        myDog.makeSound();
+    }
+}
+```
+### 🔹 Key Points:
+
++ Animal is an interface with an abstract method makeSound().
++ Dog implements Animal and provides its own implementation.
++ An interface cannot have instance variables, only constants (public static final variables).
+### 🆚 Abstract Class vs Interface
+|Feature	|Abstract Class	|Interface|
+|---------------|---------------|----------|
+| Methods	|Can have both abstract and concrete methods	|Only abstract methods (before Java 8)|
+| Fields	|Can have instance variables	|Only constants (public static final)|
+| Inheritance	|Single inheritance (extends)	|Multiple inheritance (implements)|
+| Access Modifiers	|Can have any access modifier	|Methods are public by default|
+| Best Used For	|Code reuse, partial abstraction	|Total abstraction, multiple inheritance|
+
+###📌 When to Use What?
++ ✔ Use an abstract class when:
++ You want to provide some implementation but leave certain methods abstract.
++ You expect related classes to share code.
++ ✔ Use an interface when:
+
++ You want to enforce 100% abstraction.
++ You need multiple inheritance.
++ You are defining behavior that multiple unrelated classes can adopt (e.g., Flyable, Runnable).
++🚀 Real-World Example
+Think of a car:
++ `Abstraction: `You just use the steering, accelerator, and brakes—you don't need to know how the engine works internally.
++ `Encapsulation:` The engine is hidden inside the hood, and you interact with it through predefined controls.
+Would you like a more detailed real-world example or another concept explained? 😊
+
+
+
+
+
+
+
+
+
+🔹 Why Use Abstraction?
+
+Hides complexity and shows only the necessary details.
+Improves code maintainability and flexibility.
+Encourages modular programming.
