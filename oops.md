@@ -1602,15 +1602,168 @@ Think of a car:
 Would you like a more detailed real-world example or another concept explained? 😊
 
 
-
-
-
-
-
-
-
 🔹 Why Use Abstraction?
 
 Hides complexity and shows only the necessary details.
 Improves code maintainability and flexibility.
 Encourages modular programming.
+
+
+
+## Interface in Java
+An interface in Java is a blueprint of a class that contains only abstract methods (before Java 8) and can be used to achieve 100% abstraction. It is used to define a contract that multiple classes can implement.
+
+### Key Features of Interfaces in Java
++ ✅ Contains only abstract methods (before Java 8)
++ ✅ Supports multiple inheritance (unlike classes)
++ ✅ Methods are public and abstract by default
++ ✅ Variables are public, static, and final (constants) by default
++ ✅ Cannot have constructors (no object creation)
+
+#### Syntax of an Interface
+```
+// Defining an interface
+interface Animal {
+    void makeSound(); // Abstract method (no body)
+}
+
+// Implementing the interface in a class
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks: Woof! Woof!");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog(); // Upcasting
+        myDog.makeSound();
+    }
+}
+```
+Output:
+```
+Dog barks: Woof! Woof!
+```
+#### Interface with Multiple Implementations
+```
+interface Vehicle {
+    void start();
+}
+
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car starts with a key.");
+    }
+}
+
+class Bike implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Bike starts with a self-start button.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        myCar.start(); // Output: Car starts with a key.
+
+        Vehicle myBike = new Bike();
+        myBike.start(); // Output: Bike starts with a self-start button.
+    }
+}
+```
+#### Interface with Default and Static Methods (Java 8+)
+From Java 8, interfaces can have default and static methods with implementation.
+```
+interface Printer {
+    void print();
+
+    // Default method with implementation
+    default void show() {
+        System.out.println("Default method in interface.");
+    }
+
+    // Static method in interface
+    static void staticMethod() {
+        System.out.println("Static method in interface.");
+    }
+}
+
+class InkjetPrinter implements Printer {
+    @Override
+    public void print() {
+        System.out.println("Printing using Inkjet Printer.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer myPrinter = new InkjetPrinter();
+        myPrinter.print();
+        myPrinter.show(); // Calling default method
+
+        Printer.staticMethod(); // Calling static method (using interface name)
+    }
+}
+```
+Output:
+```
+Printing using Inkjet Printer.
+Default method in interface.
+Static method in interface.
+```
+### Multiple Inheritance Using Interfaces
+Java does not support multiple inheritance with classes, but it supports multiple inheritance with interfaces.
+```
+interface Flyable {
+    void fly();
+}
+
+interface Swimmable {
+    void swim();
+}
+
+// A class implementing multiple interfaces
+class Duck implements Flyable, Swimmable {
+    @Override
+    public void fly() {
+        System.out.println("Duck is flying.");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Duck is swimming.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Duck myDuck = new Duck();
+        myDuck.fly();
+        myDuck.swim();
+    }
+}
+```
+Output:
+```
+Duck is flying.
+Duck is swimming.
+```
+### Interface vs Abstract Class
+| Feature	| Interface	| Abstract Class |
+|---------------|---------------|----------------|
+| Methods	|Only abstract methods (before Java 8)|	Can have both abstract and concrete methods|
+| Fields	|Only constants (public static final)|	Can have instance variables|
+| Access Modifiers	|Methods are public by default|	Can have any access modifier|
+| Inheritance	|Supports multiple inheritance (implements)	|Single inheritance (extends)|
+| Constructors	|Cannot have constructors	|Can have constructors|
+| Default & Static Methods|	Supported from Java 8	|Supported|
+### When to Use an Interface?
++ ✔ Use an interface when you want to define a contract that multiple classes should follow.
++ ✔ Use interfaces when you need multiple inheritance in Java.
++ ✔ Use interfaces when you want a class to implement multiple behaviors.
