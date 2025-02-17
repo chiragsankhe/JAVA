@@ -1767,3 +1767,163 @@ Duck is swimming.
 + ✔ Use an interface when you want to define a contract that multiple classes should follow.
 + ✔ Use interfaces when you need multiple inheritance in Java.
 + ✔ Use interfaces when you want a class to implement multiple behaviors.
+
+## static
+
+### static Keyword in Java
+The static keyword in Java is used for memory management. It can be applied to variables, methods, blocks, and nested classes. When a member is declared as static, it belongs to the class rather than instances of the class.
+
+### 1️⃣ Static Variables (Class Variables)
++ A static variable is shared among all instances of the class.
++ It belongs to the class and is stored in the method area (not heap).
++ Only one copy of a static variable exists, regardless of the number of objects created.
+Example:
+```
+class Student {
+    int rollNo; // Instance variable
+    String name;
+    static String college = "AccioJob"; // Static variable (shared)
+
+    // Constructor
+    Student(int r, String n) {
+        rollNo = r;
+        name = n;
+    }
+
+    // Method to display values
+    void display() {
+        System.out.println(rollNo + " " + name + " " + college);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student(101, "Prachi");
+        Student s2 = new Student(102, "Rahul");
+
+        s1.display();
+        s2.display();
+
+        // Changing the static variable affects all objects
+        Student.college = "IIT Delhi";
+
+        s1.display();
+        s2.display();
+    }
+}
+```
+Output:
+```
+101 Prachi AccioJob
+102 Rahul AccioJob
+101 Prachi IIT Delhi
+102 Rahul IIT Delhi
+```
++ 🔹 college is static, so changing it affects all objects.
+
+2️⃣ Static Methods
+A static method belongs to the class, not to instances.
+It can be called without creating an object.
+It cannot access non-static (instance) variables or methods.
+Example:
+```
+class Utility {
+    // Static method
+    static void showMessage() {
+        System.out.println("Hello, this is a static method!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Calling static method without creating an object
+        Utility.showMessage();
+    }
+}
+```
+Output:
+```
+Hello, this is a static method!
+```
++ 🔹 Restrictions of Static Methods:
+
++ Cannot access non-static variables or methods directly.
++ Cannot use this or super keywords.
+### 3️⃣ Static Block
++ A static block is used to initialize static data members.
++ It is executed only once when the class is loaded.
+Example:
+```
+class Test {
+    static int num;
+
+    // Static block
+    static {
+        num = 100;
+        System.out.println("Static block executed!");
+    }
+
+    // Constructor
+    Test() {
+        System.out.println("Constructor executed!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = new Test();
+        Test t2 = new Test();
+    }
+}
+```
+Output:
+```
+Static block executed!
+Constructor executed!
+Constructor executed!
+```
++ 🔹 Key Points:
+
++ The static block executes once when the class is loaded.
++ The constructor executes every time an object is created.
+
+### 4️⃣ Static Nested Class
+A static nested class can be created inside another class.
+It can access only static members of the outer class.
+Example:
+```
+class Outer {
+    static int data = 50;
+
+    // Static nested class
+    static class Inner {
+        void show() {
+            System.out.println("Data: " + data);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Outer.Inner obj = new Outer.Inner(); // Creating object of static nested class
+        obj.show();
+    }
+}
+```
+Output:
+```
+Data: 50
+```
++ 🔹 A static nested class does not require an instance of the outer class.
+
+#### Summary Table
+|Feature	|static Behavior|
+|--------------|----------------|
+|Static Variable|	Shared among all objects of the class|
+|Static Method|	Belongs to the class, cannot access instance members directly|
+|Static Block|	Executes once when the class is loaded|
+\Static Nested Class|	Can access only static members of the outer class|
+### When to Use static?
++ ✔ When you need a shared variable or method for all objects.
++ ✔ When you want a utility method that doesn’t depend on instance variables.
++ ✔ When you want a nested class that doesn’t require an outer class instance.
