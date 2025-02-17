@@ -2139,3 +2139,208 @@ for (String s : arr) {
 + ✔ Provides fast random access (O(1)), but removal is slower (O(n)).
 + ✔ Not thread-safe → Use Collections.synchronizedList() for multithreading
 
+## Java Collection Framework (JCF)
+
+The Java Collection Framework (JCF) provides a set of predefined classes and interfaces for efficiently storing, processing, and manipulating data in Java. It includes lists, sets, queues, maps, and more.
+
+### 🔹 Why Use Collections?
++ `✅ Dynamic Size` – Unlike arrays, collections grow or shrink dynamically.
++ ` ✅ Efficiency` – Provides optimized searching, sorting, and manipulation operations.
++ ` ✅ Reusability` – Ready-to-use implementations reduce boilerplate code.
++ `✅ Thread Safety` – Supports synchronized collections for concurrent programming.
+
++ 🔹 Collection Framework Hierarchy
+mathematica
+Copy
+Edit
+```
+                   Iterable (Interface)
+                        │
+              -------------------
+              │                 │
+         Collection           Map (Interface)
+              │                 │
+      -----------------      ----------
+      │       │      │       │        │
+    List     Set   Queue    HashMap   TreeMap
+      │       │      │        │         │
+ ArrayList HashSet PriorityQueue LinkedHashMap
+ LinkedList TreeSet Deque      HashTable
+ Vector
+```
+#### 1️⃣ Interfaces in Java Collection Framework
+|Interface	|Description|
+|Collection	|Root interface for working with groups of objects.|
+|List	|Ordered collection that allows duplicates.|
+|Set	|Collection that does not allow duplicates.|
+|Queue	|Follows FIFO (First In, First Out) order.|
+|Deque	|Double-ended queue (supports insertion & removal at both ends).|
+|Map	|Stores key-value pairs (keys are unique).|
+
+#### 2️⃣ List Interface (Ordered, Allows Duplicates)
+A List allows elements to be accessed by an index and permits duplicate values.
+
+#####  🔸 Implementations of List:
++ ✅ `ArrayList` – Fast access (O(1)), slow insertion/deletion.
++ ✅` LinkedList` – Fast insertion/deletion (O(1)), slow access (O(n)).
++ ✅` Vector` – Synchronized version of ArrayList.
+
+Example: Using ArrayList
+```
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+
+        System.out.println(list); // Output: [Apple, Banana, Mango]
+    }
+}
+```
+#### 3️⃣ Set Interface (Unique Elements, No Duplicates)
+A Set does not allow duplicate elements.
+
+#### 🔸 Implementations of Set:
++ ✅ `HashSet` – Unordered, allows null, fast O(1) access.
++ ✅ `LinkedHashSet` – Maintains insertion order.
++ ✅ `TreeSet` – Sorted set (ascending order).
+
+Example: Using HashSet
+```
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+        set.add(10);
+        set.add(20);
+        set.add(10); // Duplicate ignored
+
+        System.out.println(set); // Output: [10, 20]
+    }
+}
+```
+#### 4️⃣ Queue Interface (FIFO - First In First Out)
+A Queue follows FIFO (First In, First Out), used in task scheduling and buffering.
+
+##### 🔸 Implementations of Queue:
++ ✅ `PriorityQueue `– Orders elements based on priority.
++ ✅` LinkedList (implements Queue) `– Normal FIFO order.
+
+Example: Using PriorityQueue
+```
+import java.util.PriorityQueue;
+
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(30);
+        queue.add(10);
+        queue.add(20);
+
+        System.out.println(queue.poll()); // Output: 10 (smallest removed first)
+    }
+}
+```
+#### 5️⃣ Deque Interface (Double-Ended Queue)
+A Deque allows elements to be added or removed from both ends.
+
+##### 🔸 Implementations of Deque:
++ ✅ `ArrayDeque` – Faster than LinkedList, no capacity restrictions.
+
+Example: Using ArrayDeque
+```
+import java.util.ArrayDeque;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayDeque<String> deque = new ArrayDeque<>();
+        deque.addFirst("Front");
+        deque.addLast("Back");
+
+        System.out.println(deque); // Output: [Front, Back]
+    }
+}
+```
+#### 6️⃣ Map Interface (Key-Value Pair)
++ A Map stores unique keys mapped to values.
+
+##### 🔸 Implementations of Map:
++ ✅ `HashMap` – Unordered, allows one null key.
++ ✅ `LinkedHashMap` – Maintains insertion order.
++ ✅ `TreeMap` – Sorted keys.
+
+Example: Using HashMap
+```
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+        map.put(1, "Alice");
+        map.put(2, "Bob");
+        map.put(3, "Charlie");
+
+        System.out.println(map.get(2)); // Output: Bob
+    }
+}
+```
+## 7️⃣ Comparing List, Set, and Map
+|Feature	|List (ArrayList, LinkedList)|	Set (HashSet, TreeSet)|	Map (HashMap, TreeMap)|
+|-----------------|--------------------------|------------------------|------------------------|
+|Duplicates Allowed?	|✅ Yes	|❌ No	|❌ Keys must be unique|
+|Ordered?	|✅ Yes	|❌ No (except LinkedHashSet)|❌ No (except LinkedHashMap)|
+|Allows Null?	|✅ Yes|	✅ Yes (only HashSet)|	✅ Yes (only HashMap key)|
+|Sorting?	|❌ No	|✅ TreeSet sorts	|✅ TreeMap sorts keys|
+
+### 8️⃣ Synchronized (Thread-Safe) Collections
+By default, collections are not thread-safe. You can make them synchronized:
+```
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list = Collections.synchronizedList(new ArrayList<>());
+        Set<Integer> set = Collections.synchronizedSet(new HashSet<>());
+        Map<Integer, String> map = Collections.synchronizedMap(new HashMap<>());
+    }
+}
+```
+### 9️⃣ Sorting Collections
+Use `Collections.sort()` for sorting.
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(5);
+        nums.add(3);
+        nums.add(8);
+
+        Collections.sort(nums); // Ascending order
+        System.out.println(nums); // Output: [3, 5, 8]
+    }
+}
+```
+### 🔟 Important Methods in Collections
+|Method	|Description|
+|----------|----------|
+|add(value) |	Adds an element|
+|remove(value)|	Removes an element|
+|contains(value)|	Checks if element exists|
+|size()	|Returns number of elements|
+|clear()|	Removes all elements|
+|sort(list)|	Sorts a List|
+|synchronizedList(list)	|Makes a List thread-safe|
+
+#### 🎯 Summary
++ ✔ `List` – Ordered, allows duplicates (ArrayList, LinkedList).
++ ✔ `Set` – Unique elements (HashSet, TreeSet).
++ ✔ `Queue `– Follows FIFO (PriorityQueue).
++ ✔ `Deque` – Insert/remove from both ends (ArrayDeque).
++ ✔ `Map` – Stores key-value pairs (HashMap, TreeMap).
