@@ -1938,5 +1938,204 @@ explain
         
 ```
 
+## ArrayList in Java
+ArrayList is a resizable array implementation in Java that is part of the java.util package. It is dynamic, meaning it can grow or shrink as needed.
 
+### 🔹 Key Features of ArrayList
++ ✅ `Dynamic resizing` – Automatically increases size when elements are added.
++ ✅ `Allows duplicates` – Unlike sets, ArrayList permits duplicate elements.
++ ✅ `Maintains insertion order` – Elements are stored in the order they were added.
++ ✅ `Allows random access` – Elements can be accessed in O(1) time using an index.
++ ✅ `Not thread-safe `– Multiple threads can modify it simultaneously without synchronization.
+
+### 1️⃣ Creating an ArrayList
+You need to `import java.util.ArrayList` before using it.
+```
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an ArrayList of Strings
+        ArrayList<String> names = new ArrayList<>();
+
+        // Adding elements
+        names.add("Prachi");
+        names.add("Rahul");
+        names.add("Priya");
+
+        // Printing the ArrayList
+        System.out.println(names);
+    }
+}
+```
+Output:
+```
+[Prachi, Rahul, Priya]
+```
++ 🔹 `ArrayList<String> names = new ArrayList<>();`
+Declares an ArrayList of Strings. You can also use other data types like `Integer`, `Double`, `Character`, etc.
+
+### 2️⃣ Adding Elements
+You can add elements using the `add()` method.
+```
+ArrayList<Integer> numbers = new ArrayList<>();
+numbers.add(10);
+numbers.add(20);
+numbers.add(1, 15); // Adds 15 at index 1
+
+System.out.println(numbers);
+```
+Output:
+```
+[10, 15, 20]
+```
+### 3️⃣ Accessing Elements
+Elements can be accessed using `get(index).`
+```
+ArrayList<String> cities = new ArrayList<>();
+cities.add("Mumbai");
+cities.add("Delhi");
+cities.add("Pune");
+
+System.out.println(cities.get(1)); // Accessing index 1
+```
+Output:
+```
+Delhi
+```
+### 4️⃣ Updating Elements
+Use `set(index, value)` to modify elements.
+```
+ArrayList<String> colors = new ArrayList<>();
+colors.add("Red");
+colors.add("Blue");
+
+colors.set(1, "Green"); // Replacing "Blue" with "Green"
+
+System.out.println(colors);
+```
+Output:
+```
+[Red, Green]
+```
+### 5️⃣ Removing Elements
+Use `remove(index)` or` remove(object)`.
+```
+ArrayList<String> fruits = new ArrayList<>();
+fruits.add("Apple");
+fruits.add("Banana");
+fruits.add("Orange");
+
+fruits.remove(1); // Removes "Banana"
+System.out.println(fruits);
+
+fruits.remove("Orange"); // Removes "Orange"
+System.out.println(fruits);
+```
+Output:
+```
+[Apple, Orange]
+[Apple]
+```
+### 6️⃣ Iterating Over an ArrayList
+#### 🔸 Using a for-each loop
+```
+ArrayList<String> cars = new ArrayList<>();
+cars.add("BMW");
+cars.add("Tesla");
+cars.add("Audi");
+
+for (String car : cars) {
+    System.out.println(car);
+}
+```
+#### 🔸 Using a for loop
+```
+for (int i = 0; i < cars.size(); i++) {
+    System.out.println(cars.get(i));
+}
+```
+#### 🔸 Using an Iterator
+```
+import java.util.Iterator;
+
+Iterator<String> it = cars.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+```
+### 7️⃣ Checking Size
+Use `size()` to find the number of elements.
+```
+ArrayList<Integer> list = new ArrayList<>();
+list.add(1);
+list.add(2);
+list.add(3);
+
+System.out.println("Size: " + list.size());
+```
+Output:
+```
+Size: 3
+```
+### 8️⃣ Checking if an Element Exists
+Use `contains(element)`.
+```
+ArrayList<String> names = new ArrayList<>();
+names.add("John");
+names.add("Alice");
+
+System.out.println(names.contains("John")); // true
+System.out.println(names.contains("Emma")); // false
+```
+### 9️⃣ Sorting an ArrayList
+Use `Collections.sort()` to sort elements.
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+ArrayList<Integer> nums = new ArrayList<>();
+nums.add(50);
+nums.add(10);
+nums.add(30);
+
+Collections.sort(nums);
+System.out.println(nums);
+```
+Output:
+```
+[10, 30, 50]
+```
+### 🔟 Converting ArrayList to Array
+Use `.toArray().`
+```
+ArrayList<String> names = new ArrayList<>();
+names.add("A");
+names.add("B");
+
+String[] arr = names.toArray(new String[0]);
+
+for (String s : arr) {
+    System.out.println(s);
+}
+```
+## Summary Table
+|Method	|Description|
+|-------|------------|
+|add(value)|	Adds an element at the end|
+|add(index, value)|	Inserts an element at a specific index|
+|get(index)|	Retrieves an element|
+|set(index, value)|	Updates an element|
+|remove(index)|	Removes an element by index|
+|remove(object)|	Removes an element by value|
+|contains(value)|	Checks if an element exists|
+|size()|	Returns the number of elements|
+|sort(list)	|Sorts the ArrayList|
+|toArray()	|Converts ArrayList to an array|
+
+#### 🚀 Key Takeaways
++ ✔ ArrayList is dynamic, unlike arrays.
++ ✔ It maintains insertion order and allows duplicates.
++ ✔ Provides fast random access (O(1)), but removal is slower (O(n)).
++ ✔ Not thread-safe → Use Collections.synchronizedList() for multithreading
 
