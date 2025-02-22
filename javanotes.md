@@ -2799,3 +2799,180 @@ Element at index 0: Two
 Size of LinkedList: 1
 
 ```
+
+### reverse linklist using The Iterative
+```
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    // Insert at the end
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Corrected Iterative Reverse Method
+    public void reverseIterate() {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node prevNode = null;
+        Node currNode = head;
+        Node nextNode;
+
+        while (currNode != null) {
+            nextNode = currNode.next; // Store next node
+            currNode.next = prevNode; // Reverse the link
+            prevNode = currNode;      // Move prev forward
+            currNode = nextNode;      // Move current forward
+        }
+
+        head = prevNode; // Update head to new first node
+    }
+
+    // Display the linked list
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insert(4);
+        list.insert(5);
+
+        System.out.println("Original LinkedList:");
+        list.display();
+
+        list.reverseIterate(); // Call the corrected reversal method
+
+        System.out.println("Reversed LinkedList:");
+        list.display();
+    }
+}
+
+```
+output 
+```
+5 → 4 → 3 → 2 → 1 → null
+```
+
+
+### reverse linklist using recursion 
+
+```
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    // Insert at the end
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Corrected Iterative Reverse Method
+    public void reverseIterate() {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node prevNode = null;
+        Node currNode = head;
+        Node nextNode;
+
+        while (currNode != null) {
+            nextNode = currNode.next; // Store next node
+            currNode.next = prevNode; // Reverse the link
+            prevNode = currNode;      // Move prev forward
+            currNode = nextNode;      // Move current forward
+        }
+
+        head = prevNode; // Update head to new first node
+    }
+
+    // Display the linked list
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insert(4);
+        list.insert(5);
+
+        System.out.println("Original LinkedList:");
+        list.display();
+
+        list.reverseIterate(); // Call the corrected reversal method
+
+        System.out.println("Reversed LinkedList:");
+        list.display();
+    }
+}
+
+```
+output 
+```
+Original LinkedList:
+1 -> 2 -> 3 -> 4 -> 5 -> null
+Reversed LinkedList:
+5 -> 4 -> 3 -> 2 -> 1 -> null
+
+```
