@@ -2344,3 +2344,385 @@ public class Main {
 + ✔ `Queue `– Follows FIFO (PriorityQueue).
 + ✔ `Deque` – Insert/remove from both ends (ArrayDeque).
 + ✔ `Map` – Stores key-value pairs (HashMap, TreeMap).
+
+
+## LinkedList in Java 
++ A LinkedList is a linear data structure where elements (nodes) are linked together using pointers. Unlike arrays, LinkedLists do not use contiguous memory locations; instead, each element contains a reference (or pointer) to the next element in the sequence.
+
+1. Types of Linked Lists
+### (a) Singly Linked List
+Each node in a singly linked list contains:
++ `Data `(value stored in the node)
++ `Pointer` (next) to the next node in the list
++ Structure of a Node in a Singly Linked List:
+```
+[Data | Next] -> [Data | Next] -> [Data | Next] -> null
+```
+👉 The last node's next pointer is set to null.
+
+(b) Doubly Linked List
+Each node in a doubly linked list contains:
+
+Data
+Pointer to the next node
+Pointer to the previous node
+Structure of a Node in a Doubly Linked List:
+
+```
+null <- [Prev | Data | Next] <-> [Prev | Data | Next] <-> [Prev | Data | Next] -> null
+```
++ 👉 Allows traversal in both directions.
+
+## (c) Circular Linked List
++ The last node of the list points back to the first node instead of null.
++ Can be singly circular (next pointer points to the first node) or doubly circular (both next and previous pointers form a circular link).
+Example:
+```
+[Data | Next] -> [Data | Next] -> [Data | Next] ┐
+```
++ 👉 Useful for applications that require cyclic iteration, like scheduling tasks.
+
+### 2. Implementation of LinkedList in Java
++ Using Java’s Built-in LinkedList Class
+Java provides a LinkedList class in the `java.util package`, which implements both the `List` and `Deque` interfaces.
+
++ Basic Operations with LinkedList
+
+```
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a LinkedList of Strings
+        LinkedList<String> list = new LinkedList<>();
+
+        // Adding elements
+        list.add("A");  // Add at the end
+        list.addFirst("Start");  // Add at the beginning
+        list.addLast("End");  // Add at the end
+
+        // Adding at a specific position
+        list.add(1, "B");
+
+        // Displaying elements
+        System.out.println("LinkedList: " + list);
+
+        // Accessing elements
+        System.out.println("First Element: " + list.getFirst());
+        System.out.println("Last Element: " + list.getLast());
+        System.out.println("Element at index 2: " + list.get(2));
+
+        // Removing elements
+        list.remove("B");  // Remove specific element
+        list.removeFirst();  // Remove first element
+        list.removeLast();  // Remove last element
+
+        // Iterating over the LinkedList
+        System.out.println("LinkedList after deletions:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+```
+Output
+```
+LinkedList: [Start, B, A, End]
+
+First Element: Start
+
+Last Element: End
+
+Element at index 2: A
+```
++ LinkedList after deletions:
+```
+A
+```
+### 3. Custom Implementation of a Singly Linked List
++ To better understand how LinkedList works internally, let’s implement our own Singly Linked List in Java.
+```
+class Node {
+    int data;
+    Node next;
+
+    // Constructor
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head; // Head of the linked list
+
+    // Insert at the end
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    // Insert at the beginning
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Delete a node by value
+    public void delete(int key) {
+        Node temp = head, prev = null;
+        if (temp != null && temp.data == key) {
+            head = temp.next; // Head changes
+            return;
+        }
+        while (temp != null && temp.data != key) {
+            prev = temp;
+            temp = temp.next;
+        }
+        if (temp == null) return; // Key not found
+        prev.next = temp.next; // Unlink node
+    }
+
+    // Display the LinkedList
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insert(10);
+        list.insert(20);
+        list.insertAtBeginning(5);
+        list.insert(30);
+        list.display();
+
+        list.delete(20);
+        list.display();
+    }
+}
+```
+Output
+```
+5 -> 10 -> 20 -> 30 -> null
+5 -> 10 -> 30 -> null
+```
+### 4. Advantages & Disadvantages of LinkedList
+|Feature	|LinkedList	|Array|
+|-------------|--------------|--------|
+|Memory Usage	|Uses more memory due to extra pointers|	Less memory since no pointers|
+|Insertion/Deletion|	Fast (O(1) at the beginning)	|Slow (O(n) for shifting elements)|
+|Random Access|	Slow (O(n) traversal required)	|Fast (O(1) direct access)|
+|Cache Efficiency|	Poor (scattered in memory)	|Better (stored contiguously)|
+### When to Use a LinkedList?
++ ✅ When frequent `insertions/deletions` are required (e.g.,` implementing stacks, queues`).
++ ✅ When memory is not a concern.
++ ❌ Avoid using LinkedList when fast random access (like arr[i]) is needed.
+
+### 5. Key Methods in Java’s LinkedList Class
+| Method	|Description|
+|---------------|-------------|
+|add(E e)	|Adds element at the end|
+|addFirst(E e)	|Adds element at the beginning|
+|addLast(E e)	|Adds element at the end|
+|remove()	|Removes the first element|
+|removeFirst()	|Removes the first element|
+|removeLast()	|Removes the last element|
+|get(int index) |Retrieves the element at a given index|
+|getFirst()	|Retrieves the first element|
+|getLast()	|Retrieves the last element|
+|size()	|Returns the size of the list|
+### 6. Use Cases of LinkedList
++ 🔹 Implementing Stacks and Queues
++ 🔹 Undo/Redo Functionality in text editors
++ 🔹 Graph Representation (Adjacency List)
++ 🔹 Music Playlists (Next/Previous song navigation)
++ 🔹 Schedulers (Task Scheduling in OS)
+
+### Conclusion
++ LinkedList is a dynamic data structure that supports efficient insertions/deletions.
++ Java provides a built-in LinkedList class that simplifies usage.
++ Custom implementations allow deeper understanding of the structure.
++ While LinkedList is useful in some cases, it is slower than arrays for random acces
+
+```
+
+public class Main{
+
+	Node head;
+	private int size;
+
+	Main()
+	{
+		size = 0;
+	}
+
+	class Node{
+		String data;
+		Node next;
+
+	    	Node(String data)
+    	{
+	    	this.data = data;
+	    	this.next = null;
+
+    	}
+	}
+
+	public void addFirst(String data)
+	{
+		Node newNode = new Node(data);
+        
+		size++;
+		newNode.next = head;
+        head = newNode;
+	}
+
+	public void addLast(String data )
+	{
+		Node newNode = new Node(data);
+		if(head == null)
+		{
+			head = newNode;
+			return ;
+		}
+        size++;
+		Node curr = head;
+		while(curr.next != null)
+		{
+           curr = curr.next;
+		}
+
+		curr.next = newNode;
+
+		
+
+	}
+
+	public void deleteFirst()
+	{
+		if(head == null)
+		{
+			System.out.print("List is Empty.");
+		}
+        
+		size--;
+	 	head = head.next; 
+	}
+
+	public void deleteLast()
+	{
+		if(head == null)
+		{
+			System.out.print("list is empty");
+			return;
+		}
+          size--;
+		if(head.next == null)
+		{
+			head = null;
+			return ;
+	    }
+
+		Node secoundlast = head;
+		Node lastNode = head.next;
+
+		while(lastNode.next != null)
+		{
+			lastNode = lastNode.next ;
+			secoundlast = secoundlast.next;
+		}
+
+		secoundlast.next  = null;
+
+	}
+
+	public void printList()
+	{
+		 if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+
+		Node curr = head;
+
+		while(curr != null)
+		{
+			System.out.print(curr.data + "->");
+			curr = curr.next;
+
+		}
+
+		System.out.print("NULL");
+
+	}
+
+	public int getSize()
+	{
+		return size;
+	}
+
+
+	public static void main(String args[])
+	{
+		Main list = new Main();
+
+		list.addFirst("manoj");
+		list.addFirst("chirag");
+		list.addFirst("prachi");
+		list.addFirst("pranjal");
+		System.out.println("add first in list ");
+		list.printList();
+		
+        System.out.println();
+        System.out.println("add last in list ");
+		list.addLast("sankhe");
+		list.printList();
+		
+         System.out.println();
+        System.out.println("delete first in list ");
+        list.deleteFirst();
+		list.printList();
+		
+         System.out.println();
+        System.out.println("delete last in list ");
+		list.deleteLast();
+		list.printList();
+
+		 System.out.println();
+		System.out.print("print size:  " + list.getSize());
+
+		
+	
+
+
+	}
+} 
+```
+output 
+```
+add first in list 
+pranjal->prachi->chirag->manoj->NULL
+add last in list 
+pranjal->prachi->chirag->manoj->sankhe->NULL
+delete first in list 
+prachi->chirag->manoj->sankhe->NULL
+delete last in list 
+prachi->chirag->manoj->NULL
+print size:  3
+```
