@@ -2753,4 +2753,49 @@ output
 this -> is -> a -> list-> null
 
 ```
+## Explanation of Methods Used
+```
+import java.util.LinkedList;
 
+public class Main {
+    public static void main(String args[]) {
+        // Creating a LinkedList
+        LinkedList<String> list = new LinkedList<>();
+
+        // Adding elements
+        list.add("One");        // Adds at the end
+        list.addFirst("Zero");  // Adds at the beginning
+        list.addLast("Two");    // Adds at the end
+        list.add("Three");      // Adds at the end
+
+        // Display the LinkedList
+        System.out.println("LinkedList after additions: " + list);
+
+        // Removing elements
+        list.remove();          // Removes the first element (Zero)
+        list.removeFirst();     // Removes first element (One)
+        list.removeLast();      // Removes last element (Three)
+
+        // Display after removals
+        System.out.println("LinkedList after removals: " + list);
+
+        // Accessing elements
+        System.out.println("First Element: " + list.getFirst());  // Retrieves first element
+        System.out.println("Last Element: " + list.getLast());    // Retrieves last element
+        System.out.println("Element at index 0: " + list.get(0)); // Retrieves element at index 0
+
+        // Checking the size of the LinkedList
+        System.out.println("Size of LinkedList: " + list.size());
+    }
+}
+```
+output 
+```
+LinkedList after additions: [Zero, One, Two, Three]
+LinkedList after removals: [Two]
+First Element: Two
+Last Element: Two
+Element at index 0: Two
+Size of LinkedList: 1
+
+```
