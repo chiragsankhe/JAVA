@@ -2726,3 +2726,31 @@ delete last in list
 prachi->chirag->manoj->NULL
 print size:  3
 ```
+
+```
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String args[]) {
+        LinkedList<String> list = new LinkedList<>();
+
+        list.addFirst("a ");
+        list.addFirst("is ");
+        list.addLast("list"); // Corrected addLast
+        list.addFirst("this ");
+
+        // Print the LinkedList elements
+        for (String s : list) {
+            System.out.print(s + "-> "); // Directly print 's' instead of list.get(s)
+        }
+        System.out.println("null"); // Indicating end of the list
+    }
+}
+```
+
+output
+```
+this -> is -> a -> list-> null
+
+```
+
