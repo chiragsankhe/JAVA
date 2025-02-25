@@ -1835,3 +1835,122 @@ class Solution {
 }
 
 ```
+
+## LinkList 
+### 
++ 21. Merge Two Sorted Lists
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        if(list1 == null )
+        {
+            return list2;
+        }
+        if(list2 == null)
+        {
+            return list1;
+        }
+        
+
+        
+       if(list1.val <= list2.val)
+       {
+        list1.next = mergeTwoLists(list1.next,  list2);
+        return list1;
+       }
+       else
+       {
+        list2.next = mergeTwoLists( list1 ,list2.next);
+        return list2;
+       }
+        
+    }
+}
+```
+
+#### Understanding How the Merging Works
++ We are given two sorted linked lists:
+
+Example Input:
+```
+list1 = [1 → 3 → 5]
+list2 = [2 → 4 → 6]
+```
++ Step-by-Step Breakdown:
+The recursive function follows these steps:
+
+1. Compare `list1.val` and `list2.val`.
+
++ `list1.val = 1`, `list2.val = 2`
++ Since 1 <= 2, we keep list1 as the first node and recursively call mergeTwoLists(list1.next, list2).
+2. Remaining lists:
+```
+list1.next = mergeTwoLists([3 → 5], [2 → 4 → 6])
+```
+3. Next recursive call
++ list1.val = 3, list2.val = 2
+
++ Since 2 < 3, we keep list2 as the next node and recursively call mergeTwoLists(list1, list2.next).
+Remaining lists:
+```
+list2.next = mergeTwoLists([3 → 5], [4 → 6])
+```
+4. Next recursive call:
++ list1.val = 3, list2.val = 4
++ Since 3 <= 4, we keep list1 and recurse with mergeTwoLists(list1.next, list2).
+Remaining lists:
+```
+list1.next = mergeTwoLists([5], [4 → 6])
+```
+5. Next recursive call:
+
++ list1.val = 5, list2.val = 4
++ Since 4 < 5, we keep list2 and recurse with mergeTwoLists(list1, list2.next).
+Remaining lists:
+```
+list2.next = mergeTwoLists([5], [6])
+```
+6. Next recursive call:
+
++ list1.val = 5, list2.val = 6
++ Since 5 <= 6, we keep list1 and recurse with mergeTwoLists(list1.next, list2).
+Remaining lists:
+```
+list1.next = mergeTwoLists(null, [6])
+```
+7. Base Case Reached:
+
++ list1 is null, so we return list2 (which is [6]).
++ Returning: [6]
++ Building the Final Merged List
++ Now, let's track how the merged list is built backward as recursion unwinds:
+```
+list1.next = [6] → Merging into: [5 → 6]
+list2.next = [5 → 6] → Merging into: [4 → 5 → 6]
+list1.next = [4 → 5 → 6] → Merging into: [3 → 4 → 5 → 6]
+list2.next = [3 → 4 → 5 → 6] → Merging into: [2 → 3 → 4 → 5 → 6]
+list1.next = [2 → 3 → 4 → 5 → 6] → Merging into: [1 → 2 → 3 → 4 → 5 → 6]
+```
++ Final Output Linked List
+```
+[1 → 2 → 3 → 4 → 5 → 6]
+```
+#### Key Observations
++ Recursive function compares list1.val and list2.val at each step.
++ The smaller value is selected as the next node of the result list.
++ The recursion continues until we reach the base case (list1 == null or list2 == null).
++ When recursion returns, the linked list is built back up step by step.
+#### Time & Space Complexity
++ Time Complexity: O(n + m) → We process each node once.
++ Space Complexity: O(n + m) → Due to recursion stack usage
