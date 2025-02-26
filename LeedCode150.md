@@ -2004,10 +2004,28 @@ class Solution {
 
         return head;
 
-
-
-
         
     }
 }
-```  
+```
+
+## 1D 
++ climbing a stairs
+```
+class Solution {
+    public int climbStairs(int n) {
+        if(n== 1 ) return 1 ;
+        if(n == 2 ) return 2;   
+
+      int first = 1 , secound = 2 , temp;
+      for(int i = 3 ;i<=n;i++)
+      {
+        temp = first + secound;
+        first = secound;
+        secound = temp;
+      }
+
+      return secound;
+    }
+}
+```
