@@ -1954,3 +1954,60 @@ list1.next = [2 → 3 → 4 → 5 → 6] → Merging into: [1 → 2 → 3 → 4 
 #### Time & Space Complexity
 + Time Complexity: O(n + m) → We process each node once.
 + Space Complexity: O(n + m) → Due to recursion stack usage
+
+## 
++ 61. Rotate List
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+       
+       if( head == null || head.next == null || k == 0 )
+       {
+        return head;
+       }
+        
+        int length = 1 ;
+        ListNode curr = head;
+        while( curr.next != null)
+        {
+            curr = curr.next;
+            length++;
+        }
+
+        k = k % length;
+        if(k == 0 )
+        {
+            return head;
+        }
+        //  now the curr is at last postion 
+        // that why we made it circular linklist 
+        curr.next = head;
+
+        int tailpos = length - k;
+        ListNode newtail = head;
+        for(int i = 1 ;i<tailpos;i++)
+        {
+            newtail = newtail.next;
+        }
+        head = newtail.next;
+        newtail.next = null;
+
+        return head;
+
+
+
+
+        
+    }
+}
+```  
