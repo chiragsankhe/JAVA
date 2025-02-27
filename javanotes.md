@@ -2976,3 +2976,122 @@ Reversed LinkedList:
 5 -> 4 -> 3 -> 2 -> 1 -> null
 
 ```
+
+## stack 
+### using linklist of stack
+```
+public class StackClass {
+    
+    // Making Node a static nested class so it can be used inside Stack
+    static class Node {
+        int data;
+        Node next;
+        
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    
+    static class Stack {
+        private Node head;
+        
+        public boolean isEmpty() {
+            return head == null;
+        }
+        
+        public void push(int data) {
+            Node newNode = new Node(data); // Now it works because Node is static
+            newNode.next = head;
+            head = newNode;
+        }
+        
+        public int pop() {
+            if (isEmpty()) {
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            int top = head.data;
+            head = head.next;
+            return top;
+        }
+        
+        public int peek() {
+            if (isEmpty()) {
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            return head.data;
+        }
+    }
+    
+    public static void main(String[] args) {
+        Stack s = new Stack();
+        
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        
+        System.out.println("Top element: " + s.peek()); // Expected: 4
+        
+        System.out.println("Popped: " + s.pop()); // Expected: 4
+        System.out.println("Top element after pop: " + s.peek()); // Expected: 3
+    }
+}
+
+```
+
+### suing arrayList stack
+```
+import java.util.ArrayList;
+
+public class StackClass {
+    
+    // Making Stack a static nested class
+    static class Stack {
+        private ArrayList<Integer> list = new ArrayList<>();
+        
+        public boolean isEmpty() {
+            return list.isEmpty();
+        }
+        
+        public void push(int data) {
+            list.add(data);
+        }
+        
+        public int pop() {
+            if (isEmpty()) {
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            
+            int top = list.get(list.size() - 1);
+            list.remove(list.size() - 1);
+            return top;
+        }
+        
+        public int peek() {
+            if (isEmpty()) {
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            
+            return list.get(list.size() - 1);
+        }
+    }
+    
+    public static void main(String[] args) {
+        Stack s = new Stack();
+        
+        s.push(1);
+        s.push(2);
+        s.push(4);
+        s.push(5);
+        
+        System.out.println("Popped: " + s.pop());  // Expected: 5
+        System.out.println("Top element: " + s.peek());  // Expected: 4
+    }
+}
+
+```
