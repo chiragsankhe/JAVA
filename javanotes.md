@@ -3179,3 +3179,178 @@ public class StackClass {
 }
 
 ```
+## Queue
+
+###  Queue using array
+
+```
+public class QueueY
+{
+    static class Queue {
+        static int arr[];
+        static int size;
+        static int rear = -1;
+
+        // Queue constructor
+        Queue(int n) {
+            arr = new int[n];
+            this.size = n;
+        }
+
+        public static boolean isEmpty() {
+            return rear == -1;
+        }
+
+        // Enqueue (add)
+        public static void add(int data) {
+            if (rear == size - 1) { // Check if queue is full
+                System.out.println("Queue is full");
+                return;
+            }
+
+            rear++;
+            arr[rear] = data;
+        }
+
+        // Dequeue (remove)
+        public static int remove() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            int front = arr[0];
+            for (int i = 0; i < rear; i++) {
+                arr[i] = arr[i + 1];
+            }
+            rear--;
+
+            return front;
+        }
+
+        // Peek
+        public static int peek() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            return arr[0];
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue q = new Queue(5);
+
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
+
+```
+
+### circular queue using array 
+```
+public class QueueY {
+    static class Queue {
+        static int arr[];
+        static int size;
+        static int rear = -1;
+        static int front = -1;
+
+        // Queue constructor
+        Queue(int n) {
+            arr = new int[n];
+            size = n;  // Fixed 'size' assignment
+        }
+
+        public static boolean isEmpty() {
+            return rear == -1 && front == -1;
+        }
+
+        public static boolean isFull() {
+            return (rear + 1) % size == front;
+        }
+
+        // Enqueue (add)
+        public static void add(int data) {
+            if (isFull()) { // Check if queue is full
+                System.out.println("Queue is full");
+                return;
+            }
+
+            // First element insertion
+            if (front == -1) {
+                front = 0;
+            }
+
+            rear = (rear + 1) % size;  // Circular increment
+            arr[rear] = data;
+        }
+
+        // Dequeue (remove)
+        public static int remove() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            int result = arr[front];
+
+            // If only one element is left
+            if (rear == front) {
+                rear = -1;
+                front = -1;
+            } else {
+                front = (front + 1) % size;  // Circular increment
+            }
+
+            return result;
+        }
+
+        // Peek
+        public static int peek() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            return arr[front];
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue q = new Queue(5);
+
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+        
+        q.remove();
+        q.add(8);
+
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
+
+```
+output 
+```
+2
+3
+4
+5
+8
+```
