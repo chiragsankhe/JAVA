@@ -2008,6 +2008,77 @@ class Solution {
     }
 }
 ```
+## 
++ 234 palindrom linkList
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverse(ListNode head) {
+    ListNode prev = null;
+    ListNode curr = head;
+
+    while(curr != null) { // Fix: Traverse the entire list
+        ListNode next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    return prev; // Fix: Return the new head of the reversed list
+}
+    public ListNode findmiddle(ListNode head)
+    {
+        ListNode hare = head;
+        ListNode turtle = head;
+
+        while(hare.next != null && hare.next.next != null)
+        {
+            hare = hare.next.next ;
+            turtle = turtle.next;
+
+        }
+
+        return turtle;
+
+    }
+    public boolean isPalindrome(ListNode head) {
+
+         if (head == null || head.next == null) {
+        return true; // A single node or empty list is always a palindrome
+    }
+
+    // Step 1: Find the middle of the linked list
+    ListNode middle = findmiddle(head);
+
+    // Step 2: Reverse the second half of the list
+    ListNode secondHalfStart = reverse(middle.next);
+
+    // Step 3: Compare the first half with the reversed second half
+    ListNode firstHalfStart = head;
+    ListNode temp = secondHalfStart; // Store for later restoring the list
+
+    while (secondHalfStart != null) {
+        if (firstHalfStart.val != secondHalfStart.val) {
+            return false; // If mismatch found, not a palindrome
+        }
+        firstHalfStart = firstHalfStart.next;
+        secondHalfStart = secondHalfStart.next;
+    }
+
+    return true;
+        
+    }
+}
+```
 
 ## 1D 
 + climbing a stairs
