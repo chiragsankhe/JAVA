@@ -3095,3 +3095,87 @@ public class StackClass {
 }
 
 ```
+
+### push at bottom of stack
+```
+import java.util.Stack;
+
+public class StackClass {
+    
+    public static void pushAtBottom(int data, Stack<Integer> s) {
+        if (s.isEmpty()) {
+            s.push(data);
+            return;
+        }
+
+        int top = s.pop();
+        pushAtBottom(data, s);
+        s.push(top);
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        
+        s.push(1);
+        s.push(2);
+        s.push(4);
+        s.push(5);
+        
+        pushAtBottom(8, s);
+        
+        while (!s.isEmpty()) {
+            System.out.print(s.peek() + " ");  // Expected output: 8 1 2 4 5
+            s.pop();
+        }
+    }
+}
+
+```
+
+## reverse a stack 
+```
+import java.util.Stack;
+
+public class StackClass {
+    
+    public static void pushAtBottom(int data, Stack<Integer> s) {
+        if (s.isEmpty()) {
+            s.push(data);
+            return;
+        }
+
+        int top = s.pop();
+        pushAtBottom(data, s);
+        s.push(top);
+    }
+    
+    static void reverse(Stack<Integer> s)
+    {
+        if(s.isEmpty())
+        {
+            return;
+        }
+        
+        int top = s.pop();
+        reverse(s);
+        pushAtBottom(8, s);
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        
+        s.push(1);
+        s.push(2);
+        s.push(4);
+        s.push(5);
+        
+        
+        
+        while (!s.isEmpty()) {
+            System.out.print(s.peek() + " ");  // Expected output: 5 4 2 1
+            s.pop();
+        }
+    }
+}
+
+```
