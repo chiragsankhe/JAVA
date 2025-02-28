@@ -3524,13 +3524,13 @@ Queue<Integer> q = new ArrayDeque<>();
 |ArrayDeque<>()	|Class |	ArrayDeque is a concrete class that implements the Queue interface. It provides the actual implementation of queue operations.|
 |q	|Object (Reference Variable)|	q is an object reference variable that points to an instance of ArrayDeque. It allows us to use queue methods through polymorphism.|
 + 🔹 Explanation
-`Interface (Queue<Integer>)`
++ `Interface (Queue<Integer>)`
 + Queue is an interface, meaning it only provides method signatures but no implementation.
 + We cannot instantiate Queue directly (i.e., new Queue<>() is not allowed).
-`Class (ArrayDeque<>)`
++ `Class (ArrayDeque<>)`
  +  ArrayDeque is a concrete class that provides an actual implementation of the Queue interface.
 + It allows dynamic resizing and efficient insertions/removals from both ends.
-`Object (q)`
++ `Object (q)`
 
 + The variable q is a reference of type Queue<Integer>, but it stores an object of ArrayDeque<Integer>.
 + This is an example of polymorphism—we use an interface type (Queue<Integer>) to hold a reference to its implementing class (ArrayDeque<Integer>).
