@@ -3558,8 +3558,63 @@ public class Main {
 20
 ```
 ✅ This follows polymorphism, meaning we can later change q to reference any other class implementing Queue, like LinkedList or PriorityQueue, without changing the rest of the code.
+#### ArrayList and ArrayDeque 
++ Both `ArrayList` and ArrayDeque` are part of Java's Collection Framework, but they serve different purposes.
 
++ 🔹 Key Differences Between ArrayList and ArrayDeque
+|Feature	| ArrayList	| ArrayDeque|
+|-------------|----------------------|--------------|
+|Data Structure|	Dynamic array (Resizable array-based list)|	Double-ended queue (Deque) (Resizable array-based queue)|
+|Access Type| 	Random access (O(1) time for get(index))|	FIFO (First-In-First-Out) or LIFO (Last-In-First-Out)|
+|Insertion/Deletion|	Slow at the start/middle (O(n)) but fast at the end (O(1))|	Fast insertions/removals at both ends (O(1))|
+|Access Time Complexity|	O(1) for get(index), O(n) for remove(index)|	O(1) for add/remove from front or back|
+|Best Used For|	Storing and accessing elements by index	|Queue operations (adding/removing from both ends)|
+|Implements	|List interface	|Deque and Queue interfaces|
+|Allows null?|	✅ Yes|	❌ No|
+|Thread Safety	|❌ Not thread-safe (Use Collections.synchronizedList if needed)	|❌ Not thread-safe (Use ConcurrentLinkedDeque for thread safety)|
+|Example Use Cases	|Dynamic arrays, searching, sorting, and indexed access|	Queues, stacks, and efficient element insertion/removal|
+### 🔹 When to Use What?
++ Use ArrayList when you need fast random access (e.g., list.get(index)).
++ Use ArrayDeque when you need fast insertions/removals at both ends (e.g., queue.poll() or stack.push()).
+### 🔹 Example: ArrayList (Fast Random Access)
+```
+import java.util.ArrayList;
 
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        
+        System.out.println(list.get(1)); // Fast O(1) random access
+        list.remove(1); // Slow O(n) removal from middle
+    }
+}
+```
++ 🔹 Best for: Searching, Sorting, Indexed Access.
+
++ 🔹 Example: ArrayDeque (Fast Insertions/Deletions)
+```
+import java.util.ArrayDeque;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.addFirst(10);
+        deque.addLast(20);
+        deque.addLast(30);
+        
+        System.out.println(deque.pollFirst()); // Fast O(1) removal from front
+        System.out.println(deque.pollLast());  // Fast O(1) removal from back
+    }
+}
+```
++ 🔹 Best for: Queues, Stacks, Efficient Insertions/Removals.
+
++ 🔹 Final Verdict
+If you frequently access elements by index, choose ArrayList.
+If you frequently add/remove elements from both ends, choose ArrayDeque.
 
 
 
