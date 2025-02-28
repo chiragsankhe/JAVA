@@ -3574,8 +3574,8 @@ public class Main {
 |Thread Safety	|❌ Not thread-safe (Use Collections.synchronizedList if needed)	|❌ Not thread-safe (Use ConcurrentLinkedDeque for thread safety)|
 |Example Use Cases	|Dynamic arrays, searching, sorting, and indexed access|	Queues, stacks, and efficient element insertion/removal|
 ### 🔹 When to Use What?
-+ Use ArrayList when you need fast random access (e.g., list.get(index)).
-+ Use ArrayDeque when you need fast insertions/removals at both ends (e.g., queue.poll() or stack.push()).
++ Use `ArrayList` when you need fast random access (e.g., `list.get(index`)).
++ Use `ArrayDeque` when you need fast insertions/removals at both ends (e.g.,` queue.poll() `or` stack.push()`).
 ### 🔹 Example: ArrayList (Fast Random Access)
 ```
 import java.util.ArrayList;
