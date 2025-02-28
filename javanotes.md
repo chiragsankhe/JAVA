@@ -3445,3 +3445,76 @@ output
 5
 8
 ```
+
+### Queue using collection fromwork 
+```
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+
+        // Enqueue (add elements)
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+
+        // Dequeue (remove elements)
+        System.out.println("Front element: " + q.peek()); // Peek at front
+        q.remove(); // Removes 1
+        q.add(8); // Add 8 to queue
+
+        // Print queue elements
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
+
+```
+
+### ✅ Queue Implementation using `ArrayDeque` (Faster)
+If you don't need null elements, `ArrayDeque is a better alternative to LinkedList`
+```
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<Integer> q = new ArrayDeque<>();
+
+        // Enqueue
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+
+        // Dequeue
+        System.out.println("Front element: " + q.peek()); // Peek at front
+        q.remove(); // Removes 1
+        q.add(8); // Add 8 to queue
+
+        // Print queue elements
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
+```
++ ✅ ArrayDeque is faster than LinkedList because it avoids extra node allocations. 🚀
+
++ Would you like an implementation of a priority queue as well? 😊
+
+
+
+
+
+
+
+
