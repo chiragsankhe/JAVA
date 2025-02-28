@@ -3354,3 +3354,94 @@ output
 5
 8
 ```
+### Queue using LinKlist 
+```
+public class QueueY {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    static class Queue {
+        static Node tail = null;
+        static Node head = null;
+
+        public static boolean isEmpty() {
+            return head == null;
+        }
+
+        // Enqueue (add)
+        public static void add(int data) {
+            Node newNode = new Node(data);
+
+            if (tail == null) {
+                head = tail = newNode;
+                return;
+            }
+
+            tail.next = newNode;
+            tail = newNode;  // Fix: Properly updating the tail
+        }
+
+        // Dequeue (remove)
+        public static int remove() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            int front = head.data;
+            
+            if (head == tail) {
+                head = tail = null;  // Fix: Set both to null when last element is removed
+            } else {
+                head = head.next;
+            }
+
+            return front;
+        }
+
+        // Peek
+        public static int peek() {
+            if (isEmpty()) {
+                System.out.println("Queue is empty");
+                return -1;
+            }
+
+            return head.data;
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue q = new Queue();
+
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+
+        q.remove();
+        q.add(8);
+
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
+
+```
+output
+```
+2
+3
+4
+5
+8
+```
