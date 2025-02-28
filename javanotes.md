@@ -3511,6 +3511,54 @@ public class QueueExample {
 
 + Would you like an implementation of a priority queue as well? 😊
 
+##
+
++ Let's break down this statement:
+```
+Queue<Integer> q = new ArrayDeque<>();
+```
++ 🔹 Identifying Class, Object, and Interface
+|Component	|Type	|Description|
+|-------------|----------|-----------|
+|Queue<Integer>|	Interface|	Queue is an interface from Java's Collection Framework. It defines queue behaviors (like add(), remove(), peek()), but it does not provide implementations.|
+|ArrayDeque<>()	|Class |	ArrayDeque is a concrete class that implements the Queue interface. It provides the actual implementation of queue operations.|
+|q	|Object (Reference Variable)|	q is an object reference variable that points to an instance of ArrayDeque. It allows us to use queue methods through polymorphism.|
++ 🔹 Explanation
+`Interface (Queue<Integer>)`
++ Queue is an interface, meaning it only provides method signatures but no implementation.
++ We cannot instantiate Queue directly (i.e., new Queue<>() is not allowed).
+`Class (ArrayDeque<>)`
+ +  ArrayDeque is a concrete class that provides an actual implementation of the Queue interface.
++ It allows dynamic resizing and efficient insertions/removals from both ends.
+`Object (q)`
+
++ The variable q is a reference of type Queue<Integer>, but it stores an object of ArrayDeque<Integer>.
++ This is an example of polymorphism—we use an interface type (Queue<Integer>) to hold a reference to its implementing class (ArrayDeque<Integer>).
+### 🔹 Polymorphism in Action
+```
+import java.util.Queue;
+import java.util.ArrayDeque;
+
+public class Main {
+    public static void main(String[] args) {
+        Queue<Integer> q = new ArrayDeque<>(); // Interface reference, class object
+
+        q.add(10);
+        q.add(20);
+        q.add(30);
+
+        System.out.println(q.remove()); // Removes 10
+        System.out.println(q.peek());   // Shows 20
+    }
+}
+```
+🔹 Output:
+```
+10
+20
+```
+✅ This follows polymorphism, meaning we can later change q to reference any other class implementing Queue, like LinkedList or PriorityQueue, without changing the rest of the code.
+
 
 
 
