@@ -3520,9 +3520,9 @@ Queue<Integer> q = new ArrayDeque<>();
 + 🔹 Identifying Class, Object, and Interface
 |Component	|Type	|Description|
 |-------------|----------|-----------|
-|Queue<Integer>|	Interface|	Queue is an interface from Java's Collection Framework. It defines queue behaviors (like add(), remove(), peek()), but it does not provide implementations.|
-|ArrayDeque<>()	|Class |	ArrayDeque is a concrete class that implements the Queue interface. It provides the actual implementation of queue operations.|
-|q	|Object (Reference Variable)|	q is an object reference variable that points to an instance of ArrayDeque. It allows us to use queue methods through polymorphism.|
+|Queue<Integer>|Interface|Queue is an interface from Java's Collection Framework. It defines queue behaviors (like add(), remove(), peek()), but it does not provide implementations.|
+|ArrayDeque<>()	|Class |ArrayDeque is a concrete class that implements the Queue interface. It provides the actual implementation of queue operations.|
+|q	|Object (Reference Variable)|q is an object reference variable that points to an instance of ArrayDeque. It allows us to use queue methods through polymorphism.|
 + 🔹 Explanation
 + `Interface (Queue<Integer>)`
 + Queue is an interface, meaning it only provides method signatures but no implementation.
@@ -3564,15 +3564,16 @@ public class Main {
 + 🔹 Key Differences Between ArrayList and ArrayDeque
 |Feature	| ArrayList	| ArrayDeque|
 |-------------|----------------------|--------------|
-|Data Structure|	Dynamic array (Resizable array-based list)|	Double-ended queue (Deque) (Resizable array-based queue)|
-|Access Type| 	Random access (O(1) time for get(index))|	FIFO (First-In-First-Out) or LIFO (Last-In-First-Out)|
-|Insertion/Deletion|	Slow at the start/middle (O(n)) but fast at the end (O(1))|	Fast insertions/removals at both ends (O(1))|
-|Access Time Complexity|	O(1) for get(index), O(n) for remove(index)|	O(1) for add/remove from front or back|
-|Best Used For|	Storing and accessing elements by index	|Queue operations (adding/removing from both ends)|
-|Implements	|List interface	|Deque and Queue interfaces|
+|Data Structure      |Dynamic array (Resizable array-based list)     |Double-ended queue (Deque) (Resizable array-based queue)|
+|Access Type          | 	Random access (O(1) time for get(index))|   FIFO (First-In-First-Out) or LIFO (Last-In-First-Out)|
+|Insertion/Deletion    |	Slow at the start/middle (O(n)) but fast at the end (O(1))|	Fast insertions/removals at both ends (O(1))|
+|Access Time Complexity|	O(1) for get(index), O(n) for remove(index)  |	O(1) for add/remove from front or back|
+|Best Used For        |	Storing and accessing elements by index	|Queue operations (adding/removing from both ends)|
+|Implements	|List interface	 |  Deque and Queue interfaces|
 |Allows null?|	✅ Yes|	❌ No|
 |Thread Safety	|❌ Not thread-safe (Use Collections.synchronizedList if needed)	|❌ Not thread-safe (Use ConcurrentLinkedDeque for thread safety)|
 |Example Use Cases	|Dynamic arrays, searching, sorting, and indexed access|	Queues, stacks, and efficient element insertion/removal|
+
 ### 🔹 When to Use What?
 + Use `ArrayList` when you need fast random access (e.g., `list.get(index`)).
 + Use `ArrayDeque` when you need fast insertions/removals at both ends (e.g.,` queue.poll() `or` stack.push()`).
