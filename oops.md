@@ -1793,6 +1793,59 @@ public class Main {
 ```
 Public method can be accessed anywhere.
 ```
+#### 🚀 Difference Between class Main and public class Main in Java
+In Java, whether you write `public class Main` or just `class Main` affects the accessibility of the class. Let's break it down.
+
+#### ✅ public class Main (Accessible Everywhere)
++ If a class is declared as `public`, it must be saved with the same name as the filename `(i.e., Main.java)`.
++ The class is accessible from anywhere (inside and outside the package).
+```
+// File: Main.java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
++ ✔ Compiles and runs successfully because the filename matches the class name.
+
+#### ✅ class Main (Package-Private, No Public Access)
++ If a class is not declared as public, it has default (package-private) access.
++ This means it can only be accessed within the same package.
++ No filename restriction—the file can have a different name.
+```
+// File: Test.java
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
++ ✔ Compiles and runs successfully because the class does not need to match the filename.
+
++ ❌ But this class cannot be accessed from another package.
+
++ ⛔ What Happens If a Public Class Name Doesn't Match the Filename?
+```
+// File: Test.java
+public class Main {  // ❌ ERROR! The filename is different
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
++ ❌ Compilation Error:
+
++ class Main is public, should be declared in a file named Main.java
++ 👉 A public class must always have the same name as the filename.
+
+
+##### 🚀 Key Takeaways
++ ✔ public class must match the filename and is accessible from everywhere.
++ ✔ class (without public) does not need to match the filename and is package-private.
++ ✔ Only one public class is allowed per .java file.
+
+
 ### 🔹 2. protected (Limited to Subclasses and Same Package)
 + Accessible within the same package and subclasses in different packages.
 + Not accessible from non-subclass classes outside the package.
