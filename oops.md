@@ -971,7 +971,7 @@ Laptop() {
 ##### 🚀 Final Thoughts
 + Manually assigned constructors are useful when you want full control over object properties.
 + Automatically assigned constructors are useful when you want default/random values for testing or fallback cases.
-###🔹 4️⃣ Instance
+### 🔹 4️⃣ Instance
 + An instance is simply another word for an object of a class.
 + When you create an object using new, you create an instance of that class.
 ```
