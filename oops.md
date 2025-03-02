@@ -308,8 +308,102 @@ public class Main {
     }
 }
 ```
-
 + Requires an object to call the method.
+
+### ✅ Example: Accessing Instance Variables Without static
+```
+class Student {
+    String name;  // Instance variable
+    int age;      // Instance variable
+
+    // Constructor to initialize instance variables
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Non-static method can directly access instance variables
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of Student
+        Student s1 = new Student("Prachi", 22);
+
+        // Calling the instance method (no need for static)
+        s1.display();
+    }
+}
+```
+🔹 Output:
+```
+Name: Prachi, Age: 22
+```
+### ✅ How It Works:
++ Instance variables `(name, age) `are `non-static`.
++ The display() method is also `non-static`, so it can `directly access instance variables`.
++ You must create an object (s1) to call display(), as instance methods need an object.
+### ❌ What Happens If display() is Static?
+If you try to access non-static variables inside a static method, you’ll get an error:
+```
+class Student {
+    String name;
+    int age;
+
+    static void display() {
+        System.out.println(name);  // ❌ Error: Non-static variable cannot be referenced from a static context
+    }
+}
+```
+### 🔥 Solution:
++ Either remove static from display() (as shown earlier).
+OR use an object inside static:
+```
+static void display(Student s) {
+    System.out.println(s.name + ", " + s.age);
+}
+```
+### ✅ Final Rule:
++ Non-static methods can access instance variables directly.
++ Static methods must use an object to access instance variables.
+
+```
+class Student {
+    String name;  // Instance variable
+    int age;      // Instance variable
+
+    // Constructor to initialize values
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display details
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects of Student
+        Student s1 = new Student("Aryan", 22);
+        Student s2 = new Student("Riya", 24);
+
+        // Assigning new values to instance variables
+        s1.name = "Prachi";  // ✅ Corrected string format
+        s2.age = 23;         // ✅ No NullPointerException since s2 is initialized
+
+        // Displaying updated values
+        s1.display();
+        s2.display();
+    }
+}
+
+```
 
 ### 5. Getter and Setter Methods
 Used to get and set values of private variables (Encapsulation).
