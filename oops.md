@@ -132,6 +132,145 @@ public class Main {
 + Defined by the user inside a class.
 
 ### 3. Static Methods
++ Yes, that's `right`! In Java, if you define a `static `variable inside a class, it belongs to the class rather than any specific instance. This means you can access those static variables `anywhere inside the same class ``(including the main method)` using the class name or directly if they are in the `same class`.
+
+Example:
+```
+class Example {
+    // Defining static variables
+    static int a = 10;
+    static String name = "Java";
+    static double pi = 3.14;
+    static boolean flag = true;
+    static char ch = 'X';
+
+    public static void main(String[] args) {
+        // Accessing static variables directly
+        System.out.println(a);
+        System.out.println(name);
+        System.out.println(pi);
+        System.out.println(flag);
+        System.out.println(ch);
+        
+        // Accessing static variables using class name
+        System.out.println(Example.a);
+        System.out.println(Example.name);
+    }
+}
+```
+Output:
+```
+10
+Java
+3.14
+true
+X
+10
+Java
+```
+### Key Points:
++ Static variables are shared across all instances of the class.
++ They can be accessed directly within static methods of the same class (like main).
++ If accessing from another class, you must use ClassName.variableName.
++ Static variables are initialized only once at class loading time.
+
+
+### with 2 diffrent classs  how we use static variable access
+
++ If you define static variables in one class, you can `access` them in `another class using the class name followed by the variable name` `(ClassName.variableName)`.
+
++ ✅ Example: Accessing Static Variables from Another Class
+```
+// First class containing static variables
+class Data {
+    static int a = 100;
+    static String message = "Hello, Java!";
+}
+
+// Second class (contains main method)
+public class Main {
+    public static void main(String[] args) {
+        // Accessing static variables using class name
+        System.out.println(Data.a);         // Output: 100
+        System.out.println(Data.message);   // Output: Hello, Java!
+    }
+}
+```
++ ✅ Another Example: Accessing Static Variables with Static Methods
+```
+class Config {
+    static String database = "MySQL";
+
+    // Static method to return the database name
+    static String getDatabase() {
+        return database;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Access static variable using class name
+        System.out.println(Config.database);
+
+        // Access static method using class name
+        System.out.println(Config.getDatabase());
+    }
+}
+```
++ 🔥 Key Points:
++ Static variables belong to the class and not to any object.
++ They can be accessed in another class using ClassName.variableName.
++ You don’t need to create an object to access static variables.
++ Static methods can also access static variables.
+
+
+### if we not use static then ?
+
++ If you do `not use static`, the variables will become `instance variables`, meaning you need to `create an object of the class to access them`. You cannot access non-static variables directly from a static context (like the main method).
+
++ ❌ Example (Without static, will cause an error)
+```
+class Data {
+    int a = 100;  // Instance variable (non-static)
+    String message = "Hello, Java!";
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // System.out.println(Data.a);  // ❌ Error: Non-static field cannot be referenced from a static context
+        // System.out.println(Data.message); // ❌ Error
+    }
+}
+```
++ ✅ Correct Way: Using Objects
+To access non-static variables, you must create an instance of the class:
+```
+class Data {
+    int a = 100;  // Instance variable (non-static)
+    String message = "Hello, Java!";
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of Data class
+        Data obj = new Data();
+        
+        // Access instance variables using the object
+        System.out.println(obj.a);         // Output: 100
+        System.out.println(obj.message);   // Output: Hello, Java!
+    }
+}
+```
++ 🔥 Key Differences Between static and Non-static:
+|Feature	|static (Class Variable)	|Non-static (Instance Variable)|
+|-------------------------|----------------------------|----------------|
+|Belongs to	|Class (shared across all instances)	|Each object (separate copies)|
+|Access in main()|	Directly using `ClassName.variableName`	|Requires `object (obj.variableName)`|
+|Memory allocation	|At class loading time	|When object is created|
+|Needs an object?	|❌ No	|✅ Yes|
+### ✅ When to Use:
++ Use static when a variable/method belongs to the class (e.g., constants, utility methods).
++ Use non-static when a variable/method should be different for each object (e.g., user details in an app).
 + A static method belongs to the class rather than an object. It can be called directly using the class name.
 ```
 class MathUtils {
