@@ -524,8 +524,8 @@ Age: 0  // Default value, as -5 was rejected
 |------------------|------------------------------|-------------------|
 |Encapsulation|	❌ No|	✅ Yes|
 |Direct Access to Data|	✅ Allowed|	❌ Restricted|
-|Validation Possible?	|❌ No	✅ Yes|
-|Secure Data Handling?|	❌ No	✅ Yes|
+|Validation Possible?	|❌ No|	✅ Yes|
+|Secure Data Handling?|	❌ No	|✅ Yes|
 ###  🔥 Final Rule:
 Always make instance variables private and use getter and setter methods to control access. This ensures data security, validation, and flexibility in Java.
 
@@ -642,6 +642,123 @@ public class Main
 }
 
 ```
+
+🔍 Code Explanation
+This Java program demonstrates constructor overloading, method overloading, and object copying.
+
+📌 Step-by-Step Breakdown
+1️⃣ Class Laptop (Encapsulation of Laptop Details)
+Instance Variables:
+
+java
+Copy
+Edit
+String model;  // Stores laptop model name
+int price;     // Stores laptop price
+Two Constructors (Constructor Overloading):
+
+java
+Copy
+Edit
+Laptop(String a, int b)  // Constructor 1
+Laptop(Laptop dell)  // Constructor 2 (Copy Constructor)
+2️⃣ Constructor Overloading (Initializing Objects in Different Ways)
+Constructor 1:
+
+java
+Copy
+Edit
+Laptop(String a, int b) {
+    this.model = a;
+    this.price = b;
+}
+Accepts a string (a) and an integer (b) as arguments.
+Assigns them to the instance variables model and price.
+Constructor 2 (Copy Constructor):
+
+java
+Copy
+Edit
+Laptop(Laptop dell) {
+    this.model = dell.model;
+    this.price = dell.price;
+}
+Accepts an existing Laptop object as a parameter.
+Copies its model and price values into the new object.
+3️⃣ Method Overloading (Multiple sell Methods)
+Method overloading allows multiple methods with the same name but different parameters.
+
+java
+Copy
+Edit
+void sell(String model) {
+    System.out.println(model);
+}
+Prints only the model name.
+java
+Copy
+Edit
+void sell(int price) {
+    System.out.println(price);
+}
+Prints only the price.
+java
+Copy
+Edit
+void sell(String model, int price) {
+    System.out.println(model);
+    System.out.println(price);
+}
+Prints both the model and price.
+📝 main Method (Execution Starts Here)
+java
+Copy
+Edit
+Scanner scn = new Scanner(System.in);
+String a = scn.nextLine();  // Input for laptop model
+int b = scn.nextInt();  // Input for laptop price
+Takes user input for model and price.
+4️⃣ Creating Objects in main
+Creating First Laptop Object (Using Constructor 1)
+java
+Copy
+Edit
+Laptop dell = new Laptop(a, b);
+A Laptop object named dell is created.
+a and b are assigned to model and price respectively.
+Copying dell into hp (Using Copy Constructor)
+java
+Copy
+Edit
+Laptop hp = new Laptop(dell);
+Creates a new object hp with the same values as dell.
+5️⃣ Calling Overloaded sell Method
+java
+Copy
+Edit
+dell.sell(a, b);
+Calls the third sell method (sell(String, int)) because we passed two arguments (String and int).
+Prints the model name and price.
+📌 Example Input/Output
+👩‍💻 Input:
+nginx
+Copy
+Edit
+HP Pavilion
+55000
+📤 Output:
+nginx
+Copy
+Edit
+HP Pavilion
+55000
+📝 Summary
+✅ Concepts Used in the Code:
+
+Constructor Overloading (Different constructors for initialization).
+Copy Constructor (Creates an object by copying another object).
+Method Overloading (Multiple sell methods with different parameters).
+Scanner Class (Takes user input).
 
 ### 8. Method Overriding (Run-time Polymorphism)
 + A child class provides a different implementation of a method from the parent class.
