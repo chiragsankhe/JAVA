@@ -263,11 +263,12 @@ public class Main {
 ```
 + 🔥 Key Differences Between static and Non-static:
 |Feature	|static (Class Variable)	|Non-static (Instance Variable)|
-|-------------------------|----------------------------|----------------|
-|Belongs to	|Class (shared across all instances)	|Each object (separate copies)|
-|Access in main()|	Directly using `ClassName.variableName`	|Requires `object (obj.variableName)`|
-|Memory allocation	|At class loading time	|When object is created|
-|Needs an object?	|❌ No	|✅ Yes|
+|---------------|----------------- -------------|------------------------------|
+|Belongs to	|Class (shared across all instances)|Each object (separate copies)|
+|Access in main()|Directly using `ClassName.variableName`|Requires `object (obj.variableName)`|
+|Memory allocation|At class loading time | When object is created|
+|Needs an object?|❌ No	|✅ Yes|
+
 ### ✅ When to Use:
 + Use static when a variable/method belongs to the class (e.g., constants, utility methods).
 + Use non-static when a variable/method should be different for each object (e.g., user details in an app).
