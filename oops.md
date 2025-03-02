@@ -469,7 +469,7 @@ public class Main {
 }
 ```
 🔹 Problem: No control over data → age is negative, which is incorrect.
-```
+
 
 #### ✅ Example With Encapsulation (Using Private + Getters & Setters)
 ```
