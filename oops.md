@@ -1065,7 +1065,7 @@ public class Main {
 }
 ```
 
-##📌 Types of Constructors in Java 🚀
+## 📌 Types of Constructors in Java 🚀
 + In Java, a constructor is a special method used to initialize objects.
 + It must have the same name as the class and has no return type (not even void).
 
@@ -1280,7 +1280,7 @@ Dog barks
 | Modifiers	|Can be static|	Cannot override static methods|
 | Keyword	|Not required	|Uses @Override annotation|
 
-+🚀 Real-world Example
++ 🚀 Real-world Example
 #### ATM Machine Example (Overriding)
 ```
 class ATM {
@@ -1306,6 +1306,38 @@ public class Main {
     }
 }
 ```
+#### ✅ Using super to Call Parent Method
+If you want to call the parent class method inside the overridden method, use `super`.
+```
+class Animal {
+    void sound() {
+        System.out.println("Animals make sounds");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        super.sound();  // Calls parent method
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.sound();  // Calls overridden method (including parent method)
+    }
+}
+```
+📤 Output
+```
+Animals make sounds
+Dog barks
+```
++ ✅ Now, the Dog class uses both its own method and the parent's method.
+
+
 #### 🔎 When to Use Polymorphism?
 + `✔ Overloading:` When you need multiple versions of a method with different parameters.
 + `✔ Overriding:` When a child class needs to modify the behavior of a parent class method.
