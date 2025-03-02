@@ -3617,7 +3617,130 @@ public class Main {
 If you frequently access elements by index, choose ArrayList.
 If you frequently add/remove elements from both ends, choose ArrayDeque.
 
+## BinaryTree
 
++ A Binary Tree is a hierarchical data structure where each node has at most two children: a left child and a right child. It is widely used in searching, sorting, and hierarchical data representation.
+
+#### Types of Binary Trees:
++ `Full Binary Tree` → Every node has `0 `or` 2` children.
++ `Complete Binary Tree` → All levels are completely filled except possibly the last.
++ `Perfect Binary Tree` → All internal nodes have `two children`, and all `leaf nodes are at the same level`.
++ `Balanced Binary Tree` → The height difference between the left and right subtrees is at most 1.
++ `Degenerate (Skewed) Binary Tree `→ Each parent node has only one child.
+### Basic Operations in a Binary Tree:
++ ✅ `Insertion`
++ ✅ `Deletion`
++ ✅ `Traversal (Inorder, Preorder, Postorder)`
++ ✅ `Searching`
++ ✅ `Finding Height of Tree`
+
+### Binary Tree Implementation in Java
++ Here’s an implementation of a Binary Tree with Preorder Traversal:
+```
+class BinaryTree {
+    
+    static class Node {
+        int data;
+        Node left, right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = this.right = null;
+        }
+    }
+
+    // Preorder Traversal: Root → Left → Right
+    public static void preorder(Node root) {
+        if (root == null) return;
+
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    public static void main(String[] args) {
+        // Creating a simple Binary Tree
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+
+        System.out.print("Preorder Traversal: ");
+        preorder(root);  // Output: 1 2 4 5 3 6
+    }
+}
+```
+### Tree Traversal Types
++ Inorder (Left → Root → Right)
+
+```
+public static void inorder(Node root) {
+    if (root == null) return;
+    inorder(root.left);
+    System.out.print(root.data + " ");
+    inorder(root.right);
+}
+```
++ Postorder (Left → Right → Root)
+
+```
+public static void postorder(Node root) {
+    if (root == null) return;
+    postorder(root.left);
+    postorder(root.right);
+    System.out.print(root.data + " ");
+}
+```
+### Common Interview Questions on Binary Trees
++ ✔ Find the height of a binary tree
++ ✔ Count the number of nodes
++ ✔ Check if a tree is balanced
++ ✔ Find the lowest common ancestor (LCA)
++ ✔ Check if two trees are identical
+
+
+```
+public class BinaryTree {
+    
+    static class Node {
+        int data;
+        Node left;
+        Node right;
+        
+        Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    static class TreeBuilder {
+        static int idx = -1;
+
+        public static Node buildTree(int nodes[]) {
+            idx++;
+            if (idx >= nodes.length || nodes[idx] == -1) {
+                return null;
+            }
+            Node newNode = new Node(nodes[idx]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
+
+            return newNode;
+        }
+    }
+
+    public static void main(String[] args) {
+        int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+
+        Node root = TreeBuilder.buildTree(nodes);
+        System.out.println("Root Node: " + root.data);
+    }
+}
+
+```
 
 
 
