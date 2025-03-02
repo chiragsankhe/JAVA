@@ -262,10 +262,11 @@ public class Main {
 }
 ```
 + 🔥 Key Differences Between static and Non-static:
+  
 |Feature	|static (Class Variable)	|Non-static (Instance Variable)|
-|---------------|----------------- -------------|------------------------------|
-|Belongs to	|Class (shared across all instances)|Each object (separate copies)|
-|Access in main()|Directly using `ClassName.variableName`|Requires `object (obj.variableName)`|
+|---------------|------------------------------|------------------------------|
+|Belongs to	|Class (shared across all instances)      |Each object (separate copies)|
+|Access in main()|Directly using `ClassName.variableName` |Requires `object (obj.variableName)`|
 |Memory allocation|At class loading time | When object is created|
 |Needs an object?|❌ No	|✅ Yes|
 
