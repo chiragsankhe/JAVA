@@ -890,8 +890,88 @@ public class Main {
 ```
 + 🔹 Without a constructor, you would have to assign values manually.
 + 🔹 With a constructor, values are assigned automatically when creating an object.
+#### ✅ Example: Manually and Automatically Assigned Values in Constructors
+```
+import java.util.Random;  // Import for generating random numbers
 
-#### 🔹 4️⃣ Instance
+class Laptop {
+    String model;
+    int price;
+
+    // ✅ 1. Manually Assigned Values (User-defined constructor)
+    Laptop(String model, int price) {
+        this.model = model;
+        this.price = price;
+    }
+
+    // ✅ 2. Automatically Assigned Values (Default constructor)
+    Laptop() {
+        String[] models = {"Dell", "HP", "Lenovo", "Apple", "Asus"};
+        Random rand = new Random();
+
+        this.model = models[rand.nextInt(models.length)]; // Picks a random model
+        this.price = rand.nextInt(50000) + 30000;  // Generates random price between 30000-80000
+    }
+
+    void display() {
+        System.out.println("Laptop Model: " + model);
+        System.out.println("Price: ₹" + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // ✅ Using manually assigned values
+        Laptop dell = new Laptop("Dell Inspiron", 55000);
+        System.out.println("Manually Assigned:");
+        dell.display();
+
+        // ✅ Using automatically assigned values
+        Laptop randomLaptop = new Laptop();
+        System.out.println("\nAutomatically Assigned:");
+        randomLaptop.display();
+    }
+}
+```
+📤 Example Output
+
+Manually Assigned:
+```
+Laptop Model: Dell Inspiron
+Price: ₹55000
+```
+Automatically Assigned:
+```
+Laptop Model: HP  // (This value changes randomly)
+Price: ₹68423  // (Random value between 30000-80000)
+```
+### 📝 Explanation
++ `Manually Assigned ` Constructor:
+
++ User explicitly provides values for model and price.
+```
+Laptop(String model, int price) { ... }
+```
++ Automatically Assigned Constructor:
+
++ Randomly selects a model from an array.
++ Randomly generates a price between ₹30,000 and ₹80,000.
+```
+Laptop() {
+    String[] models = {"Dell", "HP", "Lenovo", "Apple", "Asus"};
+    Random rand = new Random();
+    this.model = models[rand.nextInt(models.length)];
+    this.price = rand.nextInt(50000) + 30000;
+}
+```
+#### 🔹 When to Use These Approaches?
+|Approach	|Use Case|
+|Manually Assigned|	When values come from user input or fixed values.|
+|Automatically Assigned|	When we want default/random values without user input.|
+##### 🚀 Final Thoughts
++ Manually assigned constructors are useful when you want full control over object properties.
++ Automatically assigned constructors are useful when you want default/random values for testing or fallback cases.
+###🔹 4️⃣ Instance
 + An instance is simply another word for an object of a class.
 + When you create an object using new, you create an instance of that class.
 ```
