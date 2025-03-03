@@ -2063,6 +2063,207 @@ public class Main {
 + Ensures better control over data with validation logic.
 + modular programming, making code more readable and maintainable.
 
+#### Without Encapsulation (Direct Access)
+```
+class Student {
+    // Public variables (Not encapsulated)
+    public String name;
+    public int rollNumber;
+
+    // Constructor
+    public Student(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+    }
+}
+
+public class WithoutEncapsulation {
+    public static void main(String[] args) {
+        // Creating an object
+        Student student = new Student("Prachi", 101);
+
+        // Directly accessing and modifying data
+        System.out.println("Student Name: " + student.name);
+        System.out.println("Roll Number: " + student.rollNumber);
+
+        // Changing values without any restriction
+        student.name = "Aarav"; 
+        student.rollNumber = -102;  // Invalid data, but no protection
+
+        System.out.println("Updated Name: " + student.name);
+        System.out.println("Updated Roll Number: " + student.rollNumber);
+    }
+}
+```
++ Problems Without Encapsulation
++ ❌ No Data Protection → Anyone can modify name and rollNumber without restrictions.
++ ❌ No Validation → Negative roll numbers or invalid names can be set.
++ ❌ Hard to Maintain → If the variable name changes, you must update it everywhere.
+
+#### With Encapsulation (Using Getters and Setters)
+By using private variables and providing getter and setter methods, we can control access and validate data before modifying it.
+```
+class Student {
+    private String name;
+    private int rollNumber;
+
+    // Constructor
+    public Student(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+    }
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter method for roll number
+    public int getRollNumber() {
+        return rollNumber;
+    }
+
+    // Setter method with validation
+    public void setRollNumber(int rollNumber) {
+        if (rollNumber > 0) {
+            this.rollNumber = rollNumber;
+        } else {
+            System.out.println("Invalid roll number. Must be positive.");
+        }
+    }
+}
+
+public class WithEncapsulation {
+    public static void main(String[] args) {
+        Student student = new Student("Prachi", 101);
+
+        // Accessing data safely
+        System.out.println("Student Name: " + student.getName());
+        System.out.println("Roll Number: " + student.getRollNumber());
+
+        // Trying to set invalid data
+        student.setRollNumber(-102);  // This will show an error message
+
+        // Setting valid data
+        student.setRollNumber(102);
+
+        System.out.println("Updated Roll Number: " + student.getRollNumber());
+    }
+}
+```
++ Benefits of Encapsulation
++ ✅ `Data Security` → Private variables prevent direct modification.
++ ✅ `Validation `→ We can check values before updating them.
++ ✅ `Maintainability `→ Changes in variables do not affect other code.
+
++ Thus, without encapsulation, data is unprotected and can be modified incorrectly. Using getters and setters ensures better control and security! 🚀
+
+
+
+##### No, getter and setter methods are not compulsory when using private variables. However, they are commonly used when we need controlled access to private data.
+
+#### When Do We Need Getters and Setters?
++ ✔ If we need to read private data → Use a getter method (getX()).
++ ✔ If we need to modify private data → Use a setter method (setX()).
++ ✔ If we want validation before updating → Use setters.
++ ✔ If we don’t want external modification → Don’t provide a setter.
+
+Example Without Getter and Setter (Encapsulation but No Access)
+```
+class Student {
+    private String name;  // Private variable
+
+    // Constructor
+    public Student(String name) {
+        this.name = name;
+    }
+
+    // No getter or setter provided
+    // Data cannot be accessed or modified outside the class
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("Prachi");
+        
+        // Cannot access private data (This will cause an error)
+        // System.out.println(student.name); // ❌ Error: name has private access
+
+        // Cannot modify private data
+        // student.name = "Aarav"; // ❌ Error: name has private access
+    }
+}
+```
++ 👉 In this case, name remains private and inaccessible from outside.
+
+#### Example With Only Getter (Read-Only)
+If we want the data to be readable but not modifiable, we provide only a getter.
+
+```
+class Student {
+    private String name;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    // Getter (only reading allowed)
+    public String getName() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("Prachi");
+        
+        // We can read the data
+        System.out.println("Student Name: " + student.getName()); // ✅ Works
+
+        // We cannot modify the data (No setter available)
+        // student.name = "Aarav"; // ❌ Error
+    }
+}
+```
++ 👉 The variable is private, but we can read it using getName(), and it remains unchangeable.
+
+#### Example With Only Setter (Write-Only)
+If we want the data to be modifiable but not readable, we provide only a setter.
+```
+class Student {
+    private String password;
+
+    // Setter (Only modification allowed)
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student();
+        
+        // We can set the password
+        student.setPassword("secure@123"); // ✅ Works
+
+        // We cannot read the password (No getter available)
+        // System.out.println(student.password); // ❌ Error
+    }
+}
+```
++ 👉 This is useful for sensitive data like passwords, where reading is restricted.
+
+### Conclusion
++ If a variable is private, we do not have to use getters and setters unless we need them.
++ Without getters and setters → The variable is completely hidden.
++ With only a getter → Read-Only.
++ With only a setter → Write-Only.
++ With both → Full access with control.
 
 ## Abstraction
 
