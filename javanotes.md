@@ -2064,6 +2064,82 @@ while (it.hasNext()) {
     System.out.println(it.next());
 }
 ```
+#### Iterator in Java
+An Iterator in Java is an interface in the java.util package that allows you to traverse elements of a collection one by one without exposing the underlying implementation.
+
+### 1. Why Use Iterator?
++ It removes elements while iterating.
++ It works independently of the collection type.
++ It is safer than using a for-each loop because it avoids `ConcurrentModificationException`.
+2. Iterator Interface Methods
+  
++ The Iterator interface has the following methods:
+
+|Method|	Description|
+boolean hasNext()|	Returns true if the iteration has more elements.|
+|E next()	|Returns the next element in the iteration.|
+|void remove()	|Removes the last element returned by next().|
+3. Example of Iterator
+```
+import java.util.*;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        // Create a list
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+
+        // Get an iterator
+        Iterator<String> iterator = names.iterator();
+
+        // Iterate through the list
+        while (iterator.hasNext()) {
+            String name = iterator.next();
+            System.out.println(name);
+
+            // Remove "Bob" while iterating
+            if (name.equals("Bob")) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println("List after iteration: " + names);
+    }
+}
+```
+Output:
+```
+Alice
+Bob
+Charlie
+```
+```
+List after iteration: [Alice, Charlie]
+```
+#### 4. Fail-Fast vs. Fail-Safe Iterators
+|Type	|Behavior|
+|-----|----------|
+|Fail-Fast|	Throws ConcurrentModificationException if the collection is modified while iterating. Example: ArrayList, HashMap (normal iterators).|
+|Fail-Safe|	Allows modification while iterating by working on a copy of the collection. Example: ConcurrentHashMap, CopyOnWriteArrayList.|
+
+#### 5. ListIterator (Bidirectional Iterator)
+ListIterator is a special type of iterator for lists that allows traversal in both directions.
+```
+ListIterator<String> listIterator = names.listIterator();
+while (listIterator.hasNext()) {
+    System.out.println(listIterator.next());
+}
+```
+#### 6. Alternative: Enhanced For Loop
+If removal/modification is not required, you can use:
+```
+for (String name : names) {
+    System.out.println(name);
+}
+```
+Would you like a deeper dive into ListIterator or ConcurrentModificationException? 🚀
 ### 7️⃣ Checking Size
 Use `size()` to find the number of elements.
 ```
