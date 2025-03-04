@@ -2076,6 +2076,7 @@ An Iterator in Java is an interface in the java.util package that allows you to 
 + The Iterator interface has the following methods:
 
 |Method|	Description|
+|------------|--------------|
 boolean hasNext()|	Returns true if the iteration has more elements.|
 |E next()	|Returns the next element in the iteration.|
 |void remove()	|Removes the last element returned by next().|
@@ -2246,6 +2247,7 @@ Edit
 ```
 #### 1️⃣ Interfaces in Java Collection Framework
 |Interface	|Description|
+|--------------|------------|
 |Collection	|Root interface for working with groups of objects.|
 |List	|Ordered collection that allows duplicates.|
 |Set	|Collection that does not allow duplicates.|
@@ -2260,6 +2262,103 @@ A List allows elements to be accessed by an index and permits duplicate values.
 + ✅ `ArrayList` – Fast access (O(1)), slow insertion/deletion.
 + ✅` LinkedList` – Fast insertion/deletion (O(1)), slow access (O(n)).
 + ✅` Vector` – Synchronized version of ArrayList.
+
+### Understanding ArrayList vs. LinkedList Performance
+Both `ArrayList` and `LinkedList `are implementations of the List interface in Java, but they have different performance characteristics based on how they store and manage elements.
+
+#### 1️⃣ ArrayList – Fast Access (O(1)), Slow Insertion/Deletion
+ ##### ✅ Fast Random Access (O(1))
+
++ ArrayList is backed by a dynamic array.
++ It provides constant-time access to elements using an index (get(index)) because array elements are stored contiguously in memory.
+##### ✅ Slow Insertion/Deletion (O(n))
+
++ Inserting or deleting an element in the middle requires shifting all subsequent elements.
++ `Best case`: Adding at the end (O(1), amortized)
++ `Worst case`: Inserting/deleting from the beginning (O(n), since all elements must shift).
+Example: ArrayList Performance
+```
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        // Adding elements (Fast O(1) if adding at end)
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        
+        // Accessing elements (O(1))
+        System.out.println("Element at index 1: " + list.get(1)); // Fast
+        
+        // Removing element from the middle (O(n))
+        list.remove(1);
+        System.out.println("List after removal: " + list);
+    }
+}
+```
++ ⏳ Time Complexity Recap for ArrayList:
+
+|Operation	|Complexity|
+|-----------|---------------|
+|Access (get/set)|	O(1)|
+|Insert at end	|O(1) (Amortized)|
+|Insert in middle	|O(n) (Shifting required)|
+|Delete from middle	|O(n) (Shifting required)|
+
+#### 2️⃣ LinkedList – Fast Insertion/Deletion (O(1)), Slow Access (O(n))
+##### ✅ Fast Insertion/Deletion (O(1))
+
++ LinkedList is a doubly linked list (each node stores a reference to the previous and next node).
++ Insertion/removal at the beginning/middle is fast because it just requires updating pointers—no shifting like ArrayList.
+##### ✅ Slow Access (O(n))
+
++ Unlike ArrayList, LinkedList doesn’t have direct indexing (get(index) is slow).
++ To access an element, Java traverses the list from the start until it finds the index (O(n), worst case).
+Example: LinkedList Performance
+```
+import java.util.LinkedList;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        
+        // Adding elements (Fast O(1))
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        
+        // Accessing elements (Slow O(n))
+        System.out.println("Element at index 1: " + list.get(1)); // Slow
+        
+        // Removing element from the middle (Fast O(1))
+        list.remove(1);
+        System.out.println("List after removal: " + list);
+    }
+}
+```
++ ⏳ Time Complexity Recap for LinkedList:
+
+|Operation	|Complexity|
+|---------------|------------|
+|Access (get/set)|	O(n)|
+|Insert at end	|O(1) (if tail reference is available)|
+|Insert in middle	|O(1) (once position is found)|
+|Delete from middle	|O(1) (once position is found)|
+
+#### 3️⃣ When to Use Which?
+|Use Case	|Best Choice	|Reason|
+|-------------|----------------|---------|
+|Fast random access	|✅ ArrayList	|O(1) indexing|
+|Frequent insertions/deletions (except at the end)|	✅ LinkedList|	O(1) insert/delete at middle|
+|Memory efficiency	|✅ ArrayList|	Less memory overhead (no extra pointers)|
+|Iterating over elements	|✅ ArrayList	|Better cache locality (faster iteration)|
+
+#### 4️⃣ Conclusion
++ If you need fast lookups, go for ArrayList (O(1) access time).
++ If you need frequent insertions/removals, go for LinkedList (O(1) for insertions/deletions).
++ If memory is a concern, ArrayList is more efficient as it doesn’t store extra node references.
 
 Example: Using ArrayList
 ```
