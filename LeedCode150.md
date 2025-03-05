@@ -2136,3 +2136,49 @@ class Solution {
     }
 }
 ```
+## simplify path
+```
+class Solution {
+
+    public String simplifyPath(String path) {
+        
+         Deque<String> stack = new ArrayDeque<>();
+
+        for(String str : path.split("/"))
+        {
+            if(str.isEmpty() || ".".equals(str))
+            {
+                continue;
+            }
+
+            if ("..".equals(str)) {
+                if (!stack.isEmpty()) {  // ✅ Only pop if stack is not empty
+                    stack.pop();
+                }
+                continue;  // ✅ Don't push ".." into stack
+            }
+
+            stack.push(str);
+        }
+
+
+         // Convert stack to a list and reverse it
+        ArrayList<String> resultList = new ArrayList<>(stack);
+        Collections.reverse(resultList);
+
+        // Join elements with "/" and return the final path
+        return "/" + String.join("/", resultList);
+        
+    }
+}
+```
+```
+Input: path = "/home/user/Documents/../Pictures"
+
+Output: "/home/user/Pictures"
+
+Explanation:
+
+A double period ".." refers to the directory up a level (the parent directory).
+```
+
