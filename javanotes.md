@@ -3216,6 +3216,156 @@ public class StackClass {
 }
 
 ```
+#### 1️⃣ What is a Stack?
++ A stack is a `Last In, First Out` (LIFO) data structure, meaning:
+
++ The last element added is the first one to be removed.
++ Supports two main operations:
++ `push(x)`: Inserts x at the top of the stack.
++ `pop()`: Removes and returns the top element.
++ Example of a Stack Operation
+```
+push(1) → Stack: [1]
+push(2) → Stack: [2, 1]
+push(3) → Stack: [3, 2, 1]
+pop()   → Returns 3, Stack: [2, 1]
+```
+##### 2️⃣ Code Breakdown
++ 📌 `Class Node `(for Linked List Representation)
+```
+static class Node {
+    int data;
+    Node next;
+    
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+```
++ Node represents each element of the stack.
++ It contains:
++ `data`: Stores the integer value.
++ `next`: Points to the next node in the stack.
++ 📌` Class Stack` (Stack Implementation Using Linked List)
+```
+static class Stack {
+    private Node head;
+```
++ head: Represents the top of the stack.
++ Initially, head = null (empty stack).
++ 📌` isEmpty() `Method
+```
+public boolean isEmpty() {
+    return head == null;
+}
+```
++ Returns true if the stack is empty (head == null).
++ 📌` push(int data)` Method
+```
+public void push(int data) {
+    Node newNode = new Node(data); // Create a new node
+    newNode.next = head; // Point the new node to the current top
+    head = newNode; // Update head to the new node
+}
+```
++  How `push()` Works
++ Creates a new Node with data.
++ The new node's next points to the current head.
++ Updates head to the new node.
++ ✅ Example (push(1), push(2), push(3))
+```
+Before push(1): Stack is empty
+push(1) → head → [1] → null
+push(2) → head → [2] → [1] → null
+push(3) → head → [3] → [2] → [1] → null
+```
++ 📌 `pop() `Method
+```
+public int pop() {
+    if (isEmpty()) {
+        System.out.println("Stack is empty");
+        return -1;
+    }
+    int top = head.data; // Store top value
+    head = head.next; // Move head to next node
+    return top; // Return popped value
+}
+```
+####  How pop() Works
++ If stack is empty, prints "Stack is empty" and returns -1.
++ Stores head.data (current top value).
++ Moves head to the next node (removing the top).
++ Returns the popped value.
+✅ Example (pop() after push(3,2,1))
+```
+Stack: [3] → [2] → [1] → null
+pop() → returns 3
+New Stack: [2] → [1] → null
+```
+
++ 📌 `peek() `Method
+```
+public int peek() {
+    if (isEmpty()) {
+        System.out.println("Stack is empty");
+        return -1;
+    }
+    return head.data;
+}
+```
++ Returns top element without removing it.
++ If stack is empty, prints "Stack is empty" and returns -1.
+✅ Example
+```
+Stack: [3] → [2] → [1] → null
+peek() → returns 3
+Stack remains unchanged
+```
++ 3️⃣ `main()` Method – Testing the Stack
+```
+public static void main(String[] args) {
+    Stack s = new Stack();
+
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    
+    System.out.println("Top element: " + s.peek()); // Expected: 4
+    
+    System.out.println("Popped: " + s.pop()); // Expected: 4
+    System.out.println("Top element after pop: " + s.peek()); // Expected: 3
+}
+```
+Execution Steps
+```
+push(1) → Stack: [1]
+push(2) → Stack: [2, 1]
+push(3) → Stack: [3, 2, 1]
+push(4) → Stack: [4, 3, 2, 1]
+
+peek()  → Returns 4
+pop()   → Removes 4, Returns 4
+peek()  → Returns 3
+```
+✅ Final Output
+```
+
+Top element: 4
+Popped: 4
+Top element after pop: 3
+```
+#### 4️⃣ Complexity Analysis
+|Operation	|Time Complexity|	Explanation|
+|push()|	O(1)	|Adds new element at head|
+|pop()	|O(1)	|Removes head, moves pointer|
+|peek()|	O(1)	|Accesses head’s data|
+|isEmpty()	|O(1)	|Simple null check|
+#### 5️⃣ Key Takeaways
++ 1️⃣ Stack is implemented using a singly linked list (dynamic size, no array resizing issues).
++ 2️⃣ `push()`,` pop()`, and `peek()` run in O(1) time.
++ 3️⃣ `Drawback`: More memory usage compared to array-based stacks (extra pointer storage).
 
 ### suing arrayList stack
 ```
