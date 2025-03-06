@@ -4252,3 +4252,75 @@ Level Order Traversal:
 |Inorder	|Left → Root → Right	|4 2 5 1 3 6|
 |Postorder	|Left → Right → Root	|4 5 2 6 3 1|
 |Level Order	|BFS (Top to Bottom, Left to Right)|	1 2 3 4 5 6|
+
+
+#### 2. Step-by-Step Breakdown of levelOrder(Node root)
+### Step 1: Base Case (Handling an Empty Tree)
+```
+if (root == null) {
+    return;
+}
+```
++ If the tree is `empty`, there is nothing to traverse, so we simply return.
+### Step 2: Create a Queue to Process Nodes
+```
+Queue<Node> queue = new LinkedList<>();
+queue.add(root);
+```
++ We use a `queue (FIFO - First In, First Out) `to store nodes.
++ First, we add the root node to the queue.
+### Step 3: Process Nodes Level by Level
+```
+while (!queue.isEmpty()) {
+```
++ The loop runs until the queue is empty, meaning all nodes have been processed.
+### Step 4: Remove the Front Node from Queue & Print It
+```
+Node current = queue.poll();
+System.out.print(current.data + " ");
+```
++ `poll() ``removes` the first node from the queue (FIFO).
++ Print its data.
+### Step 5: Add Left & Right Children (if exist)
+
++ if (current.left != null) queue.add(current.left);
++ if (current.right != null) queue.add(current.right);
++ If the left child exists, we add it to the queue.
++ If the right child exists, we add it to the queue.
++ This ensures that nodes are processed in level order.
+### 3. How Does It Work for This Tree?
+```
+        1
+       / \
+      2   3
+     / \    \
+    4   5    6
+```
+### Step-by-Step Execution
+|Step|	Queue (Front → Back)|	Output (Printed)|	Action Performed|
+|-------------|--------------|--------------------------|---------------|
+|Start| 1|-|	Root node is added|
+|Poll1| 2, 3	|1	|Add left 2, right 3
+|Poll2|	3, 4, 5|1 2|Add left 4, right 5|
+|Poll3|	4, 5, 6	|1 2 3	|Add right 6 (No left child)|
+|Poll4|	5, 6	|1 2 3 4|	No children, move on|
+|Poll5|	6	|1 2 3 4 5	|No children, move on|
+|Poll6|	Empty	|1 2 3 4 5 6	|No children, loop exits|
+### 4. Final Output
+```
+1
+2 3
+4 5 6
+```
++ ✅ Correctly prints nodes level by level!
+
+#### 5. Why Use a Queue?
++ A queue follows `FIFO (First In, First Out)`, ensuring that:
+
++ The root is processed first.
++ Then, its children are processed before their children.
++ This guarantees level-wise traversal.
+#### 6. Time & Space Complexity
++ `Time Complexity: O(N)` (Each node is added and removed once)
++ `Space Complexity: O(N)` (In the worst case, the queue holds all leaf nodes)
+
