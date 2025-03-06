@@ -4324,3 +4324,35 @@ System.out.print(current.data + " ");
 + `Time Complexity: O(N)` (Each node is added and removed once)
 + `Space Complexity: O(N)` (In the worst case, the queue holds all leaf nodes)
 
+#### 7. Alternative: Printing Each Level on a New Line
++ If you want to print each level separately, modify the method:
+```
+public static void levelOrderNewLine(Node root) {
+    if (root == null) return;
+
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+        int size = queue.size(); // Number of nodes at the current level
+
+        for (int i = 0; i < size; i++) {
+            Node current = queue.poll();
+            System.out.print(current.data + " ");
+
+            if (current.left != null) queue.add(current.left);
+            if (current.right != null) queue.add(current.right);
+        }
+        System.out.println(); // New line after each level
+    }
+}
+```
+Output:
+
+```
+1
+2 3
+4 5 6
+```
++ Now, each level is printed on a new line!
+
