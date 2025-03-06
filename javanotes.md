@@ -3960,71 +3960,6 @@ If you frequently add/remove elements from both ends, choose ArrayDeque.
 + ✅ `Finding Height of Tree`
 
 ### Binary Tree Implementation in Java
-+ Here’s an implementation of a Binary Tree with Preorder Traversal:
-```
-class BinaryTree {
-    
-    static class Node {
-        int data;
-        Node left, right;
-
-        Node(int data) {
-            this.data = data;
-            this.left = this.right = null;
-        }
-    }
-
-    // Preorder Traversal: Root → Left → Right
-    public static void preorder(Node root) {
-        if (root == null) return;
-
-        System.out.print(root.data + " ");
-        preorder(root.left);
-        preorder(root.right);
-    }
-
-    public static void main(String[] args) {
-        // Creating a simple Binary Tree
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.right = new Node(3);
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
-        root.right.right = new Node(6);
-
-        System.out.print("Preorder Traversal: ");
-        preorder(root);  // Output: 1 2 4 5 3 6
-    }
-}
-```
-### Tree Traversal Types
-+ Inorder (Left → Root → Right)
-
-```
-public static void inorder(Node root) {
-    if (root == null) return;
-    inorder(root.left);
-    System.out.print(root.data + " ");
-    inorder(root.right);
-}
-```
-+ Postorder (Left → Right → Root)
-
-```
-public static void postorder(Node root) {
-    if (root == null) return;
-    postorder(root.left);
-    postorder(root.right);
-    System.out.print(root.data + " ");
-}
-```
-### Common Interview Questions on Binary Trees
-+ ✔ Find the height of a binary tree
-+ ✔ Count the number of nodes
-+ ✔ Check if a tree is balanced
-+ ✔ Find the lowest common ancestor (LCA)
-+ ✔ Check if two trees are identical
-
 
 ```
 public class BinaryTree {
@@ -4042,16 +3977,15 @@ public class BinaryTree {
     }
 
     static class TreeBuilder {
-        static int idx = -1;
-
-        public static Node buildTree(int nodes[]) {
-            idx++;
-            if (idx >= nodes.length || nodes[idx] == -1) {
+        public static Node buildTree(int nodes[], int[] idx) {
+            if (idx[0] >= nodes.length || nodes[idx[0]] == -1) {
+                idx[0]++; // Move to the next index
                 return null;
             }
-            Node newNode = new Node(nodes[idx]);
-            newNode.left = buildTree(nodes);
-            newNode.right = buildTree(nodes);
+            Node newNode = new Node(nodes[idx[0]]);
+            idx[0]++; // Move to the next index
+            newNode.left = buildTree(nodes, idx);
+            newNode.right = buildTree(nodes, idx);
 
             return newNode;
         }
@@ -4059,14 +3993,262 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        int[] idx = {0}; // Use an array to track the index
 
-        Node root = TreeBuilder.buildTree(nodes);
+        Node root = TreeBuilder.buildTree(nodes, idx);
         System.out.println("Root Node: " + root.data);
     }
 }
 
 ```
+output
+```
+Root Node: 1
 
+```
+#### Understanding the Binary Tree Construction
++ The given array represents a `preorder traversal` `(Root → Left → Right)` of a binary tree, where:
 
++ Each integer represents a node.
++ `-1` represents a null node (i.e., no child).
+Example Input Array
+```
+int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+```
++ This array represents the following binary tree:
+```
+        1
+       / \
+      2   3
+     / \    \
+    4   5    6
+```
+#### Step-by-Step Execution
+#### Initialization
+ + We start at 1idx = 0`, which means we begin constructing the tree from nodes[0] = 1.
+#### Recursive Calls
+1. Create Root `Node (1)`
 
++  `idx = 0;`
++ `nodes[0]` = 1 → Create a node with data = 1.
++ Move to `idx = 1` to build the left subtree.
+2. Create Left `Child (2)`
 
++ `idx = 1`
++ `nodes[1] = 2 `→ Create a node with data = 2.
++ Move to `idx = 2` to build the left subtree.
+3. Create `Left Child `of 2 (4)
+
++ idx = 2
++ nodes[2] = 4 → Create a node with data = 4.
++ Move to idx = 3 to build the left subtree.
+4. Null `Left Child` of 4
+
++ idx = 3
++ nodes[3] = -1 → Return null (4 has no left child).
++ Move to idx = 4 to build the right subtree.
+5. Null Right Child of 4
+
++ idx = 4
++ nodes[4] = -1 → Return null (4 has no right child).
++ Return node (4) to its parent (2).
++ Move to idx = 5 to build the right subtree of 2.
+6. Create Right Child of 2 (5)
+
++ idx = 5
++ nodes[5] = 5 → Create a node with data = 5.
++ Move to idx = 6 to build the left subtree.
+7. Null Left Child of 5
+
++ idx = 6
++ nodes[6] = -1 → Return null.
++ Move to idx = 7 to build the right subtree.
+8. Null Right Child of 5
+
++ idx = 7
++ nodes[7] = -1 → Return null.
++ Return node (5) to its parent (2).
++ Return node (2) to its parent (1).
++ Move to idx = 8 to build the right subtree of 1.
+9. Create Right Child of 1 (3)
+
++ idx = 8
++ nodes[8] = 3 → Create a node with data = 3.
++ Move to idx = 9 to build the left subtree.
+10. Null Left Child of 3
+
++ idx = 9
++ nodes[9] = -1 → Return null.
++ Move to idx = 10 to build the right subtree.
+11. Create Right Child of 3 (6)
+
++ idx = 10
++ nodes[10] = 6 → Create a node with data = 6.
++ Move to idx = 11 to build the left subtree.
+12. Null Left Child of 6
+
++ idx = 11
++ nodes[11] = -1 → Return null.
++ Move to idx = 12 to build the right subtree.
+13. Null Right Child of 6
+
++ idx = 12
++ nodes[12] = -1 → Return null.
++ Return node (6) to its parent (3).
++ Return node (3) to its parent (1).
++ Tree construction is complete.
++ Final Tree Structure
+```
+        1
+       / \
+      2   3
+     / \    \
+    4   5    6
+```
+### Why We Used idx[] Instead of Static Variable?
+ + The `idx[] `array allows us to track position across recursive calls.
++ Using a static variable is risky because if we call buildTree() again in the same program execution, it might retain the old index value, leading to incorrect behavior.
+### Common Interview Questions on Binary Trees
++ ✔ Find the height of a binary tree
++ ✔ Count the number of nodes
++ ✔ Check if a tree is balanced
++ ✔ Find the lowest common ancestor (LCA)
++ ✔ Check if two trees are identical
+
+####  print the binary tree, we need to implement tree traversal methods. The most common tree traversal methods are:
+
++ `Preorder Traversal` (Root → Left → Right)
++ `Inorder Traversal` (Left → Root → Right)
++  `Postorder Traversal` (Left → Right → Root)
++ `Level Order Traversal `(Breadth-First Search)
+Modified Code with Tree Printing
+```
+import java.util.*;
+
+public class BinaryTree {
+    static class Node {
+        int data;
+        Node left;
+        Node right;
+        
+        Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    static class TreeBuilder {
+        static int idx = -1; 
+        
+        public static Node buildTree(int nodes[]) {
+            idx++;
+            if (idx >= nodes.length || nodes[idx] == -1) {
+                return null;
+            }
+        
+            Node newNode = new Node(nodes[idx]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
+            
+            return newNode;
+        }
+    }
+
+    // Preorder Traversal: Root → Left → Right
+    public static void preorder(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    // Inorder Traversal: Left → Root → Right
+    public static void inorder(Node root) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left);
+        System.out.print(root.data + " ");
+        inorder(root.right);
+    }
+
+    // Postorder Traversal: Left → Right → Root
+    public static void postorder(Node root) {
+        if (root == null) {
+            return;
+        }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data + " ");
+    }
+
+    // Level Order Traversal (BFS)
+    public static void levelOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            System.out.print(current.data + " ");
+
+            if (current.left != null) queue.add(current.left);
+            if (current.right != null) queue.add(current.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+
+        Node root = TreeBuilder.buildTree(nodes);
+        
+        System.out.println("Preorder Traversal:");
+        preorder(root);
+        
+        System.out.println("\nInorder Traversal:");
+        inorder(root);
+        
+        System.out.println("\nPostorder Traversal:");
+        postorder(root);
+        
+        System.out.println("\nLevel Order Traversal:");
+        levelOrder(root);
+    }
+}
+```
+Tree Structure
+The input array represents the tree:
+
+```
+        1
+       / \
+      2   3
+     / \    \
+    4   5    6
+```
+Expected Output
+```
+Preorder Traversal:
+1 2 4 5 3 6 
+
+Inorder Traversal:
+4 2 5 1 3 6 
+
+Postorder Traversal:
+4 5 2 6 3 1 
+
+Level Order Traversal:
+1 2 3 4 5 6
+```
+#### Explanation of Traversals
+|Traversal	|Order	|Output for Given Tree|
+|---------------|--------|-------------------|
+|Preorder	|Root → Left → Right	|1 2 4 5 3 6|
+|Inorder	|Left → Root → Right	|4 2 5 1 3 6|
+|Postorder	|Left → Right → Root	|4 5 2 6 3 1|
+|Level Order	|BFS (Top to Bottom, Left to Right)|	1 2 3 4 5 6|
