@@ -4356,3 +4356,132 @@ Output:
 ```
 + Now, each level is printed on a new line!
 
+## Understanding sumOfNodes(Node root) Method
+This method calculates the sum of all nodes' values in a binary tree using recursion.
+
+1. Breakdown of the Code
+```
+public static int sumOfNodes(Node root) {
+    if (root == null) {
+        return 0;  // Base case: If the tree is empty, return 0
+    }
+    
+    int leftSum = sumOfNodes(root.left);   // Sum of left subtree
+    int rightSum = sumOfNodes(root.right); // Sum of right subtree
+    
+    return leftSum + rightSum + root.data;  // Total sum = Left Subtree + Right Subtree + Current Node's Data
+}
+```
+2. How It Works
++ Recursively traverses the entire tree.
++ For each node, it calculates:
++ Sum of all nodes in the left subtree (leftSum).
++ Sum of all nodes in the right subtree (rightSum).
++ Adds the current node's value (root.data).
++ If the tree is empty (root == null), return 0.
+3. Example Execution
++ Tree Structure
+```
+        1
+       / \
+      2   3
+     / \    \
+    4   5    6
+```
+Each node contains a numeric value, and the goal is to sum all values.
+
+### Recursive Calls Breakdown
+|Call	|Subtree Sum Calculation|
+|--------|-----------------------|
+|sumOfNodes(1)	|sumOfNodes(2) + sumOfNodes(3) + 1|
+|sumOfNodes(2)	|sumOfNodes(4) + sumOfNodes(5) + 2|
+|sumOfNodes(3)	|sumOfNodes(null) + sumOfNodes(6) + 3|
+|sumOfNodes(4)	|sumOfNodes(null) + sumOfNodes(null) + 4 = 4|
+|sumOfNodes(5)|	sumOfNodes(null) + sumOfNodes(null) + 5 = 5|
+|sumOfNodes(6)|	sumOfNodes(null) + sumOfNodes(null) + 6 = 6|
+#### Calculating Final Result
+```
+sumOfNodes(4) = 4
+sumOfNodes(5) = 5
+sumOfNodes(2) = 4 + 5 + 2 = 11
+sumOfNodes(6) = 6
+sumOfNodes(3) = 0 + 6 + 3 = 9
+sumOfNodes(1) = 11 + 9 + 1 = 21
+✅ Total Sum = 21
+```
+
+4. Output
+```
+System.out.println("Sum of Nodes: " + sumOfNodes(root));
+```
+Output:
+
+```
+Sum of Nodes: 21
+```
+#### 5. Time & Space Complexity
++ `Time Complexity: O(N) `(Visits each node once)
++ `Space Complexity: O(H)` (Recursive calls stack up to tree height H)
+
+## Understanding treeHeight(Node root) Method
+This method calculates the height (or depth) of a binary tree using recursion.
+
+##### 1. What is the Height of a Tree?
++ Height of a tree is the number of edges in the longest path from the root to a leaf node.
++ Alternatively, it can be defined as the number of nodes in the longest path from root to leaf minus one.
+
+```
+  public static int treeHeight(Node root)
+    {
+        if(root == null)
+        {
+            return 0;
+        }
+        
+        int leftHeight = treeHeight(root.left);
+        int rightHeight = treeHeight(root.right);
+        
+        int myheight = Math.max(leftHeight , rightHeight) + 1;
+        
+        return myheight;
+    }
+```
+
+#### Recursive Calls Breakdown
+|Call	|Subtree Height Calculation|
+|-------|--------------------------|
+|treeHeight(1)|	max(treeHeight(2), treeHeight(3)) + 1|
+|treeHeight(2)|	max(treeHeight(4), treeHeight(5)) + 1|
+|treeHeight(3)|	max(treeHeight(null), treeHeight(6)) + 1|
+|treeHeight(4)|	max(treeHeight(null), treeHeight(null)) + 1 = 1|
+|treeHeight(5)|	max(treeHeight(null), treeHeight(null)) + 1 = 1|
+|treeHeight(6)|	max(treeHeight(null), treeHeight(null)) + 1 = 1|
+
+### Calculating Final Height
+```
+treeHeight(4) = 1
+treeHeight(5) = 1
+treeHeight(2) = max(1, 1) + 1 = 2
+treeHeight(6) = 1
+treeHeight(3) = max(0, 1) + 1 = 2
+treeHeight(1) = max(2, 2) + 1 = 3
+✅ Final Height = 3 (Based on nodes)
+```
+
+4. Output
+```
+System.out.println("Tree Height: " + treeHeight(root));
+```
+Output:
+```
+Tree Height: 3
+```
+### 5. Time & Space Complexity
++ `Time Complexity: O(N)` (Each node is visited once)
++ `Space Complexity: O(H)` (Recursive call stack depth equals the height H)
+#### 6. Summary
++ ✅ Uses recursion to compute height
++ ✅ `Base case`: If root == null, return 0
++ ✅` Formula:` Math.max(leftHeight, rightHeight) + 1
++ ✅ Efficient: Works in `O(N)` time
+
