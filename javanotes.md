@@ -4485,3 +4485,174 @@ Tree Height: 3
 + ✅` Formula:` Math.max(leftHeight, rightHeight) + 1
 + ✅ Efficient: Works in `O(N)` time
 
+## diameter
+
+#### 1. Understanding the Diameter of a Tree
++ The diameter of a binary tree is the longest path between any two nodes.
++ This path may or may not pass through the root.
+#### Formula for Diameter
+For each node, the diameter is calculated as:
+```
+diameter = left subtree height + right subtree height + 1 ;
+```
++ `diameter`=`left subtree height`+`right subtree height`+`1`
++ We also compute the diameter of the left and right subtrees.
++ The final diameter is the maximum of these three values.
+##### 2. Why is the Brute Force Approach Inefficient?
++ The naive recursive approach separately calls treeHeight(root.left) and treeHeight(root.right), leading to repeated calculations.
++ This results in an O(n²) time complexity, which is inefficient for large trees.
+##### 3. Optimized Approach (O(n) Solution)
+We solve this problem in a single traversal by returning both height and diameter together using a helper class.
+
+```
+class TreeNode {
+    int val;
+    TreeNode left, right;
+    TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+
+class TreeDiameter {
+    static class TreeInfo {
+        int height;
+        int diameter;
+        TreeInfo(int height, int diameter) {
+            this.height = height;
+            this.diameter = diameter;
+        }
+    }
+
+    public static int diameter(TreeNode root) {
+        return diameterHelper(root).diameter;
+    }
+
+    private static TreeInfo diameterHelper(TreeNode root) {
+        if (root == null) {
+            return new TreeInfo(0, 0);
+        }
+
+        TreeInfo left = diameterHelper(root.left);
+        TreeInfo right = diameterHelper(root.right);
+
+        int currentHeight = Math.max(left.height, right.height) + 1;
+        int currentDiameter = left.height + right.height + 1;
+        int maxDiameter = Math.max(currentDiameter, Math.max(left.diameter, right.diameter));
+
+        return new TreeInfo(currentHeight, maxDiameter);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        System.out.println("Diameter of the tree: " + diameter(root)); // Output: 4
+    }
+}
+
+```
+
+### optimize apporoch 
+
+```
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+
+class TreeDiameter {
+    static class Treeinfo {
+        int height;
+        int diameter;
+
+        Treeinfo(int height, int diameter) {
+            this.height = height;
+            this.diameter = diameter;
+        }
+    }
+
+    public static Treeinfo diameter2(TreeNode root) {
+        if (root == null) {
+            return new Treeinfo(0, 0);
+        }
+
+        Treeinfo left = diameter2(root.left);
+        Treeinfo right = diameter2(root.right);
+
+        int myHeight = Math.max(left.height, right.height) + 1;
+
+        int diam1 = left.diameter;
+        int diam2 = right.diameter;
+        int diam3 = left.height + right.height + 1;
+
+        int myDiam = Math.max(diam3, Math.max(diam1, diam2));
+
+        return new Treeinfo(myHeight, myDiam);
+    }
+
+    public static int diameter(TreeNode root) {
+        return diameter2(root).diameter;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        System.out.println("Diameter of the tree: " + diameter(root)); // Output: 4
+    }
+}
+```
+
+### 7. Example Walkthrough
+Consider this tree:
+```
+       1
+      / \
+     2   3
+    / \
+   4   5
+```
+### Step-by-Step Calculation
++ Compute TreeInfo for Node 4 → height = 1, diameter = 1
++ Compute TreeInfo for Node 5 → height = 1, diameter = 1
++ Compute TreeInfo for Node 2:
++ height = max(1,1) + 1 = 2
++ diameter = 1 + 1 + 1 = 3
++ Compute TreeInfo for Node 3 → height = 1, diameter = 1
++ Compute TreeInfo for Node 1:
++ height = max(2,1) + 1 = 3
++ diameter = 2 + 1 + 1 = 4
++ Final Diameter = 4 ✅
+
+### 8. Why is This Approach Better?
+|Approach	|Time Complexity	|Space Complexity|	Reason|
+|--------------|----------------------|------------------|------------|
+|Brute Force|	O(n²)	|O(h)	|Recomputes height multiple times|
+|Optimized (Single Traversal)|	O(n)	|O(h)	|Computes height & diameter together|
+
+## Conclusion
++ ✅ We optimized the diameter of a binary tree using a single traversal approach, reducing time complexity to O(n).
++ ✅ We used a helper class (TreeInfo) to store height and diameter together to avoid redundant computations.
++ ✅ This is the most efficient and clean way to solve the problem in Java. 🚀
+
+Let me know if you have any doubts! 😊
+
+
+
+
+
+
+
