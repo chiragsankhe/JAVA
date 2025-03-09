@@ -2136,7 +2136,7 @@ class Solution {
     }
 }
 ```
-## simplify path
++  simplify path
 ```
 class Solution {
 
@@ -2181,4 +2181,56 @@ Explanation:
 
 A double period ".." refers to the directory up a level (the parent directory).
 ```
+## Tree
++ maximum Depth 
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int maxDepth(TreeNode root) {
+
+        if(root == null)
+        {
+            return 0;
+        }
+
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+
+        int mydepth = Math.max(left , right)+1 ;
+
+        return mydepth;
+        
+    }
+}
+```
+input 
+```
+       1         D = 1 
+      / \
+     9   20      D = 2 
+         / \
+        15   7   D = 3
+```
+
+output 
+```
+3
+``
+
+
+
 
