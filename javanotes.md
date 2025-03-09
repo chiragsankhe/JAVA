@@ -4652,7 +4652,420 @@ Let me know if you have any doubts! 😊
 
 
 
+## Binary Search Tree (BST) in Java
+
++ A `Binary Search Tree (BST)` is a binary tree where:
+
++ The left child contains `only nodes with values less than the parent node.`
++ The right child contains `only nodes with values greater than the parent node.`
++ The left and right subtrees must also be `BSTs` (recursive property).
+### 1. BST Node Structure
+Each node in a BST contains:
+
++ An integer value
++ Left child
++ Right child
+##### Java Code for BST Node
+```
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+```
+#### 2. BST Operations
+##### (a) Insert a Node
++ If the root is `null`, create a new node.
++ If `val < root.val`, insert in the `left subtree`.
++ If `val > root.val,` insert in the `right subtree`.
+```
+public TreeNode insert(TreeNode root, int val) {
+    if (root == null) {
+        return new TreeNode(val);
+    }
+    if (val < root.val) {
+        root.left = insert(root.left, val);
+    } else if (val > root.val) {
+        root.right = insert(root.right, val);
+    }
+    return root;
+}
+```
+#### (b) Search for a Node
++ If `root == null` → Not found.
++ If `val == root.val` → Found.
++ If `val < root.val` → Search in left subtree.
++ If `val > root.val` → Search in right subtree.
+```
+public boolean search(TreeNode root, int val) {
+    if (root == null) {
+        return false;
+    }
+    if (root.val == val) {
+        return true;
+    }
+    return (val < root.val) ? search(root.left, val) : search(root.right, val);
+}
+```
+#### (c) Find Minimum and Maximum Value
+```
+public int findMin(TreeNode root) {
+    while (root.left != null) {
+        root = root.left;
+    }
+    return root.val;
+}
+
+public int findMax(TreeNode root) {
+    while (root.right != null) {
+        root = root.right;
+    }
+    return root.val;
+}
+```
+#### (d) Delete a Node
+##### Three Cases:
+1. `Node has no children `→ Simply remove it.
+2. `Node has one child `→ Replace it with its child.
+3. `Node has two children` → Replace with `inorder successor (smallest node in the right subtree).`
+```
+public TreeNode delete(TreeNode root, int val) {
+    if (root == null) {
+        return null;
+    }
+
+    if (val < root.val) {
+        root.left = delete(root.left, val);
+    } else if (val > root.val) {
+        root.right = delete(root.right, val);
+    } else {
+        // Case 1: No child or one child
+        if (root.left == null) {
+            return root.right;
+        } else if (root.right == null) {
+            return root.left;
+        }
+
+        // Case 2: Two children → Replace with inorder successor
+        root.val = findMin(root.right);
+        root.right = delete(root.right, root.val);
+    }
+    return root;
+}
+```
+#### (e) Traversals in BST
+##### 1. Inorder Traversal (Left → Root → Right)
++ Prints nodes in `ascending order` for BST.
+```
+public void inorder(TreeNode root) {
+    if (root != null) {
+        inorder(root.left);
+        System.out.print(root.val + " ");
+        inorder(root.right);
+    }
+}
+```
+##### 2. Preorder Traversal (Root → Left → Right)
+```
+public void preorder(TreeNode root) {
+    if (root != null) {
+        System.out.print(root.val + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+}
+```
+##### 3. Postorder Traversal (Left → Right → Root)
+```
+public void postorder(TreeNode root) {
+    if (root != null) {
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.val + " ");
+    }
+}
+```
+#### 3. Complete Java BST Program
+```
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+
+public class BST {
+    public TreeNode insert(TreeNode root, int val) {
+        if (root == null) {
+            return new TreeNode(val);
+        }
+        if (val < root.val) {
+            root.left = insert(root.left, val);
+        } else if (val > root.val) {
+            root.right = insert(root.right, val);
+        }
+        return root;
+    }
+
+    public boolean search(TreeNode root, int val) {
+        if (root == null) {
+            return false;
+        }
+        if (root.val == val) {
+            return true;
+        }
+        return (val < root.val) ? search(root.left, val) : search(root.right, val);
+    }
+
+    public int findMin(TreeNode root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root.val;
+    }
+
+    public int findMax(TreeNode root) {
+        while (root.right != null) {
+            root = root.right;
+        }
+        return root.val;
+    }
+
+    public TreeNode delete(TreeNode root, int val) {
+        if (root == null) {
+            return null;
+        }
+
+        if (val < root.val) {
+            root.left = delete(root.left, val);
+        } else if (val > root.val) {
+            root.right = delete(root.right, val);
+        } else {
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            root.val = findMin(root.right);
+            root.right = delete(root.right, root.val);
+        }
+        return root;
+    }
+
+    public void inorder(TreeNode root) {
+        if (root != null) {
+            inorder(root.left);
+            System.out.print(root.val + " ");
+            inorder(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        BST tree = new BST();
+        TreeNode root = null;
+
+        int[] values = { 50, 30, 70, 20, 40, 60, 80 };
+        for (int val : values) {
+            root = tree.insert(root, val);
+        }
+
+        System.out.println("Inorder Traversal:");
+        tree.inorder(root);
+        System.out.println();
+
+        System.out.println("Search 40: " + tree.search(root, 40));
+        System.out.println("Search 100: " + tree.search(root, 100));
+
+        System.out.println("Min Value: " + tree.findMin(root));
+        System.out.println("Max Value: " + tree.findMax(root));
+
+        System.out.println("Deleting 40...");
+        root = tree.delete(root, 40);
+
+        System.out.println("Inorder Traversal After Deletion:");
+        tree.inorder(root);
+    }
+}
+```
+#### 4. Sample Output
+```
+Inorder Traversal:
+20 30 40 50 60 70 80 
+
+Search 40: true
+Search 100: false
+
+Min Value: 20
+Max Value: 80
+
+Deleting 40...
+Inorder Traversal After Deletion:
+20 30 50 60 70 80
+```
+### 5. Time Complexity Analysis
+|Operation	|Best Case (Balanced BST)	|Worst Case (Skewed BST)|
+|---------------|-----------------------------|-------------------------|
+|Insertion	|O(log n)|	O(n)|
+|Search	|O(log n)|	O(n)|
+|Deletion	|O(log n)	|O(n)|
+
+#### Key Takeaways
++ ✅ BST is useful for fast searching, insertion, and deletion (O(log n) on average).
++ ✅ Inorder traversal always returns elements in sorted order.
++ ✅ Balancing a BST (e.g., AVL Tree, Red-Black Tree) improves performance.
 
 
+## Understanding BST (Binary Search Tree) Implementation in Java
++ A `Binary Search Tree (BST)` is a `binary tree` in which:
 
++ The `left child `of a node contains only nodes with values `less than `the parent node.
++ The `right child `of a node contains only nodes with values `greater than ` the parent node.
++ No duplicate values (in our implementation).
+### Step-by-Step Breakdown of the Code
+#### 1. Creating a Node Class
+Each node in the BST contains:
 
++ `data:` The value stored in the node.
++ `left:` A reference to the left child node.
++ `right:` A reference to the right child node.
+```
+static class Node {
+    int data;
+    Node left;
+    Node right;
+
+    Node(int data) { // Constructor to initialize the node with data
+        this.data = data;
+    }
+}
+```
+#### 2. Inserting a Node in BST
+The `insert() `function inserts a new value into the BST while maintaining the BST properties.
+
+##### Insertion Logic
++ If `root == null,` create a new node and return it.
++ If `val < root.data,` insert it into the left subtree.
++ If `val > root.data,` insert it into the right subtree.
++ If `val == root.data`, we `ignore duplicates` in our implementation.
+```
+public static Node insert(Node root, int val) {
+    if (root == null) {
+        return new Node(val); // Create a new node if tree is empty
+    }
+
+    if (val < root.data) { 
+        root.left = insert(root.left, val); // Insert in left subtree
+    } else if (val > root.data) { 
+        root.right = insert(root.right, val); // Insert in right subtree
+    }
+    
+    return root; // Return the updated root
+}
+```
+#### 3. Inorder Traversal
+The `inorder()` function prints the BST elements in sorted order.
+
+#### Inorder Traversal Logic
+First, visit the `left subtree`.
+Then, print the `current node`.
+Finally, visit the `right subtree`.
+```
+public static void inorder(Node root) {
+    if (root == null) {
+        return;
+    }
+
+    inorder(root.left); // Traverse left
+    System.out.print(root.data + " "); // Print current node
+    inorder(root.right); // Traverse right
+}
+```
+## 4. Main Function (Creating and Traversing the BST)
++ We insert multiple values into the BST.
++ Then, we perform `inorder traversal `to print the values in sorted order.
+```
+public static void main(String[] args) {
+    int values[] = {5, 1, 3, 4, 5, 7}; // Input array
+    Node root = null;
+
+    for (int value : values) {
+        root = insert(root, value); // Insert values into BST
+    }
+
+    System.out.print("Inorder Traversal: ");
+    inorder(root); // Print BST elements in sorted order
+}
+```
+### Example Execution with Step-by-Step Insertion
++ Given Input Array: `{5, 1, 3, 4, 5, 7}`
+#####  Step 1: Insert 5
+```
+   5
+```
+##### Step 2: Insert 1 (Since 1 < 5, it goes to the left of 5)
+```
+   5
+  /
+ 1
+```
+##### Step 3: Insert 3 (Since 3 < 5, move left → 3 > 1, so insert in the right of 1)
+```
+   5
+  /
+ 1
+  \
+   3
+```
+##### Step 4: Insert 4 (Since 4 < 5, move left → 4 > 1, move right → 4 > 3, insert in right of 3)
+```
+   5
+  /
+ 1
+  \
+   3
+    \
+     4
+```
+##### Step 5: Insert 5 (Duplicate value, ignored)
+##### Step 6: Insert 7 (Since 7 > 5, insert in the right of 5)
+```
+   5
+  / \
+ 1   7
+  \
+   3
+    \
+     4
+```
+### Final BST Structure
+```
+       5
+      / \
+     1   7
+      \
+       3
+        \
+         4
+```
+#### 5. Performing Inorder Traversal
++ Inorder traversal (Left → Root → Right) prints values in sorted order:
+```
+1 3 4 5 7
+```
+#### Final Output
+```
+Inorder Traversal: 1 3 4 5 7
+```
+### Summary
++ ✔ `Binary Search Tree (BST)` is used for efficient insertion, deletion, and searching.
++ ✔ `Inserting elements` follows the BST property (left < root < right).
++ ✔ `Duplicates are ignored` in our implementation.
++ ✔ `Inorder traversal` prints values in ascending order.
