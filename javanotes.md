@@ -5240,3 +5240,273 @@ Correct Output:
 ```
 6 8 10
 ```
+
+## root to leaf path 
+```
+ public static void printpath(ArrayList<Integer> path)
+   {
+       for(int i = 0 ;i<path.size();i++)
+       {
+           System.out.print(path.get(i)+" -> ");
+       }
+       System.out.println();
+   }
+   
+   public static void printroot2leaf(Node root , ArrayList<Integer> path )
+   {
+      if(root == null)
+      {
+          return ;
+      }
+      
+      path.add(root.data);
+      
+    //   leaf 
+    
+    if(root.left == null && root.right == null)
+    {
+        printpath(path);
+    }
+    else{  // non leaf 
+         
+         printroot2leaf(root.left,path);
+         printroot2leaf(root.right, path);
+    }
+    path.remove(path.size()-1);
+   }
+
+```
+
+output 
+```
+ print root to path 8 -> 5 -> 3 -> 1 -> 
+8 -> 5 -> 3 -> 4 -> 
+8 -> 5 -> 6 -> 
+8 -> 10 -> 14 -> 
+```
+## all concept in one code 
+
+```
+import java.util.*;
+public class BST
+{
+   static class Node {
+       int data;
+       Node left;
+       Node right;
+       
+       Node(int data) {
+           this.data = data;
+       }
+   }
+   
+   public static Node insert(Node root , int val)
+   {
+       if(root == null) {
+           return new Node(val);
+       }
+       
+       if(root.data > val) {
+           root.left = insert(root.left , val);
+       }
+       else if(root.data < val) {
+           root.right = insert(root.right , val);
+       }
+       
+       return root;
+   }
+   
+   public static void inorder(Node root)
+   {
+       if(root == null) {
+           return;
+       }
+       
+       inorder(root.left);
+       System.out.print(root.data + " ");
+       inorder(root.right);
+   }
+   
+   public static Node delete(Node root, int val)
+   {
+       if(root == null) return null; // Edge case: empty tree
+
+       if(root.data > val) {
+           root.left = delete(root.left , val); // ✅ Corrected
+       }
+       else if(root.data < val) {
+           root.right = delete(root.right , val); // ✅ Corrected
+       }
+       else {
+           // Node found
+
+           // Case 1: No child
+           if(root.left == null && root.right == null) {
+               return null;
+           }
+
+           // Case 2: One child (right or left)
+           if(root.left == null) {
+               return root.right;
+           }
+           else if(root.right == null) {
+               return root.left;
+           }
+
+           // Case 3: Two children
+           Node IS = inordersuccessor(root.right); // ✅ Fixed function call
+           root.data = IS.data; // Replace with inorder successor
+           root.right = delete(root.right , IS.data); // Delete inorder successor
+       }
+       
+       return root;
+   }
+   
+   // ✅ Fixed function name (typo) and assignment
+   public static Node inordersuccessor(Node root)
+   {
+       while(root.left != null) {
+           root = root.left; // ✅ Fixed assignment
+       }
+       return root;
+   }
+   
+   public static boolean search(Node root , int key)
+   {
+       if(root == null) {
+           return false;
+       }
+       
+       if(root.data > key) {
+           return search(root.left , key);
+       }
+       else if(root.data == key) {
+           return true;
+       }
+       else {
+           return search(root.right, key);
+       }
+   }
+   
+   
+   //------------------- print range--------------------- 
+   
+   
+   
+   public static void printrange(Node root , int x , int y)
+   {
+       if(root == null)
+       {
+           return ;
+       }
+       
+        // If root's data is greater than x, search in the left subtree
+    if(root.data > x)
+    {
+        printrange(root.left, x, y);
+    }
+
+    // If root's data is within the range, print it
+    if(root.data >= x && root.data <= y)
+    {
+        System.out.print(root.data + " ");  // ✅ Correctly printing values in range
+    }
+
+    // If root's data is less than y, search in the right subtree
+    if(root.data < y)
+    {
+        printrange(root.right, x, y);
+    }
+   }
+//   --------------------------------------------------------------------------
+   // root to leaf paths 
+   public static void printpath(ArrayList<Integer> path)
+   {
+       for(int i = 0 ;i<path.size();i++)
+       {
+           System.out.print(path.get(i)+" -> ");
+       }
+       System.out.println();
+   }
+   
+   public static void printroot2leaf(Node root , ArrayList<Integer> path )
+   {
+      if(root == null)
+      {
+          return ;
+      }
+      
+      path.add(root.data);
+      
+    //   leaf 
+    
+    if(root.left == null && root.right == null)
+    {
+        printpath(path);
+    }
+    else{  // non leaf 
+         
+         printroot2leaf(root.left,path);
+         printroot2leaf(root.right, path);
+    }
+    path.remove(path.size()-1);
+   }
+
+   public static void main(String[] args) {
+       int values[] = {8,5,3,1,4,6,10,11,14};
+       Node root = null;
+       
+       for(int value : values) {
+           root = insert(root, value);
+       }
+       
+       System.out.println("\nInorder Traversal: ");
+       inorder(root);
+
+       // Search example
+       if(search(root , 7)) {
+           System.out.println("\nKey found.");
+       }
+       else {
+           System.out.println("\nKey not found.");
+       }
+
+       // Deleting a node
+       root = delete(root, 11);
+       System.out.println("\nAfter deleting 10:");
+       inorder(root);
+       
+       
+    //    print in range 
+    System.out.println("\n print in range:");
+       printrange(root , 6 , 10);
+       
+       
+       // print root to leaf paths 
+       System.out.print("\n print root to path ");
+       printroot2leaf(root,new ArrayList<>());
+       
+       
+   }
+   
+}
+
+```
+
+output 
+```
+
+
+Inorder Traversal: 
+1 3 4 5 6 8 10 11 14 
+Key not found.
+
+After deleting 10:
+1 3 4 5 6 8 10 14 
+ print in range:
+6 8 10 
+ print root to path 8 -> 5 -> 3 -> 1 -> 
+8 -> 5 -> 3 -> 4 -> 
+8 -> 5 -> 6 -> 
+8 -> 10 -> 14 -> 
+```
