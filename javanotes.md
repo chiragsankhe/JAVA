@@ -5510,3 +5510,175 @@ After deleting 10:
 8 -> 5 -> 6 -> 
 8 -> 10 -> 14 -> 
 ```
+
+
+## HashSet 
+
+#### HashSet in Java
++ HashSet is a part of the `java.util `package and implements the Set interface. It is a collection that does `not allow duplicate values `and has `no guaranteed order`.
+
+### Key Features of HashSet
++ `No Duplicate Elements `– It does not allow duplicate values.
++ `Unordered Collection` – Does not maintain insertion order.
++ `Uses Hashing` – Provides constant-time performance for basic operations like `add()`, `remove()`, and `contains()`.
++  `Allows Null `– It can store a single null value.
++ Not Synchronized – If multiple threads access it concurrently, explicit synchronization is required.
+### Creating a HashSet
+```
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        // Creating a HashSet
+        HashSet<Integer> set = new HashSet<>();
+
+        // Adding elements
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(10); // Duplicate, will not be added
+
+        // Printing the HashSet
+        System.out.println("HashSet: " + set); // Order may be different
+
+        // Checking if an element exists
+        System.out.println("Contains 20? " + set.contains(20)); // true
+
+        // Removing an element
+        set.remove(30);
+        System.out.println("After removing 30: " + set);
+
+        // Size of HashSet
+        System.out.println("Size: " + set.size());
+
+        // Iterating over HashSet
+        System.out.println("Iterating:");
+        for (int num : set) {
+            System.out.println(num);
+        }
+    }
+}
+```
+
+Output (Order may vary)
+```
+HashSet: [20, 10, 30]
+Contains 20? true
+After removing 30: [20, 10]
+Size: 2
+Iterating:
+20
+10
+```
+### Common Methods in HashSet
+|Method	|Description|
+|----------|----------|
+|add(E e)	|Adds an element if not already present|
+|remove(Object o)	|Removes an element if it exists|
+|contains(Object o)|	Returns true if the element is present|
+|size()	|Returns the number of elements|
+|clear()	|Removes all elements|
+|isEmpty()	|Returns true if the set is empty|
+|iterator()	|Returns an iterator for traversal|
+
+### HashSet vs TreeSet vs LinkedHashSet
+|Feature	|HashSet	|TreeSet	|LinkedHashSet|
+|-----------|----------------|---------------|---------------|
+|Ordering	|Unordered|	Sorted (Ascending)	|Insertion Order|
+|Performance	|O(1)|	O(log N)|	O(1)|
+|Allows Null?	|✅ Yes	|❌ No	|✅ Yes|
+
+### When to Use HashSet?
++ ✅ Use HashSet when:
++ You `don't care about ordering`.
++ You` need fast lookups, insertions, and deletions.`
++ You `want to avoid duplicates.`
+
+
+## Iterator in Java
+An `Iterator` is an interface in Java that provides a way to `traverse (iterate) through a collection` (like `ArrayList`, `HashSet`, etc.) one element at a time.
+
+### Why Use an Iterator?
++ `Universal Traversal` – Works with all collection types (`List`, `Set`, `Map`, etc.).
++ `Removes Elements While Iterating` – Unlike a `for-each loop`, an Iterator `allows safe removal of elements.`
++ `More Control` – You can manually control the iteration process.
+### How to Use an Iterator?
++ Example: Iterating Over a `HashSet `Using an Iterator
+```
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Cherry");
+
+        // Creating an Iterator
+        Iterator<String> it = set.iterator();
+
+        // Iterating through the HashSet
+        while (it.hasNext()) {  // Check if there is a next element
+            String fruit = it.next();  // Get the next element
+            System.out.println(fruit);
+        }
+    }
+}
+```
+Output (Order may vary since HashSet is unordered)
+```
+Banana
+Apple
+Cherry
+```
+### Methods of Iterator Interface
+|Method	|Description|
+|---------|---------|
+| `hasNext()`	|Returns true if there are more elements to iterate.|
+| `next()`	|Returns the next element in the collection.|
+| `remove()`	|Removes the last element returned by next().|
+Example: Removing Elements While Iterating
+```
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class IteratorRemoveExample {
+    public static void main(String[] args) {
+        HashSet<Integer> numbers = new HashSet<>();
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+
+        Iterator<Integer> it = numbers.iterator();
+
+        while (it.hasNext()) {
+            int num = it.next();
+            if (num == 20) {
+                it.remove(); // Removes 20 safely
+            }
+        }
+
+        System.out.println("After removal: " + numbers);
+    }
+}
+```
+Output
+```
+After removal: [40, 10, 30]
+```
+### Iterator vs For-Each Loop
+|Feature	|Iterator	|For-Each Loop|
+|----------|--------------|-------------------|
+|Can Remove Elements?	|✅ Yes (Using remove())|	❌ No|
+|Works with All Collections?	|✅ Yes	|✅ Yes|
+|More Control Over Iteration?   |✅ Yes	|❌ No |
+|Simpler to Use?|	❌ No (More Code)|	✅ Yes (Less Code)|
+### When to Use an Iterator?
++ ✅ Use an Iterator when:
+
++ You need to remove elements while iterating.
++ You don't know the type of collection (Works with `List`, `Set`, `Queue`, etc.).
++ You want more control over iteration.
+  
