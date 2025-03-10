@@ -5069,3 +5069,174 @@ Inorder Traversal: 1 3 4 5 7
 + ✔ `Inserting elements` follows the BST property (left < root < right).
 + ✔ `Duplicates are ignored` in our implementation.
 + ✔ `Inorder traversal` prints values in ascending order.
+
+
+
+### Search in BST 
+
+```
+ public static boolean search(Node root , int key)
+   {
+       if(root == null)
+       {
+           return false;
+       }
+       
+       if(root.data > key)
+       {
+        //   left subtree
+          return search(root.left , key);
+       }
+       else if(root.data == key)
+       {
+           return true;
+       }
+       else 
+       {
+        //   right subtree
+        return search(root.right, key);
+       }
+   }
+	public static void main(String[] args) {
+	
+	int values[] = {8,5,3,1,4,6,10,11,14};
+	Node root = null;
+	
+	
+	for(int i = 0 ;i<values.length;i++)
+	{
+	    root = insert(root,values[i]);
+	}
+	
+	 System.out.println("\nInorder Traversal: ");
+        inorder(root);
+        
+        
+       if(search(root , 7))
+       {
+           System.out.println("\nkey found.");
+       }
+       else{
+           System.out.println( "key not found.");
+            
+       }
+        
+	
+	}
+    
+}
+```
+## delete Node 
+
+```
+   public static Node delete(Node root, int val)
+   {
+       if(root == null) return null; // Edge case: empty tree
+
+       if(root.data > val) {
+           root.left = delete(root.left , val); // ✅ Corrected
+       }
+       else if(root.data < val) {
+           root.right = delete(root.right , val); // ✅ Corrected
+       }
+       else {
+           // Node found
+
+           // Case 1: No child
+           if(root.left == null && root.right == null) {
+               return null;
+           }
+
+           // Case 2: One child (right or left)
+           if(root.left == null) {
+               return root.right;
+           }
+           else if(root.right == null) {
+               return root.left;
+           }
+
+           // Case 3: Two children
+           Node IS = inordersuccessor(root.right); // ✅ Fixed function call
+           root.data = IS.data; // Replace with inorder successor
+           root.right = delete(root.right , IS.data); // Delete inorder successor
+       }
+       
+       return root;
+   }
+   
+   // ✅ Fixed function name (typo) and assignment
+   public static Node inordersuccessor(Node root)
+   {
+       while(root.left != null) {
+           root = root.left; // ✅ Fixed assignment
+       }
+       return root;
+   }
+```
+```
+Inorder Traversal: 
+1 3 4 5 6 8 10 11 14 
+
+Key not found.
+
+After deleting 10:
+1 3 4 5 6 8 11 14
+
+```
+
+## print in range 
+
+### Step-by-Step Execution:
++ Start at 8 (within range) → Print 8 → Search left & right.
++ Move to 5 (less than 6) → Search right only.
++ Move to 6 (within range) → Print 6 → Search right.
++ Move to 10 (within range) → Print 10 → Search left & right.
++ Move to 11 (greater than 10, so stop searching).
+```
+public static void printrange(Node root , int x , int y)
+{
+    if(root == null)
+    {
+        return;
+    }
+
+    // If root's data is greater than x, search in the left subtree
+    if(root.data > x)
+    {
+        printrange(root.left, x, y);
+    }
+
+    // If root's data is within the range, print it
+    if(root.data >= x && root.data <= y)
+    {
+        System.out.print(root.data + " ");  // ✅ Correctly printing values in range
+    }
+
+    // If root's data is less than y, search in the right subtree
+    if(root.data < y)
+    {
+        printrange(root.right, x, y);
+    }
+}
+
+```
+Example Execution
+Given BST:
+```
+        8
+       / \
+      5   10
+     / \    \
+    3   6    11
+   / \        \
+  1   4       14
+```
+Input:
+```
+printrange(root, 6, 10);
+```
+
+Correct Output:
+```
+6 8 10
+```
