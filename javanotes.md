@@ -5742,4 +5742,255 @@ public class Hashing {
    }
 }
 ```
+
+
+## HashMap in Java -
++ All Concepts in Detail
++ A HashMap in Java is part of the `java.util `package and implements the `Map interface`, which stores key-value pairs. It is widely used because of its fast lookup, insertion, and deletion operations, which have an `average time complexity of O(1).`
+
+### 1. Basics of HashMap
++ `HashMap` is a collection that stores key-value pairs.
++ It `does not maintain` any order of elements.
++ `Keys are unique`, but` values can be duplicate`.
++ It `allows one null key` and multiple null values.
++ It is `not thread-safe`, meaning multiple threads can modify it simultaneously.
++ The underlying `data structure` is a `hash table`.
+Syntax
+```
+import java.util.HashMap;
+
+HashMap<KeyType, ValueType> map = new HashMap<>();
+```
+Example:
+```
+import java.util.*;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+        
+        // Adding elements
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Cherry");
+        
+        System.out.println(map); // Output: {1=Apple, 2=Banana, 3=Cherry}
+    }
+}
+```
+### 2. Important Methods in HashMap
+|Method|	Description|
+|----------|---------------|
+|`put(K key, V value)`	|Inserts a key-value pair into the map.|
+|`get(Object key)`     | Returns the value associated with the given key.|
+|remove(Object key)	|Removes the key-value pair for the given key.|
+|containsKey(Object key)	|Returns true if the key is present.|
+|containsValue(Object value)	|Returns true if the value is present.|
+|isEmpty()	|Checks if the map is empty.|
+|size()|	|Returns the number of key-value pairs in the map.|
+|clear()	|Removes all elements from the map.|
+|keySet()	|Returns a set of all keys in the map.|
+|values()	|Returns a collection of all values in the map.|
+|entrySet()	|Returns a set of all key-value pairs in the map.|
+Example
+```
+import java.util.*;
+
+public class HashMapMethods {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put("A", 10);
+        map.put("B", 20);
+        map.put("C", 30);
+
+        System.out.println(map.get("B"));         // Output: 20
+        System.out.println(map.containsKey("A")); // Output: true
+        System.out.println(map.containsValue(40)); // Output: false
+
+        map.remove("A"); 
+        System.out.println(map); // Output: {B=20, C=30}
+
+        System.out.println("Size: " + map.size()); // Output: 2
+    }
+}
+```
+### 3. How HashMap Works Internally
+#### Internal Structure
++ HashMap uses an `array of LinkedLists (buckets)` to store key-value pairs.
++ The hash function computes an index for the key.
++ If two keys have the same hash value, collision handling is done using chaining.
+#### Working Steps
++ HashCode Calculation → The key’s `hashCode()` method is called to generate a hash.
++ Index Calculation → `(hashCode) % (capacity of HashMap)` is computed.
++ Entry Storage → The key-value pair is stored in the computed bucket.
++ Collision Handling → If multiple keys have the same index, a linked list (chain) is used.
+Example:
+```
+int index = key.hashCode() % capacity;
+```
+#### 4. HashMap Collision Handling
+##### Collision occurs when:
++ Two different keys produce the same index after hashing.
+##### Collision Resolution Techniques
+1. Chaining (Linked List in Buckets)
+
++ Multiple key-value pairs are stored in the same bucket as a linked list.
+2. Open Addressing (Not used in HashMap)
+
++ This technique places colliding elements in the next available slot.
+3. Treeify (Java 8+)
+
++ When a bucket has more than 8 nodes, it is converted into a Red-Black Tree for better performance.
+#### 5. Load Factor and Rehashing
+##### Load Factor
++ The `load factor` determines when HashMap resizes.
+Default `load factor = 0.75`, meaning `resize happens when 75% of the capacity is filled.`
+#####  Rehashing
++ When the threshold (capacity × load factor) is reached, HashMap doubles its size.
++ Existing elements are rehashed to new buckets.
+Example:
+```
+HashMap<Integer, String> map = new HashMap<>(16, 0.75f);
+```
+#### 6. Iterating Over a HashMap
+##### Using for-each Loop
+```
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}
+```
+##### Using forEach() Method (Java 8)
+```
+map.forEach((key, value) -> System.out.println(key + " -> " + value));
+```
+### 7. Difference Between HashMap and Other Maps
+|Feature	|HashMap	|LinkedHashMap	|TreeMap|
+|---------------|--------------|--------------|---------|
+|Order|	Unordered	|Insertion Order|	Sorted by Key|
+|Null Keys	|1 Allowed	|1 Allowed	|Not Allowed|
+|Performance	|Fast (O(1))|	Slower than HashMap	|Slower (O(log n))|
+### 8. Synchronized HashMap (Thread-Safety)
++ `HashMap` is `not thread-safe,` but it can be synchronized using:
+
+Using `Collections.synchronizedMap()`
+```
+Map<String, Integer> syncMap = Collections.synchronizedMap(new HashMap<>());
+```
+Using `ConcurrentHashMap` (Better for Multi-Threading)
+```
+import java.util.concurrent.ConcurrentHashMap;
+
+ConcurrentHashMap<Integer, String> concurrentMap = new ConcurrentHashMap<>();
+```
+### 9. Removing Elements While Iterating (Avoid `ConcurrentModificationException`)
+##### Using Iterator
+```
+Iterator<Map.Entry<String, Integer>> itr = map.entrySet().iterator();
+while (itr.hasNext()) {
+    Map.Entry<String, Integer> entry = itr.next();
+    if (entry.getValue() == 20) {
+        itr.remove();
+    }
+}
+```
+Using `removeIf()` (Java 8)
+```
+map.entrySet().removeIf(entry -> entry.getValue() == 20);
+```
+#### 10. Custom HashMap Key Class
+If a custom class is used as a key, override `equals()` and `hashCode()`.
+```
+class Student {
+    String name;
+    
+    public Student(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Student student = (Student) obj;
+        return name.equals(student.name);
+    }
+}
+```
+
+```
+import java.util.*;
+
+public class Hashing {
+    public static void main(String args[]) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Insert values
+        map.put("India", 145);
+        map.put("Pakistan", 20);
+        map.put("USA", 231);
+        map.put("China", 32);
+        map.put("Sri Lanka", 43);
+
+        System.out.println("Initial HashMap: " + map);
+
+        // Updating a value
+        map.put("Sri Lanka", 50); 
+        System.out.println("Updated HashMap: " + map); // The value for "Sri Lanka" gets updated to 50
+
+        // Search / Lookup
+        if (map.containsKey("USA")) {
+            System.out.println("USA is present in the HashMap.");
+        } else {
+            System.out.println("USA is not present in the HashMap.");
+        }
+
+        // Get value associated with a key
+        System.out.println("Population of India: " + map.get("India"));
+
+        // Iterating over HashMap using forEach (Java 8+)
+        System.out.println("\nIterating using forEach:");
+        map.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+
+        // Removing a key-value pair safely
+        if (map.containsKey("China")) {
+            map.remove("China");
+            System.out.println("\n'China' removed from HashMap.");
+        }
+
+        // Printing the final HashMap
+        System.out.println("Final HashMap: " + map);
+    }
+}
+
+```
+
+output 
+```
+Initial HashMap: {India=145, Pakistan=20, USA=231, China=32, Sri Lanka=43}
+Updated HashMap: {India=145, Pakistan=20, USA=231, China=32, Sri Lanka=50}
+USA is present in the HashMap.
+Population of India: 145
+
+Iterating using forEach:
+Key: India, Value: 145
+Key: Pakistan, Value: 20
+Key: USA, Value: 231
+Key: China, Value: 32
+Key: Sri Lanka, Value: 50
+
+'China' removed from HashMap.
+Final HashMap: {India=145, Pakistan=20, USA=231, Sri Lanka=50}
+
+```
+#### Conclusion
+HashMap is an efficient key-value storage mechanism.
+It works using hashing, collision handling, and rehashing.
+It is not synchronized, but thread-safe alternatives exist (ConcurrentHashMap).
+Custom keys must override hashCode() and equals() for correctness.
   
