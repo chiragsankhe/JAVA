@@ -5994,3 +5994,371 @@ It works using hashing, collision handling, and rehashing.
 It is not synchronized, but thread-safe alternatives exist (ConcurrentHashMap).
 Custom keys must override hashCode() and equals() for correctness.
   
+## HashMap Implimentation
+
+```
+
+import java.util.*;
+
+public class HashMapCode {
+    static class HashMap<K, V> { // Generics
+        private class Node {
+            K key;
+            V value;
+
+            public Node(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
+        }
+
+        private int n; // Number of nodes (key-value pairs)
+        private int N; // Number of buckets
+        private LinkedList<Node> buckets[]; // Array of linked lists
+
+        @SuppressWarnings("unchecked")
+        public HashMap() {
+            this.N = 4; // Initial bucket size
+            this.buckets = new LinkedList[4];
+            for (int i = 0; i < 4; i++) {
+                this.buckets[i] = new LinkedList<>();
+            }
+        }
+
+        private int hashFunction(K key) {
+            int bi = key.hashCode();
+            return Math.abs(bi) % N;
+        }
+
+        private int searchInLL(K key, int bi) {
+            LinkedList<Node> ll = buckets[bi];
+
+            for (int i = 0; i < ll.size(); i++) {
+                if (ll.get(i).key.equals(key)) { // Use equals() to compare objects
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        @SuppressWarnings("unchecked")
+        private void rehash() {
+            LinkedList<Node> oldBucket[] = buckets;
+            buckets = new LinkedList[N * 2]; // Double the bucket size
+            N = N * 2;
+            for (int i = 0; i < N; i++) {
+                buckets[i] = new LinkedList<>();
+            }
+
+            for (int i = 0; i < oldBucket.length; i++) {
+                LinkedList<Node> ll = oldBucket[i];
+                for (int j = 0; j < ll.size(); j++) {
+                    Node node = ll.get(j);
+                    put(node.key, node.value); // Reinsert existing elements
+                }
+            }
+        }
+
+        public void put(K key, V value) {
+            int bi = hashFunction(key);
+            int di = searchInLL(key, bi); // Search index in linked list
+
+            if (di == -1) { // Key does not exist
+                buckets[bi].add(new Node(key, value));
+                n++;
+            } else { // Key already exists, update value
+                Node node = buckets[bi].get(di);
+                node.value = value;
+            }
+
+            double lambda = (double) n / N; // Load factor
+            if (lambda > 2.0) {
+                rehash();
+            }
+        }
+
+        public boolean containsKey(K key) {
+            int bi = hashFunction(key);
+            int di = searchInLL(key, bi);
+            return di != -1;
+        }
+
+        public V remove(K key) {
+            int bi = hashFunction(key);
+            int di = searchInLL(key, bi);
+
+            if (di == -1) { // Key doesn't exist
+                return null;
+            } else { // Key exists
+                Node node = buckets[bi].remove(di);
+                n--;
+                return node.value;
+            }
+        }
+
+        public V get(K key) {
+            int bi = hashFunction(key);
+            int di = searchInLL(key, bi);
+
+            if (di == -1) {
+                return null;
+            } else {
+                Node node = buckets[bi].get(di);
+                return node.value;
+            }
+        }
+
+        public ArrayList<K> keySet() {
+            ArrayList<K> keys = new ArrayList<>();
+
+            for (int i = 0; i < buckets.length; i++) {
+                LinkedList<Node> ll = buckets[i];
+                for (int j = 0; j < ll.size(); j++) {
+                    Node node = ll.get(j);
+                    keys.add(node.key);
+                }
+            }
+            return keys;
+        }
+
+        public boolean isEmpty() {
+            return n == 0;
+        }
+    }
+
+    public static void main(String args[]) {
+        HashMap<String, Integer> map = new HashMap<>();
+        
+        map.put("India", 190);
+        map.put("China", 200);
+        map.put("US", 50);
+
+        System.out.println("HashMap contents:");
+        ArrayList<String> keys = map.keySet();
+        for (int i = 0; i < keys.size(); i++) {
+            System.out.println(keys.get(i) + " -> " + map.get(keys.get(i)));
+        }
+
+        System.out.println("\nChecking if 'India' exists: " + map.containsKey("India"));
+        System.out.println("Removing 'India'...");
+        map.remove("India");
+        System.out.println("After removal, 'India' exists: " + map.containsKey("India"));
+        System.out.println("Value of 'India': " + map.get("India"));
+        
+        System.out.println("\nFinal HashMap keys: " + map.keySet());
+        System.out.println("Is HashMap empty? " + map.isEmpty());
+    }
+}
+
+```
+1. Class Definition
+```
+static class HashMap<K,V> { //generics
+```
+This defines a generic HashMap class, meaning it can store key-value pairs of any type <K, V>.
+2. Inner Class Node
+```
+private class Node {
+    K key;
+    V value;
+    
+    public Node(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+```
++ Each entry in the HashMap is represented as a Node.
++ The Node stores:
++ `K` `key` → The key of the pair.
++ `V` value` → The value associated with the key.
+3. Instance Variables
++ private int n; // Number of nodes (key-value pairs)
++ private int N; // Number of buckets
++ private `LinkedList<Node>` buckets[]; // Array of linked lists
++ `n` → Keeps track of the number of stored elements.
++ `N` → Represents the number of buckets (array size).
++ `buckets[]` → An array of linked lists, where each index stores a linked list of Node objects.
+4. Constructor
+```
+@SuppressWarnings("unchecked")
+public HashMap() {
+    this.N = 4; // Initial bucket size
+    this.buckets = new LinkedList[4];
+    for(int i=0; i<4; i++) {
+        this.buckets[i] = new LinkedList<>();
+    }
+}
+```
++ Initializes the bucket array with a size of 4.
++ Each bucket is assigned a LinkedList to store elements in case of collisions.
+5. Hash Function
+```
+private int hashFunction(K key) {
+    int bi = key.hashCode();
+    return Math.abs(bi) % N;
+}
+```
++ Uses Java’s built-in hashCode() method.
++ The hash function maps a key to a bucket index:
++ `Computes hashCode()`.
++ Takes the absolute value (to avoid negative indices).
++ Performs modulus operation (% N) to ensure it falls within the valid bucket range.
+6. Searching for a Key in a Bucket
+```
+private int searchInLL(K key, int bi) {
+    LinkedList<Node> ll = buckets[bi];
+
+    for(int i=0; i<ll.size(); i++) {
+        if(ll.get(i).key == key) {
+            return i; // Found at index i in the linked list
+        }
+    }
+    return -1; // Not found
+}
+```
++ Retrieves the linked list at bucket index `bi`.
++ Iterates through the linked list to check if `the key exists`.
++ If `found`, returns the `index `within the linked list.
++ If not found, returns `-1`.
+7. Rehashing (Expanding the HashMap)
+```
+@SuppressWarnings("unchecked")
+private void rehash() {
+    LinkedList<Node> oldBucket[] = buckets;
+    buckets = new LinkedList[N*2]; // Doubles the bucket size
+    for(int i=0; i<N*2; i++) {
+        buckets[i] = new LinkedList<>();
+    }
+
+    for(int i=0; i<oldBucket.length; i++) {
+        LinkedList<Node> ll = oldBucket[i];
+        for(int j=0; j<ll.size(); j++) {
+            Node node = ll.get(j);
+            put(node.key, node.value); // Reinsert existing elements
+        }
+    }
+}
+```
++ Triggered when the load factor exceeds 2.0.
++ `Creates a new bucket array twice the size of the old one`.
++ `Copies all existing elements` into the new array using `put()`.
+8. Inserting a Key-Value Pair (put method)
+```
+public void put(K key, V value) {
+    int bi = hashFunction(key);
+    int di = searchInLL(key, bi); // Index in linked list
+
+    if(di == -1) { // Key does not exist
+        buckets[bi].add(new Node(key, value));
+        n++;
+    } else { // Key already exists, update value
+        Node node = buckets[bi].get(di);
+        node.value = value;
+    }
+
+    double lambda = (double)n/N; // Load factor
+    if(lambda > 2.0) {
+        rehash();
+    }
+}
+```
++ `Finds` the bucket index (bi).
++ `Searches` for the key inside the linked list.
++ If key doesn’t exist, a `new node is added`.
++ If key exists, `updates the value`.
++ Checks if rehashing is needed (load factor > 2.0).
+9. Checking if a Key Exists (containsKey)
+```
+public boolean containsKey(K key) {
+    int bi = hashFunction(key);
+    int di = searchInLL(key, bi);
+    
+    return di != -1;
+}
+```
++ `Uses searchInLL()` to check if the key exists.
++ Returns `true` if the key is found, otherwise `false`.
+10. Removing a Key (remove)
+```
+public V remove(K key) {
+    int bi = hashFunction(key);
+    int di = searchInLL(key, bi);
+
+    if(di == -1) { // Key doesn't exist
+        return null;
+    } else { // Key exists
+        Node node = buckets[bi].remove(di);
+        n--;
+        return node.value;
+    }
+}
+```
++ Locates the key and removes it from the linked list.
++ Returns the removed value.
+11. Retrieving a Value (get)
+```
+public V get(K key) {
+    int bi = hashFunction(key);
+    int di = searchInLL(key, bi);
+
+    if(di == -1) {
+        return null;
+    } else {
+        Node node = buckets[bi].get(di);
+        return node.value;
+    }
+}
+```
++ Searches for the key and returns the corresponding value.
++ Returns `null `if the key does not exist.
+12. Getting All Keys (keySet)
+```
+public ArrayList<K> keySet() {
+    ArrayList<K> keys = new ArrayList<>();
+    
+    for(int i=0; i<buckets.length; i++) { 
+        LinkedList<Node> ll = buckets[i];
+        for(int j=0; j<ll.size(); j++) { 
+            Node node = ll.get(j);
+            keys.add(node.key);
+        }
+    }
+    return keys;
+}
+```
++ Iterates through all buckets.
++ Collects all keys in an ArrayList<K>.
+13. Checking if the HashMap is Empty
+```
+public boolean isEmpty() {
+    return n == 0;
+}
+Returns true if n == 0.
+```
+14. Main Method (Testing the HashMap)
+```
+public static void main(String args[]) {
+    HashMap<String, Integer> map = new HashMap<>();
+    
+    map.put("India", 190);
+    map.put("China", 200);
+    map.put("US", 50);
+
+    ArrayList<String> keys = map.keySet();
+    for(int i=0; i<keys.size(); i++) {
+        System.out.println(keys.get(i) + " " + map.get(keys.get(i)));
+    }
+
+    map.remove("India");
+    System.out.println(map.get("India")); // Should print null
+}
+```
++ Inserts three key-value pairs.
++ Prints all keys and values.
++ Removes "India" and prints null.
++ Final Thoughts
++ Implements basic HashMap functionalities (`put`,` get`, `remove`, `containsKey`, `keySet`).
++ Handles collisions using chaining (linked lists).
++ Rehashes when load factor exceeds 2.0.
+Custom implementation similar to Java’s built-in HashMap<K, V>! 🚀
