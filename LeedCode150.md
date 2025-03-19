@@ -2354,4 +2354,70 @@ Union of 2 Array
 6
 8
 ```
+#### Intersection of 2 arrays
+```
+import java.util.*;
 
+class  Main {
+    public static int intersection(int n , int m ,int arr1[] , int arr2[])
+    {
+        int count =0;
+        HashSet<Integer> set = new HashSet<>();
+        
+        for(int i = 0 ;i<n;i++)
+        {
+            set.add(arr1[i]);
+        }
+        
+        for(int i = 0 ;i<m;i++)
+        {
+           if(set.contains(arr2[i]))
+           {
+              count++;
+              System.out.println(arr2[i]);
+              set.remove(arr2[i]);
+           }
+        }
+        System.out.println("count");
+        return count;
+    }
+    public static void main(String args[])
+    {
+        Scanner scn = new Scanner(System.in);
+        
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+        
+        int arr1[] = new int[n];
+        int arr2[] = new int[m];
+        
+        for(int i = 0 ;i<n;i++)
+        {
+            arr1[i] = scn.nextInt();
+        }
+        
+         for(int i = 0 ;i<m;i++)
+        {
+            arr2[i] = scn.nextInt();
+        }
+        
+        System.out.println(intersection(n , m , arr1, arr2));
+        
+        
+    }
+}
+```
+input
+```
+4 
+4 
+1 2 5 6
+1 2 3 7
+```
+output
+```
+1
+2
+count
+2
+```
