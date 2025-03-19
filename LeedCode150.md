@@ -2279,5 +2279,79 @@ majority element greter than n/3
 5
 
 ```
+#### Union of 2 array
+```
+import java.util.*;
 
+class Main{
+    
+    public static void union(int n , int m , int arr1[] , int arr2[])
+    {
+         HashSet<Integer> set = new HashSet<>();
+         
+         for(int i = 0 ;i<n;i++)
+         {
+             set.add(arr1[i]);
+         }
+         
+         for(int i = 0 ;i<m;i++)
+         {
+             set.add(arr2[i]);
+         }
+         
+         
+         System.out.println(set.size());
+         
+         System.out.println ("Union of 2 Array");
+         
+         for(int ele : set)
+         {
+             System.out.println(ele);
+         }
+    }
+    
+    public static void main(String args[])
+    {
+      Scanner scn = new Scanner(System.in);
+      
+      int n = scn.nextInt();
+      int m = scn.nextInt();
+      
+      int arr1[] = new int[n];
+      int arr2[] = new int[m];
+      
+      for(int i = 0 ;i<n;i++)
+      {
+          arr1[i] = scn.nextInt();
+      }
+      
+      for(int i = 0 ;i<m;i++)
+      {
+          arr2[i] = scn.nextInt();
+      }
+      
+      union(n,m,arr1,arr2);
+    }
+}
+```
+input
+```
+4   
+4   
+1 2 3 8  
+1 4 5 6
+```
+output
+
+```
+7
+Union of 2 Array
+1
+2
+3
+4
+5
+6
+8
+```
 
