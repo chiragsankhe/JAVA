@@ -2232,5 +2232,52 @@ output
 ``
 
 
+## HashMap
+#### given an array of size N , find all element that appear more than n/3 times
+```
+import java.util.*;
+
+class Main{
+    
+    public static void main(String args[])
+    {
+        int arr[] = {1,3,2,5,1,3,5,5,1,1,5} ;
+        int n = arr.length;
+        // 1  create hashMap
+        HashMap<Integer , Integer> map = new HashMap<>();
+        
+        // 2 find freq of all numvers and store in map 
+        
+        for(int i = 0 ;i<n;i++)
+        {
+            if(map.containsKey(arr[i]))
+            {
+                map.put(arr[i], map.get(arr[i])+1);
+            }
+            else{
+                map.put(arr[i], 1);
+            }
+        }
+        
+        // 3  majority element more than n/3
+        System.out.println("majority element greter than n/3");
+        for(int key : map.keySet())
+        {
+            
+            if(map.get(key) > (n/3) )
+            {
+                System.out.println(key);
+            }
+        }
+    }
+}
+```
+output 
+```
+majority element greter than n/3
+1
+5
+
+```
 
 
