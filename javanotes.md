@@ -6618,3 +6618,228 @@ false
 + When you are working with a dictionary of words.
 
 + When you need to avoid hash collisions in HashMaps.
+
+## word break problem 
+
+```
+import java.util.*;
+
+class Main {
+    static class Node {
+        Node[] children;
+        boolean eow;
+
+        public Node() {
+            children = new Node[26];
+            eow = false;
+        }
+    }
+
+    static Node root = new Node();
+
+    static void insert(String word) {
+        Node curr = root;
+
+        for (int i = 0; i < word.length(); i++) {
+            int idx = word.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                curr.children[idx] = new Node();
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+
+            if (i == word.length() - 1) {
+                curr.eow = true; // Mark end of word
+            }
+        }
+    }
+
+    static boolean search(String key) {
+        Node curr = root;
+        for (int i = 0; i < key.length(); i++) {
+            int idx = key.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                return false;
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+        }
+        return curr.eow; // Return if it's the end of a valid word
+    }
+
+    // Fix: Corrected `wordBreak` function
+    public static boolean wordBreak(String key) {
+        if (key.length() == 0) {
+            return true;
+        }
+
+        for (int i = 1; i <= key.length(); i++) { // Fix: i starts from 1 to avoid empty `firstPart`
+            String firstPart = key.substring(0, i);
+            String secondPart = key.substring(i);
+
+            if (search(firstPart) && (search(secondPart) || wordBreak(secondPart))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String args[]) {
+        String words[] = {"the", "there", "a", "chirag"};
+        String key = "thechirag";
+
+        // Insert words into Trie
+        for (String str : words) {
+            insert(str);
+        }
+
+        System.out.println(wordBreak(key)); // Output: true
+    }
+}
+```
+
+Step 1: Trie Node Definition
+```
+static class Node {
+    Node[] children;
+    boolean eow;
+
+    public Node() {
+        children = new Node[26]; // Array of 26 letters (a-z)
+        eow = false; // End of word flag
+    }
+}
+```
++ Each Node stores:
+
++ An array children[26] to hold references to 26 possible child nodes (for letters 'a' to 'z').
+
++ A boolean eow flag to indicate if a word ends at this node.
+
+Step 2: Inserting Words into Trie
+```
+static void insert(String word) {
+    Node curr = root;
+
+    for (int i = 0; i < word.length(); i++) {
+        int idx = word.charAt(i) - 'a'; // Convert char to index (0-25)
+
+        if (curr.children[idx] == null) {
+            curr.children[idx] = new Node(); // Create new node if necessary
+        }
+
+        curr = curr.children[idx]; // Move to next node
+
+        if (i == word.length() - 1) {
+            curr.eow = true; // Mark last character as end of word
+        }
+    }
+}
+```
++ Example Insertion of "the"
++ 't' → Index = 19 → Create a new node at children[19]
+
++ 'h' → Index = 7 → Create a new node at children[7]
+
++ 'e' → Index = 4 → Create a new node at children[4] and mark eow = true
+
+Step 3: Searching for a Word in Trie
+```
+static boolean search(String key) {
+    Node curr = root;
+    for (int i = 0; i < key.length(); i++) {
+        int idx = key.charAt(i) - 'a';
+
+        if (curr.children[idx] == null) {
+            return false; // Word not found
+        }
+
+        curr = curr.children[idx]; // Move to next node
+    }
+    return curr.eow; // Return true only if it's a complete word
+}
+```
++ Example Searches
++ search("the") → Found ✅ → true
+
++ search("these") → Not found ❌ → false
+
+Step 4: Word Break Algorithm
+```
+public static boolean wordBreak(String key) {
+    if (key.length() == 0) {
+        return true; // Base case: Empty string can be split
+    }
+
+    for (int i = 1; i <= key.length(); i++) { // Loop through prefixes
+        String firstPart = key.substring(0, i);
+        String secondPart = key.substring(i);
+
+        if (search(firstPart) && (search(secondPart) || wordBreak(secondPart))) {
+            return true; // If first part is valid and second part is either in Trie or can be broken
+        }
+    }
+
+    return false; // No valid segmentation found
+}
+```
++ Breaking Down wordBreak("thechirag")
++ Loop Iteration (i = 1 to 9)
+
++ i = 1: "t" | "hechirag" (❌ "t" is not in Trie)
+
++ i = 2: "th" | "echirag" (❌ "th" is not in Trie)
+
++ i = 3: "the" | "chirag" ✅ "the" found in Trie
+
++ Now check wordBreak("chirag")
+
+ +"chirag" is directly in Trie ✅
+
+ +So "the" + "chirag" forms valid words → Return true
+
+Step 5: Main Function Execution
+```
+public static void main(String args[]) {
+    String words[] = {"the", "there", "a", "chirag"};
+    String key = "thechirag";
+
+    // Insert words into Trie
+    for (String str : words) {
+        insert(str);
+    }
+
+    System.out.println(wordBreak(key)); // Output: true
+}
+```
++ Execution Flow
++ Insert words: "the", "there", "a", "chirag" into Trie.
+
++ Run wordBreak("thechirag"):
+
++ "the" ✅ + "chirag" ✅ → Returns true.
+
+Output:
+```
+true
+```
+Final Output
+```
+true
+```
++ Explanation: "thechirag" can be split as "the" + "chirag", and both exist in the Trie.
+
+### Time Complexity Analysis
++ Insertion: O(N), where N is the total length of words inserted.
+
++ Search: O(M), where M is the word length.
+
+### Word Break:
+
++ `Worst Case:` O(2^M) (Recursive Calls)
+
++ `Optimized: `O(M^2) using memoization (Dynamic Programming).
+
