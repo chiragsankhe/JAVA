@@ -6362,3 +6362,259 @@ public static void main(String args[]) {
 + Handles collisions using chaining (linked lists).
 + Rehashes when load factor exceeds 2.0.
 Custom implementation similar to Java’s built-in HashMap<K, V>! 🚀
+
+
+## Trie 
+
+### Trie Data Structure in Java
+#### What is a Trie?
++ A Trie (pronounced as "try") is a `tree-like` data structure used for `storing and searching a dynamic set of strings`. It is particularly useful in applications involving `prefix-based` search operations, such as:
+
+### Autocomplete (Google Search, Mobile Keyboards)
+
+### Spell Checking
+
+### IP Routing
+
+### Dictionary Word Storage
+
+### Data Compression
+
+### Features of Trie
++ `Efficient Prefix Search` – Searching for words with a common prefix is faster than in a HashMap or Binary Search Tree.
+
++ `Fast Insert and Search` – Insert and search operations have O(N) time complexity, where N is the length of the word.
+
++ `Memory Usage` – More space is required compared to hash tables but can be optimized using compressed tries (Radix Tree).
+
++ `No Hash Collisions` – Unlike HashMaps, Trie does not have hash collisions.
+
+### Time Complexity
+|Operation|	Time Complexity|
+|---------|---------------------|
+|Insertion|	O(N)|
+|Search	|O(N)|
+|Deletion|	O(N)|
++ Where N is the length of the word.	
+### Implementation of Trie in Java
+```
+import java.util.*;
+
+class Main {
+    static class Node {
+        Node[] children;
+        boolean eow;
+
+        public Node() {
+            children = new Node[26];
+            eow = false;
+        }
+    }
+
+    static Node root = new Node();
+
+    static void insert(String word) {
+        Node curr = root;
+
+        for (int i = 0; i < word.length(); i++) {
+            int idx = word.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                curr.children[idx] = new Node();
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+
+            if (i == word.length() - 1) {
+                curr.eow = true; // Mark end of word
+            }
+        }
+    }
+
+    static boolean search(String key) {
+        Node curr = root;
+        for (int i = 0; i < key.length(); i++) {
+            int idx = key.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                return false;
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+        }
+
+        return curr.eow; // Return if it's the end of a valid word
+    }
+
+    public static void main(String args[]) {
+        String words[] = {"the", "there", "a", "chirag"};
+
+        // Insert words into Trie
+        for (String str : words) {
+            insert(str);
+        }
+
+        // Test search function
+        System.out.println(search("the"));   // true
+        System.out.println(search("these")); // false
+        System.out.println(search("chirag")); // true
+        System.out.println(search("chi"));   // false
+    }
+}
+
+```
+
+### Code Breakdown
+1. Trie Node Class (`Node`)
+```
+static class Node {
+    Node[] children;
+    boolean eow;
+
+    public Node() {
+        children = new Node[26]; // Array of size 26 (for 'a' to 'z')
+        eow = false; // Marks the end of a word
+    }
+}
+```
++ Each `node` represents a `character` in a word.
+
++ The `children` array holds references to `next possible characters` (total 26 for lowercase English letters).
+
++ `eow `(End of Word) is` true `if the node marks the end of a complete word.
+
+2. Root Node Initialization
+```
+static Node root = new Node();
+```
++ A `root node` is created, which acts as the starting point for the Trie.
+
+3. Insert Function (`insert(String word)`)
+```
+static void insert(String word) {
+    Node curr = root; // Start from root
+
+    for (int i = 0; i < word.length(); i++) {
+        int idx = word.charAt(i) - 'a'; // Convert character to index (0-25)
+
+        if (curr.children[idx] == null) {
+            curr.children[idx] = new Node(); // Create a new node if it doesn't exist
+        }
+
+        curr = curr.children[idx]; // Move to the next node
+
+        if (i == word.length() - 1) {
+            curr.eow = true; // Mark the last node as End of Word
+        }
+    }
+}
+```
+Working of `insert("the"):`
+1. Start from root.
+
+2. Insert 't' (creates a new node at index `t - 'a' = 19`).
+
+3. Insert 'h' (creates a new node at index `h - 'a' = 7`).
+
+4. Insert 'e' (creates a new node at index `e - 'a' = 4`).
+
+5. Mark `eow = true` for 'e' (end of the word "the").
+
++ ✔ `Time Complexity: O(N) `(where N is the length of the word).
+
+4. Search Function (`search(String key)`)
+```
+static boolean search(String key) {
+    Node curr = root; // Start from root
+
+    for (int i = 0; i < key.length(); i++) {
+        int idx = key.charAt(i) - 'a';
+
+        if (curr.children[idx] == null) {
+            return false; // If path doesn't exist, word is not present
+        }
+
+        curr = curr.children[idx]; // Move to the next node
+    }
+
+    return curr.eow; // Return true if it's a complete word
+}
+```
+### Working of `search("the")`:
+1. Start from root.
+
+2. Move to the node of 't' (index 19).
+
+3. Move to the node of 'h' (index 7).
+
+4. Move to the node of 'e' (index 4).
+
+5. Check eow → True (word exists).
+
+## Working of `search("these")`:
+1. Moves through "the".
+
+2. Tries to access 's' → Null, so return false.
+
++ ✔ `Time Complexity: O(N) `(where N is the length of the word).
+
+5. Main Function (`main`)
+```
+public static void main(String args[]) {
+    String words[] = {"the", "there", "a", "chirag"};
+
+    // Insert words into Trie
+    for (String str : words) {
+        insert(str);
+    }
+
+    // Test search function
+    System.out.println(search("the"));   // true
+    System.out.println(search("these")); // false
+    System.out.println(search("chirag")); // true
+    System.out.println(search("chi"));   // false
+}
+```
+#### Execution Steps
+1. Insert Words: `"the"`, `"there"`, `"a",` `"chirag"`.
+
+2. Search Words:
+
++ `"the"` → Exists ✅ → `true`
+
++ `"these"` → Does not exist ❌ → `false`
+
++ `"chirag"` → Exists ✅ → `true`
+
++ `"chi" `→ Exists as a prefix but not a word ❌ → `false`
+
+### Final Output
+```
+true
+false
+true
+false
+```
+### Key Takeaways
++ Trie stores words efficiently in a tree-like structure.
+
++ Insertion and Search have O(N) time complexity (where N is word length).
+
++ Trie is useful for prefix-based searching (like autocomplete).
+
++ Memory usage is higher than HashMaps due to multiple nodes.
+### Advantages of Trie
++ ✅ Fast lookup and insert (better than HashMaps for prefix-based searches).
++ ✅ No Hash Collisions (unlike HashMaps).
+ +✅ Efficient for dictionary and prefix matching problems.
+
+### Disadvantages of Trie
++ ❌ Consumes more memory (compared to HashMap or BST).
++ ❌ Slower than HashMaps for exact word searches.
+
+### When to Use a Trie?
++ When you need fast prefix searches (e.g., autocomplete).
+
++ When you are working with a dictionary of words.
+
++ When you need to avoid hash collisions in HashMaps.
