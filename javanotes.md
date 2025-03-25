@@ -6843,3 +6843,115 @@ true
 
 + `Optimized: `O(M^2) using memoization (Dynamic Programming).
 
+## starts with prefix 
+```
+import java.util.*;
+
+class Trie {
+    static class Node {
+        Node[] children;
+        boolean eow;
+
+        public Node() {
+            children = new Node[26]; // Array for 26 lowercase English letters
+            eow = false; // End of word flag
+        }
+    }
+
+    static Node root = new Node(); // Root node of Trie
+
+    // Insert word into Trie
+    static void insert(String word) {
+        Node curr = root;
+
+        for (int i = 0; i < word.length(); i++) {
+            int idx = word.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                curr.children[idx] = new Node(); // Create new node if it does not exist
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+        }
+
+        curr.eow = true; // Mark the last character as the end of a word
+    }
+
+    // Search for a word in Trie
+    static boolean search(String key) {
+        Node curr = root;
+        for (int i = 0; i < key.length(); i++) {
+            int idx = key.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                return false; // Word not found
+            }
+
+            curr = curr.children[idx]; // Move to next node
+        }
+        return curr.eow; // Return true only if it's a complete word
+    }
+
+    // Check if a string can be broken into words present in the Trie
+    public static boolean wordBreak(String key) {
+        if (key.length() == 0) {
+            return true; // Base case: empty string can be segmented
+        }
+
+        for (int i = 1; i <= key.length(); i++) { // Check all possible splits
+            String firstPart = key.substring(0, i);
+            String secondPart = key.substring(i);
+
+            if (search(firstPart) && (secondPart.isEmpty() || wordBreak(secondPart))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Check if a prefix exists in the Trie
+    public static boolean startsWith(String prefix) {
+        Node curr = root;
+
+        for (int i = 0; i < prefix.length(); i++) {
+            int idx = prefix.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                return false; // Prefix not found
+            }
+
+            curr = curr.children[idx]; // Move to next node
+        }
+
+        return true; // Prefix found
+    }
+
+    public static void main(String args[]) {
+        String words[] = {"the", "there", "a", "chirag"};
+        String key = "thechirag";
+        String prefix = "chi";
+
+        // Insert words into Trie
+        for (String str : words) {
+            insert(str);
+        }
+
+        // Testing Trie operations
+        System.out.println("Search 'the': " + search("the")); // true
+        System.out.println("Search 'these': " + search("these")); // false
+        System.out.println("Word Break for 'thechirag': " + wordBreak(key)); // true
+        System.out.println("Prefix 'chi' exists: " + startsWith(prefix)); // true
+    }
+}
+
+```
+
+output
+```
+Search 'the': true
+Search 'these': false
+Word Break for 'thechirag': true
+Prefix 'chi' exists: true
+
+```
