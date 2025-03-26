@@ -6955,3 +6955,124 @@ Word Break for 'thechirag': true
 Prefix 'chi' exists: true
 
 ```
+## unique sbustring 
+```
+import java.util.*;
+
+class Main {
+    static class Node {
+        Node[] children;
+        boolean eow;
+
+        public Node() {
+            children = new Node[26];
+            eow = false;
+        }
+    }
+
+    static Node root = new Node();
+
+    static void insert(String word) {
+        Node curr = root;
+
+        for (int i = 0; i < word.length(); i++) {
+            int idx = word.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                curr.children[idx] = new Node();
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+
+            if (i == word.length() - 1) {
+                curr.eow = true; // Mark end of word
+            }
+        }
+    }
+
+    static boolean search(String key) {
+        Node curr = root;
+        for (int i = 0; i < key.length(); i++) {
+            int idx = key.charAt(i) - 'a';
+
+            if (curr.children[idx] == null) {
+                return false;
+            }
+
+            curr = curr.children[idx]; // Move to the next node
+        }
+        return curr.eow; // Return if it's the end of a valid word
+    }
+
+    // Fix: Corrected `wordBreak` function
+    public static boolean wordBreak(String key) {
+        if (key.length() == 0) {
+            return true;
+        }
+
+        for (int i = 1; i <= key.length(); i++) { // Fix: i starts from 1 to avoid empty `firstPart`
+            String firstPart = key.substring(0, i);
+            String secondPart = key.substring(i);
+
+            if (search(firstPart) && (search(secondPart))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+	public static boolean startwith(String prefix)
+	{
+		Node curr = root;
+
+		for(int i = 0 ;i<prefix.length();i++)
+		{
+			int idx = prefix.charAt(i) - 'a';
+
+			if(curr.children[idx] == null)
+			{
+				return false;
+			}
+			curr = curr.children[idx];
+		}
+
+		return true;
+	}
+
+	public static int countNode(Node root)
+	{
+       if(root == null)
+	   {
+		return 0;
+	   }
+
+	   int count = 0 ;
+	   for(int i = 0 ;i<26;i++)
+	   {
+		if(root.children[i] != null)
+		{
+			count += countNode(root.children[i]);
+		}
+	   }
+
+	   return count+1;
+	}
+
+    public static void main(String args[]) {
+        String str = "ababa";
+       
+
+        // Insert words into Trie
+        for(int i = 0 ;i<str.length();i++)
+		{
+			String suffix = str.substring(i);
+			insert(suffix);
+		}
+       
+	   System.out.print(countNode(root)); // output = 10;
+
+    }
+}
+
+```
